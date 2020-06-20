@@ -186,6 +186,48 @@ public class DBWriter {
     }
 
     /**
+     * Remove the listed items and their FeedMedia entries.
+     */
+    @NonNull
+    public static Future<?> deleteFeedItems(@NonNull Context context, @NonNull List<FeedItem> items) {
+        return dbExec.submit(() -> {
+            DownloadRequester requester = DownloadRequester.getInstance();
+            List<FeedItem> queue = DBReader.getQueue();
+            List<FeedItem> removedFromQueue = new ArrayList<>();
+            for (FeedItem item : items) {
+                if (queue.remove(item)) {
+                    removedFromQueue.add(item);
+                }
+                if (item.getMedia() != null && item.getMedia().isDownloaded()) {
+                    deleteFeedMediaSynchronous(context, item.getMedia());
+                } else if (item.getMedia() != null && requester.isDownloadingFile(item.getMedia())) {
+                    requester.cancelDownload(context, item.getMedia());
+                }
+            }
+
+            PodDBAdapter adapter = PodDBAdapter.getInstance();
+            adapter.open();
+            if (!removedFromQueue.isEmpty()) {
+                adapter.setQueue(queue);
+            }
+            adapter.removeFeedItems(items);
+            adapter.close();
+
+            for (FeedItem item : removedFromQueue) {
+                EventBus.getDefault().post(QueueEvent.irreversibleRemoved(item));
+            }
+
+            // we assume we also removed download log entries for the feed or its media files.
+            // especially important if download or refresh failed, as the user should not be able
+            // to retry these
+            EventBus.getDefault().post(DownloadLogEvent.listUpdated());
+
+            BackupManager backupManager = new BackupManager(context);
+            backupManager.dataChanged();
+        });
+    }
+
+    /**
      * Deletes the entire playback history.
      */
     public static Future<?> clearPlaybackHistory() {
