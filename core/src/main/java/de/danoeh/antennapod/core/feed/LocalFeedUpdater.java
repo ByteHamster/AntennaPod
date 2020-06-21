@@ -82,8 +82,11 @@ public class LocalFeedUpdater {
             }
         }
 
-        // update items, delete items without existing file
-        DBTasks.updateFeed(context, feed, true);
+        // update items, delete items without existing file;
+        // only delete items if the folder contains at least one element to avoid accidentally
+        // deleting played state or position in case the folder is temporarily unavailable.
+        boolean removeUnlistedItems = (newItems.size() >= 1);
+        DBTasks.updateFeed(context, feed, removeUnlistedItems);
     }
 
     private static FeedItem feedContainsFile(Feed feed, String filename) {
