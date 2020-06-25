@@ -495,6 +495,8 @@ public final class DBTasks {
 
         if (savedFeed != null) {
             EventBus.getDefault().post(new FeedListUpdateEvent(savedFeed));
+        } else {
+            EventBus.getDefault().post(new FeedListUpdateEvent(Collections.emptyList()));
         }
 
         return resultFeed;
