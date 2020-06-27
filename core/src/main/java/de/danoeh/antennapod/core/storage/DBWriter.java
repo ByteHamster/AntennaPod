@@ -187,6 +187,7 @@ public class DBWriter {
 
     /**
      * Remove the listed items and their FeedMedia entries.
+     * Deleting media also removes the download log entries.
      */
     @NonNull
     public static Future<?> deleteFeedItems(@NonNull Context context, @NonNull List<FeedItem> items) {
