@@ -469,10 +469,8 @@ public class EpisodesApplyActionFragment extends Fragment {
     }
 
     private void close(@PluralsRes int msgId, int numItems) {
-        if (numItems > 0) {
-            ((MainActivity) getActivity()).showSnackbarAbovePlayer(
-                    getResources().getQuantityString(msgId, numItems, numItems), Snackbar.LENGTH_LONG);
-        }
+        ((MainActivity) getActivity()).showSnackbarAbovePlayer(
+                getResources().getQuantityString(msgId, numItems, numItems), Snackbar.LENGTH_LONG);
         getActivity().getSupportFragmentManager().popBackStack();
     }
 
