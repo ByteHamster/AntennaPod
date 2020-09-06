@@ -45,6 +45,7 @@ mkdir output 2>/dev/null
 generateScreenshots "de-DE"
 generateScreenshots "en-US"
 generateScreenshots "fr-FR"
+generateScreenshots "he-IL"
 generateScreenshots "nl-NL"
 generateScreenshots "it-IT"
 generateScreenshots "es-ES"
