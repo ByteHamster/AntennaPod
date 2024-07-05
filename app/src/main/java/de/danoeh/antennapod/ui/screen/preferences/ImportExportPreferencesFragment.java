@@ -229,13 +229,25 @@ public class ImportExportPreferencesFragment extends AnimatedPreferenceFragment 
                 .show();
     }
 
-    private void showExportErrorDialog(final Throwable error) {
+    private void showImportExportErrorDialog(final Throwable error, boolean isImport) {
         progressDialog.dismiss();
         final MaterialAlertDialogBuilder alert = new MaterialAlertDialogBuilder(getContext());
         alert.setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss());
-        alert.setTitle(R.string.export_error_label);
+        if (isImport) {
+            alert.setTitle(R.string.import_error_label);
+        } else {
+            alert.setTitle(R.string.export_error_label);
+        }
         alert.setMessage(error.getMessage());
         alert.show();
+    }
+
+    private void showExportErrorDialog(final Throwable error) {
+        showImportExportErrorDialog(error, false);
+    }
+
+    private void showImportErrorDialog(final Throwable error) {
+        showImportExportErrorDialog(error, true);
     }
 
     private void restoreDatabaseResult(final ActivityResult result) {
@@ -250,7 +262,7 @@ public class ImportExportPreferencesFragment extends AnimatedPreferenceFragment 
                 .subscribe(() -> {
                     showDatabaseImportSuccessDialog();
                     progressDialog.dismiss();
-                }, this::showExportErrorDialog);
+                }, this::showImportErrorDialog);
     }
 
     private void backupDatabaseResult(final Uri uri) {
