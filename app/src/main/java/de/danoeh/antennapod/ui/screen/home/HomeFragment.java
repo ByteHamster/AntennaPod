@@ -39,8 +39,11 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Shows unread or recently published episodes
@@ -166,11 +169,34 @@ public class HomeFragment extends Fragment implements Toolbar.OnMenuItemClickLis
         if (disposable != null) {
             disposable.dispose();
         }
+        boolean hasCorruptBackup = false;
+        try {
+            // These needs to correspond with where the database is move in:
+            // storage/database/src/main/java/de/danoeh/antennapod/storage/database/PodDBAdapter.java
+            File backupFolder = getContext().getExternalFilesDir(null);
+            File backupFile = new File(backupFolder, "CorruptedDatabaseBackup.db");
+            hasCorruptBackup = backupFile.exists();
+            if (hasCorruptBackup) {
+                Log.d(TAG, "There is a " + backupFile.getName() + " file, last modified: "
+                        + new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
+                        .format(backupFile.lastModified()));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        final boolean hasCorruptBackupFinal = hasCorruptBackup;
+
         disposable = Observable.fromCallable(() -> DBReader.getTotalEpisodeCount(FeedItemFilter.unfiltered()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(numEpisodes -> {
-                    viewBinding.welcomeContainer.setVisibility(numEpisodes == 0 ? View.VISIBLE : View.GONE);
+                    if (hasCorruptBackupFinal) {
+                        viewBinding.welcomeContainer.setVisibility(View.GONE);
+                        viewBinding.dbMovedContainer.setVisibility(numEpisodes == 0 ? View.VISIBLE : View.GONE);
+                    } else {
+                        viewBinding.welcomeContainer.setVisibility(numEpisodes == 0 ? View.VISIBLE : View.GONE);
+                        viewBinding.dbMovedContainer.setVisibility(View.GONE);
+                    }
                     viewBinding.homeContainer.setVisibility(numEpisodes == 0 ? View.GONE : View.VISIBLE);
                     viewBinding.swipeRefresh.setVisibility(numEpisodes == 0 ? View.GONE : View.VISIBLE);
                     if (numEpisodes == 0) {

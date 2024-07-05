@@ -67,6 +67,8 @@
     <string name="home_downloads_empty_text">You can download any episode to listen to it offline.</string>
     <string name="home_welcome_title">Welcome to AntennaPod!</string>
     <string name="home_welcome_text">You are not subscribed to any podcasts yet. Open the side menu to add a podcast.</string>
+    <string name="home_dbmoved_title">Stay calm!</string>
+    <string name="home_dbmoved_text">AntennaPod encountered an error with the database and renamed it CorruptedDatabaseBackup.db. Visit https://antennapod.org/documentation/bugs-first-aid/database-error for instructions on ways to recover. https://forum.antennapod.org is open for support, or for venting that this bug bit you.</string>
     <string name="notification_permission_denied">You denied the permission.</string>
     <string name="configure_home">Configure Home Screen</string>
     <string name="section_hidden">Hidden</string>

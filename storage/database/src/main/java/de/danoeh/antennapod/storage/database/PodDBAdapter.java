@@ -1473,6 +1473,8 @@ public class PodDBAdapter {
             Log.e(TAG, "Database corrupted: " + db.getPath());
 
             File dbPath = new File(db.getPath());
+            // These needs to correspond with where the user is notified, in:
+            // app/src/main/java/de/danoeh/antennapod/ui/screen/home/HomeFragment.java
             File backupFolder = PodDBAdapter.context.getExternalFilesDir(null);
             File backupFile = new File(backupFolder, "CorruptedDatabaseBackup.db");
             try {
