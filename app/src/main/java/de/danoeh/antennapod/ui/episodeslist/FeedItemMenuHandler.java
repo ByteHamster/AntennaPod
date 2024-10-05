@@ -64,7 +64,6 @@ public class FeedItemMenuHandler {
         boolean canShare = selectedItems.size() == 1;
         boolean canRemoveFromInbox = false;
         boolean canMarkPlayed = false;
-        boolean canMarkUnplayed = false;
         boolean canResetPosition = false;
         boolean canDelete = false;
         boolean canDownload = false;
@@ -81,7 +80,6 @@ public class FeedItemMenuHandler {
             canShare |= !item.getFeed().isLocalFeed();
             canRemoveFromInbox |= item.isNew();
             canMarkPlayed |= !item.isPlayed();
-            canMarkUnplayed |= item.isPlayed();
             canResetPosition |= hasMedia && item.getMedia().getPosition() != 0;
             canDelete |= hasMedia && item.getMedia().isDownloaded();
             canDownload |= hasMedia && !item.getMedia().isDownloaded() && !item.getFeed().isLocalFeed();
@@ -90,20 +88,24 @@ public class FeedItemMenuHandler {
             canShowTranscript |= item.hasTranscript();
         }
 
-        if (selectedItems.size() > 1) {
+        if (selectedItems.size() == 1) {
+            canDownload = false;
+            canDelete = false;
+        } else {
             canVisitWebsite = false;
             canShare = false;
             canShowTranscript = false;
+            canAddFavorite = false;
         }
 
         setItemVisibility(menu, R.id.skip_episode_item, canSkip);
-        setItemVisibility(menu, R.id.remove_from_queue_item, canRemoveFromQueue);
+        setItemVisibility(menu, R.id.remove_from_queue_item, canRemoveFromQueue && !canAddToQueue);
         setItemVisibility(menu, R.id.add_to_queue_item, canAddToQueue);
         setItemVisibility(menu, R.id.visit_website_item, canVisitWebsite);
         setItemVisibility(menu, R.id.share_item, canShare);
         setItemVisibility(menu, R.id.remove_inbox_item, canRemoveFromInbox);
         setItemVisibility(menu, R.id.mark_read_item, canMarkPlayed);
-        setItemVisibility(menu, R.id.mark_unread_item, canMarkUnplayed);
+        setItemVisibility(menu, R.id.mark_unread_item, !canMarkPlayed);
         setItemVisibility(menu, R.id.reset_position, canResetPosition);
 
         // Display proper strings when item has no media
@@ -116,7 +118,7 @@ public class FeedItemMenuHandler {
         }
 
         setItemVisibility(menu, R.id.add_to_favorites_item, canAddFavorite);
-        setItemVisibility(menu, R.id.remove_from_favorites_item, canRemoveFavorite);
+        setItemVisibility(menu, R.id.remove_from_favorites_item, canRemoveFavorite && !canAddFavorite);
         setItemVisibility(menu, R.id.remove_item, canDelete);
         setItemVisibility(menu, R.id.download_item, canDownload);
         setItemVisibility(menu, R.id.transcript_item, canShowTranscript);
