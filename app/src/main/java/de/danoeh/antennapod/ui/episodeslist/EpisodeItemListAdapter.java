@@ -15,8 +15,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.elevation.SurfaceColors;
 import de.danoeh.antennapod.ui.SelectableAdapter;
-import de.danoeh.antennapod.ui.common.ThemeUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -70,6 +70,7 @@ public class EpisodeItemListAdapter extends SelectableAdapter<EpisodeItemViewHol
 
     @Override
     public final void onBindViewHolder(EpisodeItemViewHolder holder, int pos) {
+        holder.secondaryActionButton.setVisibility(View.VISIBLE);
         if (pos >= episodes.size()) {
             beforeBindViewHolder(holder, pos);
             holder.bindDummy();
@@ -124,12 +125,17 @@ public class EpisodeItemListAdapter extends SelectableAdapter<EpisodeItemViewHol
 
         holder.itemView.setSelected(false);
         if (inActionMode()) {
-            holder.secondaryActionButton.setOnClickListener(null);
+            holder.secondaryActionButton.setOnClickListener(
+                    (view) -> toggleSelection(holder.getBindingAdapterPosition()));
             if (isSelected(pos)) {
+                holder.secondaryActionButton.setVisibility(View.VISIBLE);
+                holder.secondaryActionIcon.setImageResource(R.drawable.ic_check);
                 holder.itemView.setSelected(true);
-                holder.itemView.setBackgroundColor(0x88000000
-                        + (0xffffff & ThemeUtils.getColorFromAttr(mainActivityRef.get(), R.attr.colorAccent)));
+                holder.itemView.setBackgroundColor(SurfaceColors.getColorForElevation(mainActivityRef.get(),
+                        8 * mainActivityRef.get().getResources().getDisplayMetrics().density));
             } else {
+                holder.secondaryActionButton.setVisibility(View.INVISIBLE);
+                holder.secondaryActionIcon.setImageResource(android.R.color.transparent);
                 holder.itemView.setBackgroundResource(android.R.color.transparent);
             }
         }
