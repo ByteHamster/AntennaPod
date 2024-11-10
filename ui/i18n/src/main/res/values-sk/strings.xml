@@ -51,17 +51,23 @@
   <string name="home_continue_title">Pokračovať v počúvaní</string>
   <string name="home_new_title">Zistiť čo je nové</string>
   <string name="home_downloads_title">Správa sťahovania</string>
+  <string name="home_no_recent_unplayed_episodes_text"></string>
+  <string name="home_continue_empty_text"></string>
+  <string name="home_new_empty_text"></string>
+  <string name="home_downloads_empty_text"></string>
   <string name="home_welcome_title">Vitajte v AntennaPod!</string>
   <string name="home_welcome_text">Nie Ste ešte prihlásený na odber žiadneho podcastu. Otvorte bočné menu aby Ste pridali podcast.</string>
-  <string name="notification_permission_text">AntennaPod potrebuje vaše povolenie na zobrazovanie upozornení. V predvolenom nastavení AntennaPod zobrazuje upozornenia iba vtedy, keď sa niečo sťahuje alebo keď sa niečo nepodarí.</string>
   <string name="notification_permission_denied">Odmietli ste povolenie.</string>
-  <string name="notification_permission_deny_warning">Ak vypnete upozornenia a niečo sa nepodarí, možno nebudete môcť zistiť, prečo sa to nepodarilo.</string>
-  <string name="deny_label">Odmietnuť</string>
-  <string name="open_settings">Otvoriť nastavenia</string>
   <string name="configure_home">Nastaviť domácu obrazovku</string>
   <string name="section_hidden">Skrytá</string>
+  <string name="section_shown"></string>
   <!--Download Statistics fragment-->
-  <string name="total_size_downloaded_podcasts">Celková veľkosť epizód na zariadení</string>
+  <plurals name="total_size_downloaded_podcasts">
+    <item quantity="one"></item>
+    <item quantity="few"></item>
+    <item quantity="many"></item>
+    <item quantity="other"></item>
+  </plurals>
   <!--Main activity-->
   <string name="drawer_open">Otvoriť menu</string>
   <string name="drawer_close">Zatvoriť menu</string>
@@ -180,9 +186,9 @@
   <string name="remove_feed_label">Odstrániť podcast</string>
   <string name="share_label">Zdieľanie</string>
   <string name="share_file_label">Zdielať súbor</string>
-  <string name="feed_delete_confirmation_msg">Potvrďte prosím, že chcete zmazať podcast „%1$s“, VŠETKY jeho epizódy (vrátane stiahnutých epizód) a jeho štatistiky.</string>
-  <string name="feed_delete_confirmation_msg_batch">Potvrďte prosím, že chcete zmazať vybrané podcasty, VŠETKY ich epizódy (vrátane stiahonutých epizód) a ich štatistiky.</string>
-  <string name="feed_delete_confirmation_local_msg">Potvrďte, prosím, že chcete zmazať podcast „%1$s“ a jeho štatistiky. Súbory v lokálnom zdrojovom priečinku sa nezmažú.</string>
+  <string name="feed_delete_confirmation_msg"></string>
+  <string name="feed_delete_confirmation_msg_batch"></string>
+  <string name="feed_delete_confirmation_local_msg"></string>
   <string name="feed_remover_msg">Odstraňovanie podcastu</string>
   <string name="load_complete_feed">Obnoviť celý podcast</string>
   <string name="multi_select">Viacnásobný výber</string>
@@ -205,6 +211,8 @@
   <string name="rename_tag_label">Premenovať štítok</string>
   <string name="confirm_mobile_feed_refresh_dialog_message">Obnovovanie podcastov pri mobilnom pripojení je vypnuté v nastaveniach.\n\nChcete ich obnoviť aj tak?</string>
   <string name="confirm_mobile_feed_refresh_dialog_message_vpn">Vaša VPN aplikácia predstiera, že je mobilná sieť (merané pripojenie). Obnovovanie podcastov cez mobilné dátové pripojenie je v nastaveniach zakázané.\n\nChcete napriek tomu obnoviť? Ak chcete, aby bol tento problém vyriešený, kontaktujte tvorcov vašej VPN aplikácie.</string>
+  <string name="delete_downloads_played"></string>
+  <string name="delete_downloads_played_confirmation"></string>
   <!--actions on feeditems-->
   <string name="download_label">Stiahnuť</string>
   <plurals name="downloading_batch_label">
@@ -217,7 +225,6 @@
   <string name="pause_label">Pozastaviť</string>
   <string name="stream_label">Streamovať</string>
   <string name="delete_label">Zmazať</string>
-  <string name="delete_episode_label">Zmazať epizódu</string>
   <plurals name="deleted_multi_episode_batch_label">
     <item quantity="one">%d stiahnutá epizóda zmazaná.</item>
     <item quantity="few">%d stiahnuté epizódy zmazané.</item>
@@ -319,7 +326,7 @@
   <string name="download_log_title_unknown">Neznámy titul</string>
   <string name="download_type_feed">Zdroj</string>
   <string name="download_type_media">Mediálny súbor</string>
-  <string name="null_value_podcast_error">Nebol poskytnutý žiadny podcast, ktorý by mohol byť zobrazený.</string>
+  <string name="null_value_podcast_error"></string>
   <string name="no_feed_url_podcast_found_by_search">Navrhovaný podcast nemal RSS link, AntennaPod našiel podcast, ktorý by sa mohol zhodovať. </string>
   <string name="authentication_notification_title">Vyžaduje sa overenie</string>
   <string name="confirm_mobile_download_dialog_title">Potvrďte sťahovanie cez mobilné dáta</string>
@@ -327,6 +334,7 @@
   <string name="confirm_mobile_download_dialog_message_vpn">Vaša VPN aplikácia predstiera, že je mobilná sieť (merané pripojenie). Sťahovanie cez mobilné dátové pripojenie je v nastaveniach zakázané. Ak chcete, aby bol tento problém vyriešený, kontaktujte tvorcov vašej VPN aplikácie.</string>
   <string name="confirm_mobile_download_dialog_download_later">Stiahnuť neskôr</string>
   <string name="confirm_mobile_download_dialog_allow_this_time">Napriek tomu stiahnuť</string>
+  <string name="mobile_download_notice"></string>
   <string name="confirm_mobile_streaming_notification_title">Potvrďte prosím streamovanie cez mobilné dáta</string>
   <string name="confirm_mobile_streaming_notification_message">Streamovanie cez mobilné dáta je zakázáné v nastaveniach. Ak aj napriek tomu chcete streamovať cez mobilné dáta, môžete ho spustiť dotykom.</string>
   <string name="confirm_mobile_streaming_button_always">Vždy</string>
@@ -454,16 +462,16 @@
   <string name="pref_black_theme_message">Pre tmavý vzhľad použiť úplne čiernu</string>
   <string name="pref_tinted_theme_title">Dynamické farby</string>
   <string name="pref_tinted_theme_message">Prispôsobiť farby aplikácie podľa tapety</string>
-  <string name="pref_nav_drawer_items_title">Zmeniť navigačný panel</string>
-  <string name="pref_nav_drawer_items_sum">Upraviť zobrazenie položiek v navigačnom paneli</string>
+  <string name="bottom_navigation"></string>
+  <string name="bottom_navigation_summary"></string>
+  <string name="pref_nav_drawer_items_title"></string>
+  <string name="pref_nav_drawer_items_sum"></string>
   <string name="pref_nav_drawer_feed_order_title">Nastaviť poradie odberov</string>
   <string name="pref_nav_drawer_feed_order_sum">Upraviť poradie vašich odberov</string>
   <string name="pref_nav_drawer_feed_counter_title">Nastaviť počítadlo odberov</string>
   <string name="pref_nav_drawer_feed_counter_sum">Zmeniť informáciu zobrazenú počítadlom odberov. Tiež ovplyvňuje zoradenie, ak je nastavené na „podľa počítadla“.</string>
   <string name="pref_automatic_download_title">Automatické sťahovanie</string>
   <string name="pref_automatic_download_sum">Nastavenie automatického sťahovania epizód</string>
-  <string name="pref_autodl_wifi_filter_title">Zapnúť Wi-Fi filter</string>
-  <string name="pref_autodl_wifi_filter_sum">Povoliť automatické sťahovanie iba pomocou vybraných Wi-Fi sietí.</string>
   <string name="pref_automatic_download_on_battery_title">Sťahovať keď neprebieha nabíjanie</string>
   <string name="pref_automatic_download_on_battery_sum">Povoliť automatické sťahovanie aj keď nie je batéria nabíjaná</string>
   <string name="pref_episode_cache_title">Limit pre epizódy</string>
@@ -563,7 +571,7 @@
   <string name="sync_status_episodes_download">Sťahujú sa zmeny epizód…</string>
   <string name="sync_status_upload_played">Nahráva sa stav prehratia…</string>
   <string name="sync_status_subscriptions">Synchronizujú sa odbery…</string>
-  <string name="sync_status_wait_for_downloads">Čakám na dokončenie sťahovania...</string>
+  <string name="sync_status_wait_for_downloads"></string>
   <string name="sync_status_success">Synchronizácia bola úspešná</string>
   <string name="sync_status_error">Synchronizácia zlyhala</string>
   <!--import and export-->
@@ -676,6 +684,7 @@
   <string name="gpodnetsync_pref_report_successful">Úspešné</string>
   <string name="gpodnetsync_pref_report_failed">Nepodarilo sa</string>
   <string name="gpodnetsync_username_characters_error">Používateľské mená môžu obsahovať iba písmena, číslice, spojovníky a podčiarkovníky.</string>
+  <string name="nextcloud_login_error_generic"></string>
   <!--Directory chooser-->
   <string name="choose_data_directory">Zvoľte priečinok s údajmi</string>
   <string name="choose_data_directory_message">Vyberte si základ svojho priečinka s údajmi. AntennaPod vytvorí príslušné podadresáre.</string>
@@ -732,15 +741,17 @@
   <string name="keep_updated">Priebežne aktualizovať</string>
   <string name="keep_updated_summary">Zahrnúť tento podcast pri (automatickej) obnove všetkých podcastov</string>
   <string name="auto_download_disabled_globally">Automatické sťahovanie je zakázané v hlavných nastaveniach AntennaPodu</string>
-  <string name="statistics_time_played">Doba prehrávania:</string>
-  <string name="statistics_total_duration">Celková dĺžka trvania (odhad):</string>
-  <string name="statistics_episodes_on_device">Epizód v zariadení:</string>
-  <string name="statistics_space_used">Použitý priestor:</string>
-  <string name="statistics_episodes_started_total">Epizódy začaté/celkovo:</string>
-  <string name="statistics_expected_next_episode">Očakávaná ďalšia epizóda:</string>
+  <string name="statistics_episodes_started"></string>
+  <string name="statistics_episodes_total"></string>
+  <string name="statistics_episodes_played"></string>
+  <string name="statistics_episodes_downloaded"></string>
+  <string name="statistics_episodes_space"></string>
+  <string name="statistics_release_schedule"></string>
+  <string name="statistics_release_next"></string>
   <string name="statistics_expected_next_episode_any_day">Teraz ktorýkoľvek deň</string>
   <string name="statistics_expected_next_episode_unknown">Neznáma</string>
-  <string name="statistics_view_all">Zobraziť všetky podcasty »</string>
+  <string name="statistics_view_all"></string>
+  <string name="statistics_years_barchart_description"></string>
   <string name="edit_url_menu">Upraviť URL adresu informačného kanála</string>
   <string name="edit_url_confirmation_msg">Zmena adresy RSS môže ľahko narušiť stav prehrávania a zoznam epizód podcastu. NEODPORÚČAME ho meniť a NEPOSKYTUJEME podporu, ak sa niečo pokazí. Nie je to možné vrátiť späť. Pokazený odber sa NEDÁ opraviť jednoduchou zmenou adresy späť. Pred pokračovaním odporúčame si vytvoriť zálohu.</string>
   <!--Podcast release schedules-->
@@ -763,12 +774,11 @@
   <string name="search_itunes_label">Hľadať v Apple Podcasts</string>
   <string name="search_podcastindex_label">Hľadať na Podcast index</string>
   <string name="search_fyyd_label">Hľadať na fyyd</string>
-  <string name="advanced">Pokročilé</string>
   <string name="add_podcast_by_url">Pridať podcast cez RSS adresu</string>
   <string name="discover">Prehľadávať</string>
   <string name="discover_hide">Skryť</string>
   <string name="discover_is_hidden">Vybrali ste skryť návrhy.</string>
-  <string name="discover_more">viac »</string>
+  <string name="discover_more"></string>
   <string name="discover_powered_by_itunes">Návrhy od Apple Podcasts</string>
   <string name="discover_confirm">Ukázať návrhy</string>
   <string name="search_powered_by">Výsledky podľa %1$s</string>

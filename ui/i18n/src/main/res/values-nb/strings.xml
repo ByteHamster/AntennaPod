@@ -51,17 +51,21 @@
   <string name="home_continue_title">Forsett å lytte</string>
   <string name="home_new_title">Se hva som er nytt</string>
   <string name="home_downloads_title">Forvalte nedlastninger</string>
+  <string name="home_no_recent_unplayed_episodes_text"></string>
+  <string name="home_continue_empty_text"></string>
+  <string name="home_new_empty_text"></string>
+  <string name="home_downloads_empty_text"></string>
   <string name="home_welcome_title">Velkommen til AntennaPod!</string>
   <string name="home_welcome_text">Du har ikke abonnert noen podkaster enda. Åpne sidemenyen for å legge til en podkast.</string>
-  <string name="notification_permission_text">AntennaPod trenger din tillatelse til å vise varsler. Som standard viser AntennaPod bare varslser mens noe lastes ned eller når noe går galt.</string>
   <string name="notification_permission_denied">Du avslo tillatelsen.</string>
-  <string name="notification_permission_deny_warning">Dersom du deaktiverer varsler og noe går galt kan det være at du ikke får vite hvorfor.</string>
-  <string name="deny_label">Avslå</string>
-  <string name="open_settings">Åpne innstillinger</string>
   <string name="configure_home">Konfigurer hjemmeskjermen</string>
   <string name="section_hidden">Skjult</string>
+  <string name="section_shown"></string>
   <!--Download Statistics fragment-->
-  <string name="total_size_downloaded_podcasts">Total størrelse på alle episoder på enheten</string>
+  <plurals name="total_size_downloaded_podcasts">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
   <!--Main activity-->
   <string name="drawer_open">Åpne menyen</string>
   <string name="drawer_close">Lukk menyen</string>
@@ -128,6 +132,14 @@
   <string name="episode_cleanup_except_favorite_removal">Når ikke favorittmerket</string>
   <string name="episode_cleanup_queue_removal">Når ikke lagt i kø</string>
   <string name="episode_cleanup_after_listening">Etter fullført avspilling</string>
+  <plurals name="episode_cleanup_hours_after_listening">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
+  <plurals name="episode_cleanup_days_after_listening">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
   <plurals name="num_selected_label">
     <item quantity="one">%1$d/%2$d valgt</item>
     <item quantity="other">%1$d/%2$d valgt</item>
@@ -160,14 +172,15 @@
   <string name="remove_feed_label">Fjern podkast</string>
   <string name="share_label">Del</string>
   <string name="share_file_label">Del fil</string>
-  <string name="feed_delete_confirmation_msg">Bekreft at du ønsker å slette podkasten \"%1$s\" og ALLE episodene dens (inkludert nedlastede episoder) og statistikken.</string>
-  <string name="feed_delete_confirmation_msg_batch">Bekreft at du ønsker å slette utvalgte podkaster og ALLE de episoder (inkludert nedlastet episoder) og statistikken.</string>
-  <string name="feed_delete_confirmation_local_msg">Bekreft at du vil slette podkasten \"%1$s\" og statistikken. Filene i lokale mappen vil ikke bli slettet.</string>
+  <string name="feed_delete_confirmation_msg"></string>
+  <string name="feed_delete_confirmation_msg_batch"></string>
+  <string name="feed_delete_confirmation_local_msg"></string>
   <string name="feed_remover_msg">Fjerner podkast</string>
   <string name="load_complete_feed">Oppdater hele podkasten</string>
   <string name="multi_select">Velg flere</string>
   <string name="select_all_above">Velg alle over</string>
   <string name="select_all_below">Velg alle under</string>
+  <string name="multi_select_started_talkback"></string>
   <string name="filtered_label">Filtrert</string>
   <string name="refresh_failed_msg">Siste oppdatering mislyktes. Trykk for å se detaljer.</string>
   <string name="open_podcast">Åpne podkast</string>
@@ -182,6 +195,8 @@
   <string name="rename_tag_label">Endre tagnavn</string>
   <string name="confirm_mobile_feed_refresh_dialog_message">Å oppdatere podcaster mobildata er slått av i innstillingene.\n\nVil du oppdatere likevel?</string>
   <string name="confirm_mobile_feed_refresh_dialog_message_vpn">VPN-appen din utgir seg for å være er mobilt nettverk (mengdebetalt forbindelse). Oppdatering av podkastene over mobil dataforbindelse er slått av i innstillingene.\n\nVil oppdatere likevel? Hvis du vil at dette problemet skal fikses må du kontakte de som lagde VPN-appen.</string>
+  <string name="delete_downloads_played"></string>
+  <string name="delete_downloads_played_confirmation"></string>
   <!--actions on feeditems-->
   <string name="download_label">Last ned</string>
   <plurals name="downloading_batch_label">
@@ -192,7 +207,10 @@
   <string name="pause_label">Pause</string>
   <string name="stream_label">Strøm</string>
   <string name="delete_label">Slett</string>
-  <string name="delete_episode_label">Slett episode</string>
+  <plurals name="deleted_multi_episode_batch_label">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
   <string name="remove_inbox_label">Fjern fra innboksen</string>
   <string name="removed_inbox_label">Fjernet fra innboksen</string>
   <string name="mark_read_label">Marker som avspilt</string>
@@ -226,6 +244,10 @@
     <item quantity="other">%depisoder er fjernet fra innboksen.</item>
   </plurals>
   <string name="add_to_favorite_label">Legg til i favoritter</string>
+  <string name="show_transcript"></string>
+  <string name="transcript"></string>
+  <string name="transcript_follow"></string>
+  <string name="no_transcript_label"></string>
   <string name="remove_from_favorite_label">Fjern fra favoritter</string>
   <string name="visit_website_label">Besøk nettside</string>
   <string name="skip_episode_label">Hopp over episode</string>
@@ -272,7 +294,7 @@
   <string name="download_log_title_unknown">Ukjent tittel</string>
   <string name="download_type_feed">Strøm</string>
   <string name="download_type_media">Mediafil</string>
-  <string name="null_value_podcast_error">Ingen podkast ble gitt som kunne vises.</string>
+  <string name="null_value_podcast_error"></string>
   <string name="no_feed_url_podcast_found_by_search">Foreslått podcast hadde ingen RSS link, AntennaPod fant en podcast som kunne passe.</string>
   <string name="authentication_notification_title">Autentisering påkreves</string>
   <string name="confirm_mobile_download_dialog_title">Bekreft nedlasting over mobildata</string>
@@ -280,6 +302,7 @@
   <string name="confirm_mobile_download_dialog_message_vpn">VPN-appen din utgir seg for å være er mobilt nettverk (mengdebetalt forbindelse). Nedlasting over mobil dataforbindelse er slått av i innstillingene. Hvis du vil at dette problemet skal fikses må du kontakte de som lagde VPN-appen.</string>
   <string name="confirm_mobile_download_dialog_download_later">Last ned senere</string>
   <string name="confirm_mobile_download_dialog_allow_this_time">Last ned uansett</string>
+  <string name="mobile_download_notice"></string>
   <string name="confirm_mobile_streaming_notification_title">Bekreft strømming via mobildata</string>
   <string name="confirm_mobile_streaming_notification_message">Strømming over mobildata er deaktivert i innstillingene. Trykk for å strømme likevel.</string>
   <string name="confirm_mobile_streaming_button_always">Alltid</string>
@@ -309,6 +332,7 @@
   <string name="random">Tilfeldig</string>
   <string name="smart_shuffle">Smart blanding</string>
   <string name="size">Størrelse</string>
+  <string name="clear_queue_confirmation_msg"></string>
   <string name="time_left_label">Tid igjen:\u0020</string>
   <!--Variable Speed-->
   <string name="speed_presets">Forhåndsvalg</string>
@@ -338,6 +362,7 @@
   <string name="download_pref_details">Detaljer</string>
   <string name="import_export_pref">Importer/Eksporter</string>
   <string name="import_export_search_keywords">sikkerhetskopier, gjenopprett</string>
+  <string name="theming"></string>
   <string name="external_elements">Eksterne elementer</string>
   <string name="interruptions">Forstyrrelser</string>
   <string name="playback_control">Avspillingskontroll</string>
@@ -345,6 +370,7 @@
   <string name="preference_search_hint">Søk...</string>
   <string name="preference_search_no_results">Ingen resultater</string>
   <string name="preference_search_clear_history">Slett logg</string>
+  <string name="pref_episode_cleanup_title"></string>
   <string name="pref_episode_cleanup_summary">Episoder som kan bli utpekt for fjerning hvis Automatisk nedlasting trenger plass til nye episoder</string>
   <string name="pref_pauseOnDisconnect_sum">Sett avspilling på pause når hodetelefoner eller blåtann blir koblet fra</string>
   <string name="pref_unpauseOnHeadsetReconnect_sum">Gjenoppta avspilling når hodetelefonene kobles til igjen</string>
@@ -353,10 +379,15 @@
   <string name="pref_hardware_forward_button_summary">Tilpass aksjonen til neste kapittel-knappen</string>
   <string name="pref_hardware_previous_button_title">Forrige kapittel-knapp</string>
   <string name="pref_hardware_previous_button_summary">Tilpass aksjonen av forrige kapittel-knappen</string>
+  <string name="button_action_fast_forward"></string>
   <string name="button_action_rewind">Spol tilbake</string>
   <string name="button_action_skip_episode">Hopp over episode</string>
   <string name="button_action_restart_episode">Omstart episode</string>
   <string name="pref_followQueue_sum">Hopp til neste element i køen når avspillingen er ferdig</string>
+  <string name="pref_auto_delete_playback_sum"></string>
+  <string name="pref_auto_delete_playback_title"></string>
+  <string name="pref_auto_delete_title"></string>
+  <string name="pref_auto_delete_sum"></string>
   <string name="pref_auto_local_delete_title">Slett automatisk fra lokale mapper</string>
   <string name="pref_auto_local_delete_sum">Ta med lokale mapper i autoslettfunksjonen</string>
   <string name="pref_auto_local_delete_dialog_body">Merk at for lokale mapper vil dette fjerne episoden fra AntennaPod og slette mediefilen fra enhetslagringen. De kan ikke lastes ned på ny gjennom AntennaPod. Aktivere Autoslett?</string>
@@ -399,18 +430,20 @@
   <string name="pref_black_theme_message">Bruk fullstendig svart for mørke temaet</string>
   <string name="pref_tinted_theme_title">Dynamiske farger</string>
   <string name="pref_tinted_theme_message">Endre app fargene basert på bakgrunnsbildet</string>
-  <string name="pref_nav_drawer_items_title">Velg elementer i navigasjonsskuffen</string>
-  <string name="pref_nav_drawer_items_sum">Endre hvilke elementer som vises i navigeringsfanen.</string>
+  <string name="bottom_navigation"></string>
+  <string name="bottom_navigation_summary"></string>
+  <string name="pref_nav_drawer_items_title"></string>
+  <string name="pref_nav_drawer_items_sum"></string>
   <string name="pref_nav_drawer_feed_order_title">Velg rekkefølge på abonnementer</string>
   <string name="pref_nav_drawer_feed_order_sum">Endre rekkefølgen på abonnementene dine</string>
   <string name="pref_nav_drawer_feed_counter_title">Velg abonnementsteller</string>
   <string name="pref_nav_drawer_feed_counter_sum">Endre informasjonen som vises av abonnement-telleren. Påvirker også sorteringen av abonnementer hvis rekkefølgen er satt til \"Teller\"</string>
   <string name="pref_automatic_download_title">Automatisk nedlasting</string>
   <string name="pref_automatic_download_sum">Konfigurer automatisk nedlasting av episoder</string>
-  <string name="pref_autodl_wifi_filter_title">Skru på Wi-Fi-filter</string>
-  <string name="pref_autodl_wifi_filter_sum">Tillat automatisk nedlasting kun for valgte Wi-Fi-nettverk.</string>
   <string name="pref_automatic_download_on_battery_title">Last ned når enheten ikke lader</string>
   <string name="pref_automatic_download_on_battery_sum">Tillat automatisk nedlasting når enheten ikke står til lading</string>
+  <string name="pref_episode_cache_title"></string>
+  <string name="pref_episode_cache_summary"></string>
   <string name="pref_episode_cover_title">Bruk episode-cover</string>
   <string name="pref_episode_cover_summary">Bruk et episode-spesifikt cover hvis det er tilgjengelig. Hvis dette ikke er valgt vil appen alltid bruke podkastens cover-bilde.</string>
   <string name="pref_show_remain_time_title">Vis gjenværende tid</string>
@@ -429,6 +462,8 @@
   <string name="pref_feed_skip_intro_toast">Hoppet over første %d sekunder</string>
   <string name="pref_playback_time_respects_speed_title">Juster media-info til avspillingshastighet</string>
   <string name="pref_playback_time_respects_speed_sum">Vist posisjon og varighet tilpasses avspillingshastighet</string>
+  <string name="pref_fast_forward"></string>
+  <string name="pref_fast_forward_sum"></string>
   <string name="pref_rewind">Hopp tilbake</string>
   <string name="pref_rewind_sum">Velg hvor mange sekunder som skal hoppes tilbake når \"Spol tilbake\"-knappen trykkes</string>
   <string name="pref_expandNotify_title">Høy varsling-prioritet</string>
@@ -477,8 +512,10 @@
   <string name="new_episode_notification_disabled">Varslinger slått av</string>
   <string name="pref_feed_settings_dialog_msg">Den innstillingen er unik til hver podkast. Du kan endre den med å åpne siden til podkasten.</string>
   <string name="pref_contribute">Bidra</string>
+  <string name="pref_show_subscription_title"></string>
   <string name="pref_new_episodes_action_title">Aksjon til nye episoder</string>
   <string name="pref_new_episodes_action_sum">Aksjon som utføres for nye episoder</string>
+  <string name="episode_information"></string>
   <!--About screen-->
   <string name="about_pref">Om</string>
   <string name="antennapod_version">AntennaPod versjon</string>
@@ -502,7 +539,7 @@
   <string name="sync_status_episodes_download">Laster ned endringer av episoder...</string>
   <string name="sync_status_upload_played">Oppdatere avspillings status...</string>
   <string name="sync_status_subscriptions">Synkroniserer abonnementer...</string>
-  <string name="sync_status_wait_for_downloads">Venter på nedlastingen avsluttes som ferdig...</string>
+  <string name="sync_status_wait_for_downloads"></string>
   <string name="sync_status_success">Synkronisering suksessfull</string>
   <string name="sync_status_error">Synkronisering feilet</string>
   <!--import and export-->
@@ -550,6 +587,22 @@
   <string name="time_seconds">sekunder</string>
   <string name="time_minutes">minutter</string>
   <string name="time_hours">timer</string>
+  <plurals name="time_seconds_quantified">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
+  <plurals name="time_minutes_quantified">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
+  <plurals name="time_hours_quantified">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
+  <plurals name="time_days_quantified">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
   <string name="auto_enable_label">Aktivere søvnnedtelling automatisk når det trykkes spill av</string>
   <string name="auto_enable_label_with_times">Aktiver søvnnedtelling automatisk når du trykker spill av mellom %1$sog %2$s</string>
   <string name="auto_enable_change_times">Endre tidsrom</string>
@@ -591,8 +644,10 @@
   <string name="gpodnetsync_pref_report_successful">Vellykket</string>
   <string name="gpodnetsync_pref_report_failed">Mislyktes</string>
   <string name="gpodnetsync_username_characters_error">Brukernavn kan kun inneholde bokstaver, tall, bindestrek og understrek</string>
+  <string name="nextcloud_login_error_generic"></string>
   <!--Directory chooser-->
   <string name="choose_data_directory">Velg datamappe</string>
+  <string name="choose_data_directory_message"></string>
   <string name="choose_data_directory_available_space">%1$s av %2$s ledig</string>
   <string name="pref_pausePlaybackForFocusLoss_sum">Sett avspilling på pause istedenfor å skru ned volumet når en annen app vil spille av lyder</string>
   <string name="pref_pausePlaybackForFocusLoss_title">Pause for forstyrrelser</string>
@@ -600,13 +655,17 @@
   <string name="rating_tagline">Siden %1$shar du spilt %2$s%3$d%4$stimer med podkaster.</string>
   <string name="rating_contribute_label">Vil du være med? Enten du vil oversette, støtte, designe eller kode er vi glade for å få deg med på laget!</string>
   <string name="rating_contribute_button">Oppdag måter å bidra på</string>
+  <string name="rating_volunteers_label"></string>
   <string name="rating_rate">Vurder AntennaPod</string>
   <string name="rating_later">Senere</string>
   <!--Online feed view-->
   <string name="subscribe_label">Abonner</string>
+  <string name="preview_episodes"></string>
+  <string name="state_deleted_not_subscribed"></string>
   <!--Content descriptions for image buttons-->
   <string name="toolbar_back_button_content_description">Tilbake</string>
   <string name="rewind_label">Spol tilbake</string>
+  <string name="fast_forward_label"></string>
   <string name="increase_speed">Øk hastighet</string>
   <string name="decrease_speed">Reduser hastigheten</string>
   <string name="media_type_video_label">Video</string>
@@ -623,6 +682,8 @@
   <string name="next_chapter">Neste kapitel</string>
   <string name="shuffle_suggestions">Bland forslagene</string>
   <string name="add_preset">Legg til forhåndsvalg</string>
+  <string name="download_started_talkback"></string>
+  <string name="download_completed_talkback"></string>
   <!--Feed settings/information screen-->
   <string name="authentication_label">Autentisering</string>
   <string name="authentication_descr">Endre brukernavnet og passordet for denne podkasten og dens episoder</string>
@@ -640,16 +701,19 @@
   <string name="keep_updated">Hold oppdatert</string>
   <string name="keep_updated_summary">Inkluder denne podkasten når alle podkaster (auto)oppdateres</string>
   <string name="auto_download_disabled_globally">Automatisk nedlasting er deaktivert i AntennaPod-innstillingene</string>
-  <string name="statistics_time_played">Avspillingstid:</string>
-  <string name="statistics_total_duration">Total lengde (beregnet):</string>
-  <string name="statistics_episodes_on_device">Episoder på enhenten:</string>
-  <string name="statistics_space_used">Minne brukt:</string>
-  <string name="statistics_episodes_started_total">Episoder startet/total: </string>
-  <string name="statistics_expected_next_episode">Neste episode er forventet:</string>
+  <string name="statistics_episodes_started"></string>
+  <string name="statistics_episodes_total"></string>
+  <string name="statistics_episodes_played"></string>
+  <string name="statistics_episodes_downloaded"></string>
+  <string name="statistics_episodes_space"></string>
+  <string name="statistics_release_schedule"></string>
+  <string name="statistics_release_next"></string>
   <string name="statistics_expected_next_episode_any_day">Hvilken dag som helst nå</string>
   <string name="statistics_expected_next_episode_unknown">Ukjent</string>
-  <string name="statistics_view_all">Vis for alle podkaster »</string>
+  <string name="statistics_view_all"></string>
+  <string name="statistics_years_barchart_description"></string>
   <string name="edit_url_menu">Endre feed URL</string>
+  <string name="edit_url_confirmation_msg"></string>
   <!--Podcast release schedules-->
   <string name="release_schedule_daily">daglig</string>
   <string name="release_schedule_weekdays">på ukedager</string>
@@ -670,12 +734,11 @@
   <string name="search_itunes_label">Leter i Apple Podcasts</string>
   <string name="search_podcastindex_label">Søk i podkast indeks</string>
   <string name="search_fyyd_label">Søk med fyyd</string>
-  <string name="advanced">Avansert</string>
   <string name="add_podcast_by_url">Legg til podkast med RSS-adresse</string>
   <string name="discover">Oppdage</string>
   <string name="discover_hide">Skjul</string>
   <string name="discover_is_hidden">Du valgte å skjule forslag</string>
-  <string name="discover_more">mer »</string>
+  <string name="discover_more"></string>
   <string name="discover_powered_by_itunes">Forslag fra Apple Podcasts</string>
   <string name="discover_confirm">Vis anbefalinger</string>
   <string name="search_powered_by">Resultater fra %1$s</string>
@@ -726,6 +789,7 @@
   <string name="proxy_port_invalid_error">Ikke gyldig port</string>
   <!--Subscriptions fragment-->
   <string name="subscription_num_columns">Antall kolonner</string>
+  <string name="subscription_display_list"></string>
   <!--Notification channels-->
   <string name="notification_group_errors">Feil</string>
   <string name="notification_group_news">Nyheter</string>

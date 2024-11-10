@@ -51,17 +51,23 @@
   <string name="home_continue_title">Продолжить</string>
   <string name="home_new_title">Новое</string>
   <string name="home_downloads_title">Загруженное</string>
+  <string name="home_no_recent_unplayed_episodes_text"></string>
+  <string name="home_continue_empty_text"></string>
+  <string name="home_new_empty_text"></string>
+  <string name="home_downloads_empty_text"></string>
   <string name="home_welcome_title">Привет, это AntennaPod!</string>
   <string name="home_welcome_text">Вы ещё не подписаны ни на один подкаст. Откройте боковое меню, чтобы добавить подкаст.</string>
-  <string name="notification_permission_text">Для показа уведомлений AntennaPod требуется разрешение. По умолчанию уведомления показываются лишь во время загрузок или когда что-то пошло не так.</string>
   <string name="notification_permission_denied">Вы не дали разрешения.</string>
-  <string name="notification_permission_deny_warning">Если что-то пойдёт не так и уведомления будут отключены, разобраться в причине будет непросто.</string>
-  <string name="deny_label">Отказать</string>
-  <string name="open_settings">Открыть настройки</string>
   <string name="configure_home">Настроить главную</string>
   <string name="section_hidden">Скрытый</string>
+  <string name="section_shown"></string>
   <!--Download Statistics fragment-->
-  <string name="total_size_downloaded_podcasts">Общий размер выпусков на устройстве</string>
+  <plurals name="total_size_downloaded_podcasts">
+    <item quantity="one"></item>
+    <item quantity="few"></item>
+    <item quantity="many"></item>
+    <item quantity="other"></item>
+  </plurals>
   <!--Main activity-->
   <string name="drawer_open">Открыть меню</string>
   <string name="drawer_close">Закрыть меню</string>
@@ -180,9 +186,9 @@
   <string name="remove_feed_label">Удалить подкаст</string>
   <string name="share_label">Поделиться</string>
   <string name="share_file_label">Поделиться файлом</string>
-  <string name="feed_delete_confirmation_msg">Подтвердите, что хотите удалить подкаст «%1$s», все его выпуски (включая загруженные) и его статистику.</string>
-  <string name="feed_delete_confirmation_msg_batch">Подтвердите, что хотите удалить выбранные подкасты, все их выпуски (включая загруженные) и их статистику.</string>
-  <string name="feed_delete_confirmation_local_msg">Подтвердите, что хотите удалить подкаст «%1$s» и его статистику. Файлы в локальной исходной папке не будут удалены.</string>
+  <string name="feed_delete_confirmation_msg"></string>
+  <string name="feed_delete_confirmation_msg_batch"></string>
+  <string name="feed_delete_confirmation_local_msg"></string>
   <string name="feed_remover_msg">Подкаст удаляется</string>
   <string name="load_complete_feed">Обновить весь подкаст</string>
   <string name="multi_select">Множественный выбор</string>
@@ -207,6 +213,8 @@
   <string name="confirm_mobile_feed_refresh_dialog_message_vpn">Приложение VPN имитирует соединение через мобильную сеть (с ограничением трафика). Обновление подкастов через мобильное соединение отключено в настройках.
 
 Всё равно желаете обновить? Чтобы устранить эту проблему, свяжитесь с авторами вашего приложения VPN.</string>
+  <string name="delete_downloads_played"></string>
+  <string name="delete_downloads_played_confirmation"></string>
   <!--actions on feeditems-->
   <string name="download_label">Загрузить</string>
   <plurals name="downloading_batch_label">
@@ -219,7 +227,6 @@
   <string name="pause_label">Пауза</string>
   <string name="stream_label">Воспроизвести из сети</string>
   <string name="delete_label">Удалить</string>
-  <string name="delete_episode_label">Удалить выпуск</string>
   <plurals name="deleted_multi_episode_batch_label">
     <item quantity="one">%d скачанный выпуск удалён.</item>
     <item quantity="few">%d скачанных выпуска удалены.</item>
@@ -321,7 +328,7 @@
   <string name="download_log_title_unknown">Неизвестное название</string>
   <string name="download_type_feed">Канал</string>
   <string name="download_type_media">Медиафайл</string>
-  <string name="null_value_podcast_error">Не указан подкаст, который следовало бы показать.</string>
+  <string name="null_value_podcast_error"></string>
   <string name="no_feed_url_podcast_found_by_search">У предложенного подкаста отсутствует RSS-ссылка, AntennaPod нашел подкаст, который возможно ему соответствует</string>
   <string name="authentication_notification_title">Необходима авторизация</string>
   <string name="confirm_mobile_download_dialog_title">Подтвердите загрузку через мобильное соединение</string>
@@ -329,6 +336,7 @@
   <string name="confirm_mobile_download_dialog_message_vpn">Приложение VPN имитирует соединение через мобильную сеть (с ограничением трафика). Загрузка через мобильное соединение отключена в настройках. Чтобы устранить эту проблему, свяжитесь с авторами используемого Вами приложения VPN.</string>
   <string name="confirm_mobile_download_dialog_download_later">Загрузить позже</string>
   <string name="confirm_mobile_download_dialog_allow_this_time">Всё равно загрузить</string>
+  <string name="mobile_download_notice"></string>
   <string name="confirm_mobile_streaming_notification_title">Подтвердите трансляцию через мобильное соединение</string>
   <string name="confirm_mobile_streaming_notification_message">Трансляция через мобильное подключение отключена в настройках. Нажмите, чтобы продолжить трансляцию.</string>
   <string name="confirm_mobile_streaming_button_always">Всегда</string>
@@ -456,16 +464,16 @@
   <string name="pref_black_theme_message">Чёрная тема вместо тёмной</string>
   <string name="pref_tinted_theme_title">Динамические цвета</string>
   <string name="pref_tinted_theme_message">Менять цвета в приложении по цвету обоев</string>
-  <string name="pref_nav_drawer_items_title">Выбрать пункты боковой панели</string>
-  <string name="pref_nav_drawer_items_sum">Изменение отображения пунктов меню боковой панели</string>
+  <string name="bottom_navigation"></string>
+  <string name="bottom_navigation_summary"></string>
+  <string name="pref_nav_drawer_items_title"></string>
+  <string name="pref_nav_drawer_items_sum"></string>
   <string name="pref_nav_drawer_feed_order_title">Порядок подписок</string>
   <string name="pref_nav_drawer_feed_order_sum">Выбрать порядок отображения подписок</string>
   <string name="pref_nav_drawer_feed_counter_title">Выбрать счётчик подписок</string>
   <string name="pref_nav_drawer_feed_counter_sum">Какую информацию показывать в счетчике подписок. Влияет также на порядок подписок, если сортировка подписок производится по количеству.</string>
   <string name="pref_automatic_download_title">Автоматическая загрузка</string>
   <string name="pref_automatic_download_sum">Настроить автоматическую загрузку выпусков</string>
-  <string name="pref_autodl_wifi_filter_title">Включить фильтр Wi-Fi</string>
-  <string name="pref_autodl_wifi_filter_sum">Разрешать автоматическую загрузку только в выбранных сетях Wi-Fi.</string>
   <string name="pref_automatic_download_on_battery_title">Загружать без зарядки</string>
   <string name="pref_automatic_download_on_battery_sum">Разрешать автоматическую загрузку когда батарея не заряжается</string>
   <string name="pref_episode_cache_title">Квота на выпуски</string>
@@ -565,7 +573,7 @@
   <string name="sync_status_episodes_download">Загрузка изменений по выпускам…</string>
   <string name="sync_status_upload_played">Отправка состояния прослушивания…</string>
   <string name="sync_status_subscriptions">Синхронизация подписок…</string>
-  <string name="sync_status_wait_for_downloads">Ожидаем завершения загрузок…</string>
+  <string name="sync_status_wait_for_downloads"></string>
   <string name="sync_status_success">Синхронизация выполнена</string>
   <string name="sync_status_error">Синхронизация не удалась</string>
   <!--import and export-->
@@ -678,6 +686,7 @@
   <string name="gpodnetsync_pref_report_successful">Успешно</string>
   <string name="gpodnetsync_pref_report_failed">Неудачно</string>
   <string name="gpodnetsync_username_characters_error">Имя пользователя может содержать только буквы, цифры, дефисы и символы подчеркивания.</string>
+  <string name="nextcloud_login_error_generic"></string>
   <!--Directory chooser-->
   <string name="choose_data_directory">Выбрать папку для хранения данных</string>
   <string name="choose_data_directory_message">Укажите корневой каталог для хранения данных. AntennaPod создаст необходимые подкаталоги.</string>
@@ -734,15 +743,17 @@
   <string name="keep_updated">Постоянно обновлять</string>
   <string name="keep_updated_summary">Обновлять подкаст при (авто)обновлении всех подкастов</string>
   <string name="auto_download_disabled_globally">Автоматическая загрузка отключена в основных настройках AntennaPod</string>
-  <string name="statistics_time_played">Времени на прослушивание:</string>
-  <string name="statistics_total_duration">Общая длина (примерно):</string>
-  <string name="statistics_episodes_on_device">Выпусков на устройстве:</string>
-  <string name="statistics_space_used">Занято пространства:</string>
-  <string name="statistics_episodes_started_total">Выпусков начато/всего:</string>
-  <string name="statistics_expected_next_episode">Cледующий выпуск ожидается:</string>
+  <string name="statistics_episodes_started"></string>
+  <string name="statistics_episodes_total"></string>
+  <string name="statistics_episodes_played"></string>
+  <string name="statistics_episodes_downloaded"></string>
+  <string name="statistics_episodes_space"></string>
+  <string name="statistics_release_schedule"></string>
+  <string name="statistics_release_next"></string>
   <string name="statistics_expected_next_episode_any_day">Со дня на день</string>
   <string name="statistics_expected_next_episode_unknown">Неизвестно</string>
-  <string name="statistics_view_all">По всем подкастам</string>
+  <string name="statistics_view_all"></string>
+  <string name="statistics_years_barchart_description"></string>
   <string name="edit_url_menu">Изменить адрес канала</string>
   <string name="edit_url_confirmation_msg">Изменение адреса ссылки может запросто испортить состояние воспроизведения и список выпусков подкаста. Мы крайне НЕ рекомендуем его менять и НЕ сможем Вам помочь, если что-то пойдёт не так. Действие необратимо. Простым возвратом старого адреса поломку HE исправить. Советуем сперва создать резервную копию. </string>
   <!--Podcast release schedules-->
@@ -765,12 +776,11 @@
   <string name="search_itunes_label">Поиск в Apple Podcasts</string>
   <string name="search_podcastindex_label">Поиск на Podcast Index</string>
   <string name="search_fyyd_label">Поиск в fyyd</string>
-  <string name="advanced">Дополнительные</string>
   <string name="add_podcast_by_url">Добавить подкаст по RSS</string>
   <string name="discover">Ознакомиться</string>
   <string name="discover_hide">Скрыть</string>
   <string name="discover_is_hidden">Вы предпочли скрыть рекомендации.</string>
-  <string name="discover_more">ещё</string>
+  <string name="discover_more"></string>
   <string name="discover_powered_by_itunes">Предложения Apple Podcasts</string>
   <string name="discover_confirm">Показать рекомендации</string>
   <string name="search_powered_by">Результаты из %1$s</string>

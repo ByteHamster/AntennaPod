@@ -51,16 +51,23 @@
   <string name="home_continue_title">Nadaljuj s poslušanjem</string>
   <string name="home_new_title">Kaj je novega</string>
   <string name="home_downloads_title">Upravljaj prenose</string>
+  <string name="home_no_recent_unplayed_episodes_text"></string>
+  <string name="home_continue_empty_text"></string>
+  <string name="home_new_empty_text"></string>
+  <string name="home_downloads_empty_text"></string>
   <string name="home_welcome_title">Dobrodošli v AntennaPod!</string>
   <string name="home_welcome_text">Niste naročeni na nobeno poddajo. Odprite stranski meni, da dodate poddaje.</string>
-  <string name="notification_permission_text">AntennaPod potrebuje vaše dovoljenje za prikazovanje obvestil. Privzeto AntennaPod prikazuje obvestila samo med prenosom ali ko se pojavi napaka.</string>
   <string name="notification_permission_denied">Zavrnili ste dovoljenje.</string>
-  <string name="notification_permission_deny_warning">Če onemogočite obvestila in se kaj zalomi, morda ne boste mogli ugotoviti, zakaj se je zalomilo.</string>
-  <string name="deny_label">Zavrni</string>
-  <string name="open_settings">Odpri nastavitve</string>
   <string name="configure_home">Nastavitve domačega zaslona</string>
+  <string name="section_hidden"></string>
+  <string name="section_shown"></string>
   <!--Download Statistics fragment-->
-  <string name="total_size_downloaded_podcasts">Skupna velikost epizod v napravi</string>
+  <plurals name="total_size_downloaded_podcasts">
+    <item quantity="one"></item>
+    <item quantity="two"></item>
+    <item quantity="few"></item>
+    <item quantity="other"></item>
+  </plurals>
   <!--Main activity-->
   <string name="drawer_open">Odpri meni</string>
   <string name="drawer_close">Zapri meni</string>
@@ -82,6 +89,7 @@
   <string name="open_in_browser_label">Odpri v brskalniku</string>
   <string name="copy_url_label">Kopiraj URL naslov</string>
   <string name="share_url_label">Deli URL naslov</string>
+  <string name="go_to_position_label"></string>
   <!--Playback history-->
   <string name="clear_history_label">Počisti zgodovino</string>
   <string name="clear_playback_history_msg">Ali ste prepričani, da želite izbrisati celotno zgodovino predvajanja?</string>
@@ -120,11 +128,24 @@
   <string name="feed_auto_download_always">Vedno</string>
   <string name="feed_auto_download_never">Nikoli</string>
   <string name="feed_new_episodes_action_add_to_inbox">Dodaj v nabiralnik</string>
+  <string name="feed_new_episodes_action_add_to_queue"></string>
   <string name="feed_new_episodes_action_nothing">Ne stori ničesar</string>
   <string name="episode_cleanup_never">Nikoli</string>
   <string name="episode_cleanup_except_favorite_removal">Če ni med priljubljenimi</string>
   <string name="episode_cleanup_queue_removal">Če ni v čakalni vrsti</string>
   <string name="episode_cleanup_after_listening">Takoj po predvajanju</string>
+  <plurals name="episode_cleanup_hours_after_listening">
+    <item quantity="one"></item>
+    <item quantity="two"></item>
+    <item quantity="few"></item>
+    <item quantity="other"></item>
+  </plurals>
+  <plurals name="episode_cleanup_days_after_listening">
+    <item quantity="one"></item>
+    <item quantity="two"></item>
+    <item quantity="few"></item>
+    <item quantity="other"></item>
+  </plurals>
   <plurals name="num_selected_label">
     <item quantity="one">%1$d/%2$d izbrana</item>
     <item quantity="two">%1$d/%2$d izbrani</item>
@@ -165,15 +186,17 @@
   <string name="remove_feed_label">Odstrani poddajo</string>
   <string name="share_label">Deli</string>
   <string name="share_file_label">Deli datoteko</string>
-  <string name="feed_delete_confirmation_msg">Prosimo potrdite, da želite izbrisati poddajo \"%1$s\". VSE epizode (vključno s prenesenimi epizodami) in statistika bodo izbrisane.</string>
-  <string name="feed_delete_confirmation_msg_batch">Prosimo potrdite, da želite izbrisati izbrane poddaje. VSE epizode (vključno s prenesenimi epizodami) in statistika bodo izbrisane.</string>
-  <string name="feed_delete_confirmation_local_msg">Prosimo potrdite, da želite izbrisati poddajo \"%1$s\" in njeno statistiko. Prenesene datoteke v lokalni mapi ne bodo izbrisane.</string>
+  <string name="feed_delete_confirmation_msg"></string>
+  <string name="feed_delete_confirmation_msg_batch"></string>
+  <string name="feed_delete_confirmation_local_msg"></string>
   <string name="feed_remover_msg">Odstranjujem poddajo</string>
   <string name="load_complete_feed">Osveži poddajo v celoti</string>
   <string name="multi_select">Izberi več</string>
   <string name="select_all_above">Izberi vse nad</string>
   <string name="select_all_below">Izberi vse pod</string>
+  <string name="multi_select_started_talkback"></string>
   <string name="filtered_label">Filtrirano</string>
+  <string name="refresh_failed_msg"></string>
   <string name="open_podcast">Odpri poddajo</string>
   <string name="please_wait_for_data">Prosimo počakajte, dokler se podatki ne prenesejo.</string>
   <string name="updates_disabled_label">Posodobitve so onemogočene.</string>
@@ -188,6 +211,8 @@
   <string name="rename_tag_label">Preimenuj oznako</string>
   <string name="confirm_mobile_feed_refresh_dialog_message">Osveževanje poddaj preko mobilne podatkovne povezave je onemogočeno v nastavitvah.\n\nAli želite kljub temu osvežiti?</string>
   <string name="confirm_mobile_feed_refresh_dialog_message_vpn">Vaša VPN aplikacija se pretvarja, da je mobilno omrežje (omejena povezava). Osveževanje poddaj preko mobilne podatkovne povezave je onemogočeno v nastavitvah.\n\nAli želite kljub temu osvežiti? Če želite, da se ta težava odpravi, se obrnite na ustvarjalce vaše VPN aplikacije.</string>
+  <string name="delete_downloads_played"></string>
+  <string name="delete_downloads_played_confirmation"></string>
   <!--actions on feeditems-->
   <string name="download_label">Prenos</string>
   <plurals name="downloading_batch_label">
@@ -200,7 +225,12 @@
   <string name="pause_label">Pavza</string>
   <string name="stream_label">Pretočno predvajanje</string>
   <string name="delete_label">Briši</string>
-  <string name="delete_episode_label">Izbriši epizodo</string>
+  <plurals name="deleted_multi_episode_batch_label">
+    <item quantity="one"></item>
+    <item quantity="two"></item>
+    <item quantity="few"></item>
+    <item quantity="other"></item>
+  </plurals>
   <string name="remove_inbox_label">Odstrani iz nabiralnika</string>
   <string name="removed_inbox_label">Odstranjeno iz nabiralnika</string>
   <string name="mark_read_label">Označi kot predvajano</string>
@@ -244,6 +274,10 @@
     <item quantity="other">%d epizode odstranjene iz nabiralnika.</item>
   </plurals>
   <string name="add_to_favorite_label">Dodaj med priljubljene</string>
+  <string name="show_transcript"></string>
+  <string name="transcript"></string>
+  <string name="transcript_follow"></string>
+  <string name="no_transcript_label"></string>
   <string name="remove_from_favorite_label">Odstrani iz priljubljenih</string>
   <string name="visit_website_label">Ogled spletne strani</string>
   <string name="skip_episode_label">Preskoči epizodo</string>
@@ -276,6 +310,7 @@
   <string name="download_canceled_msg">Prenos je preklican</string>
   <string name="download_error_wrong_size">Povezava s strežnikom je bila izgubljena, preden se je prenos končal</string>
   <string name="download_error_blocked">Prenosi so blokirani s strani drugih aplikacij na vaši napravi (kot na primer VPN ali aplikacija za blokiranje oglasov).</string>
+  <string name="download_error_certificate"></string>
   <string name="download_report_title">Prenosi so bili izvedeni z napako.</string>
   <string name="download_error_io_error">IO napaka</string>
   <string name="download_error_request_error">Napaka zahteve</string>
@@ -291,7 +326,7 @@
   <string name="download_log_title_unknown">Neznani naslov</string>
   <string name="download_type_feed">Vir</string>
   <string name="download_type_media">Predstavnostna datoteka</string>
-  <string name="null_value_podcast_error">Na voljo ni bila nobena poddaja, ki bi jo bilo mogoče prikazati.</string>
+  <string name="null_value_podcast_error"></string>
   <string name="no_feed_url_podcast_found_by_search">Predlagana poddaja nima RSS povezave. AntennaPod je našel poddajo, ki morda ustreza.</string>
   <string name="authentication_notification_title">Potrebna je avtentikacija</string>
   <string name="confirm_mobile_download_dialog_title">Potrdite prenos preko mobilnih podatkov</string>
@@ -299,11 +334,13 @@
   <string name="confirm_mobile_download_dialog_message_vpn">Vaša VPN aplikacija se pretvarja, da je mobilno omrežje (omejena povezava). Prenos preko mobilne podatkovne povezave je onemogočeno v nastavitvah.  Če želite, da se ta težava odpravi, se obrnite na ustvarjalce vaše VPN aplikacije.</string>
   <string name="confirm_mobile_download_dialog_download_later">Prenesi kasneje</string>
   <string name="confirm_mobile_download_dialog_allow_this_time">Vseeno prenesi</string>
+  <string name="mobile_download_notice"></string>
   <string name="confirm_mobile_streaming_notification_title">Potrdite mobilno pretočno predvajanje</string>
   <string name="confirm_mobile_streaming_notification_message">Pretočno predvajanje preko mobilne podatkovne povezave je onemogočeno v nastavitvah. Potrdite za pretakanje kljub temu.</string>
   <string name="confirm_mobile_streaming_button_always">Vedno</string>
   <string name="confirm_mobile_streaming_button_once">Enkrat</string>
   <!--Mediaplayer messages-->
+  <string name="playback_error_generic"></string>
   <string name="no_media_playing_label">Ni medijske vsebine za predvajati</string>
   <string name="unknown_media_key">AntennaPod - Neznan medijski ključ: %1$d</string>
   <string name="error_file_not_found">Datoteka ni najdena</string>
@@ -327,6 +364,7 @@
   <string name="random">Naključno</string>
   <string name="smart_shuffle">Pametno mešanje</string>
   <string name="size">Velikost</string>
+  <string name="clear_queue_confirmation_msg"></string>
   <string name="time_left_label">Preostali čas:\u0020</string>
   <!--Variable Speed-->
   <string name="speed_presets">Prednastavitve</string>
@@ -356,6 +394,7 @@
   <string name="download_pref_details">Podrobnosti</string>
   <string name="import_export_pref">Uvozi/Izvozi</string>
   <string name="import_export_search_keywords">varnostno kopiranje, varnostna obnovitev</string>
+  <string name="theming"></string>
   <string name="external_elements">Zunanji elementi</string>
   <string name="interruptions">Prekinitve</string>
   <string name="playback_control">Predvajalne kontrole</string>
@@ -363,6 +402,7 @@
   <string name="preference_search_hint">Iskanje...</string>
   <string name="preference_search_no_results">Ni rezultatov</string>
   <string name="preference_search_clear_history">Pobriši zgodovino</string>
+  <string name="pref_episode_cleanup_title"></string>
   <string name="pref_episode_cleanup_summary">Epizode, ki bi morale biti primerne za odstranitev, če samodejni prenos potrebuje prostor za nove epizode</string>
   <string name="pref_pauseOnDisconnect_sum">Začasno ustavite predvajanje, ko se slušalke ali bluetooth odklopi</string>
   <string name="pref_unpauseOnHeadsetReconnect_sum">Nadaljujte s predvajanjem, ko se slušalke znova priključijo</string>
@@ -371,12 +411,18 @@
   <string name="pref_hardware_forward_button_summary">Prilagodite obnašanje gumba za naprej</string>
   <string name="pref_hardware_previous_button_title">Gumb za nazaj</string>
   <string name="pref_hardware_previous_button_summary">Prilagodite obnašanje gumba za nazaj</string>
+  <string name="button_action_fast_forward"></string>
   <string name="button_action_rewind">Previjanje nazaj</string>
   <string name="button_action_skip_episode">Preskoči epizodo</string>
   <string name="button_action_restart_episode">Znova zaženi predvajanje epizode</string>
   <string name="pref_followQueue_sum">Ko se predvajanje konča, skoči na naslednji element čakalne vrste</string>
+  <string name="pref_auto_delete_playback_sum"></string>
+  <string name="pref_auto_delete_playback_title"></string>
+  <string name="pref_auto_delete_title"></string>
+  <string name="pref_auto_delete_sum"></string>
   <string name="pref_auto_local_delete_title">Samodejno izbriši iz lokalnih map</string>
   <string name="pref_auto_local_delete_sum">Vključi lokalne mape v funkcionalnost samodejnega brisanja</string>
+  <string name="pref_auto_local_delete_dialog_body"></string>
   <string name="pref_smart_mark_as_played_sum">Epizodo označite kot predvajano tudi, če je do konca predvajanja ostalo manj časa kot tukaj nastavljeno</string>
   <string name="pref_smart_mark_as_played_title">Pametno dokončevanje</string>
   <string name="pref_skip_keeps_episodes_sum">Obdržite epizode, ki jih preskočite</string>
@@ -416,18 +462,20 @@
   <string name="pref_black_theme_message">Uporabi popolnoma črno barvo za temen videz</string>
   <string name="pref_tinted_theme_title">Dinamične barve</string>
   <string name="pref_tinted_theme_message">Prilagodite barve aplikacije glede na ozadje</string>
-  <string name="pref_nav_drawer_items_title">Nastavite elemente predalnika za krmarjenje</string>
-  <string name="pref_nav_drawer_items_sum">Spremenite, kateri elementi se prikažejo v navigacijskem predalniku.</string>
+  <string name="bottom_navigation"></string>
+  <string name="bottom_navigation_summary"></string>
+  <string name="pref_nav_drawer_items_title"></string>
+  <string name="pref_nav_drawer_items_sum"></string>
   <string name="pref_nav_drawer_feed_order_title">Nastavite vrstni red naročnin</string>
   <string name="pref_nav_drawer_feed_order_sum">Spremenite vrstni red svojih naročnin</string>
   <string name="pref_nav_drawer_feed_counter_title">Nastavite števec naročnin</string>
   <string name="pref_nav_drawer_feed_counter_sum">Spremenite informacije, ki jih prikazuje števec naročnin. Vpliva tudi na razvrščanje naročnin, če je \'Naročilo naročnine\' nastavljeno na \'Števec\'.</string>
   <string name="pref_automatic_download_title">Samodejni prenos</string>
   <string name="pref_automatic_download_sum">Nastavitve samodejnih prenosov epizod</string>
-  <string name="pref_autodl_wifi_filter_title">Omogočite Wi-Fi filter</string>
-  <string name="pref_autodl_wifi_filter_sum">Dovoli samodejni prenos samo za izbrana omrežja Wi-Fi.</string>
   <string name="pref_automatic_download_on_battery_title">Prenesite, ko se ne polni</string>
   <string name="pref_automatic_download_on_battery_sum">Dovoli samodejni prenos, ko se baterija ne polni</string>
+  <string name="pref_episode_cache_title"></string>
+  <string name="pref_episode_cache_summary"></string>
   <string name="pref_episode_cover_title">Uporabi naslovnico epizode</string>
   <string name="pref_episode_cover_summary">Uporabite naslovnico za posamezno epizodo na seznamih, kadar je na voljo. Če ta možnost ni izbrana, bo aplikacija vedno uporabljala naslovno sliko poddaje.</string>
   <string name="pref_show_remain_time_title">Prikaži preostali čas</string>
@@ -446,13 +494,17 @@
   <string name="pref_feed_skip_intro_toast">Preskočenih prvih %d sekund</string>
   <string name="pref_playback_time_respects_speed_title">Prilagodite informacije o hitrosti predvajanja medijev</string>
   <string name="pref_playback_time_respects_speed_sum">Prikazani položaj in trajanje sta prilagojena hitrosti predvajanja</string>
+  <string name="pref_fast_forward"></string>
+  <string name="pref_fast_forward_sum"></string>
   <string name="pref_rewind">Skok nazaj</string>
   <string name="pref_rewind_sum">Prilagodite število sekund za skok nazaj, ko kliknete gumb za previjanje nazaj</string>
   <string name="pref_expandNotify_title">Visoka prioriteta obveščanja</string>
   <string name="pref_expandNotify_sum">To običajno razširi obvestilo, da prikaže gumbe za predvajanje.</string>
   <string name="pref_persistNotify_title">Vztrajni nadzorni vmesnik</string>
   <string name="pref_persistNotify_sum">Med premorom obdrži sistemsko obvestilo in nadzorni vmesnik na zaklenjenem zaslonu</string>
+  <string name="pref_compact_notification_buttons_dialog_error_exact"></string>
   <string name="pref_full_notification_buttons_title">Nastavite gumbe na obvestilu</string>
+  <string name="pref_full_notification_buttons_sum"></string>
   <string name="pref_enqueue_location_title">Dodajanje na seznam predvajanja</string>
   <string name="pref_enqueue_location_sum">Epizode dodaj: %1$s</string>
   <string name="enqueue_location_back">Na konec</string>
@@ -492,8 +544,10 @@
   <string name="new_episode_notification_disabled">Obvestila onemogočena</string>
   <string name="pref_feed_settings_dialog_msg">Ta nastavitev je unikatna za vsako poddajo. Spremenite jo lahko tako, da odprete stran poddaje.</string>
   <string name="pref_contribute">Prispevajte</string>
+  <string name="pref_show_subscription_title"></string>
   <string name="pref_new_episodes_action_title">Ob novi epizodi</string>
   <string name="pref_new_episodes_action_sum">Kaj storiti z novimi epizodami</string>
+  <string name="episode_information"></string>
   <!--About screen-->
   <string name="about_pref">Vizitka</string>
   <string name="antennapod_version">AntennaPod različica </string>
@@ -517,7 +571,7 @@
   <string name="sync_status_episodes_download">Prenašanje sprememb epizode …</string>
   <string name="sync_status_upload_played">Nalaganje stanja predvajanja …</string>
   <string name="sync_status_subscriptions">Sinhronizacija naročnin...</string>
-  <string name="sync_status_wait_for_downloads">Čakamo, da se prenosi končajo...</string>
+  <string name="sync_status_wait_for_downloads"></string>
   <string name="sync_status_success">Sinhronizacija uspela</string>
   <string name="sync_status_error">Sinhronizacija ni uspela</string>
   <!--import and export-->
@@ -532,12 +586,16 @@
   <string name="database_import_summary">Uvozite bazo podatkov AntennaPod iz druge naprave</string>
   <string name="opml_import_label">Uvozi OPML</string>
   <string name="opml_add_podcast_label">Uvozite seznam poddaj (OPML)</string>
+  <string name="opml_reader_error"></string>
   <string name="opml_import_error_no_file">Izbrana ni nobena datoteka!</string>
   <string name="select_all_label">Izberi vse</string>
   <string name="deselect_all_label">Počisti vse</string>
   <string name="opml_export_label">Izvozi OPML</string>
   <string name="html_export_label">Izvoz HTML</string>
   <string name="database_export_label">Izvoz podatkovne baze</string>
+  <string name="automatic_database_export_label"></string>
+  <string name="automatic_database_export_summary"></string>
+  <string name="automatic_database_export_error"></string>
   <string name="database_import_label">Uvoz podatkovne baze</string>
   <string name="database_import_warning">Uvoz podatkovne baze bo nadomestil vse vaše trenutne naročnine in zgodovino predvajanja. Priporočamo, da svojo trenutno zbirko podatkov izvozite kot varnostno kopijo. Ali želite vseeno zamenjati?</string>
   <string name="please_wait">Prosimo počakajte...</string>
@@ -561,7 +619,32 @@
   <string name="time_seconds">sekund</string>
   <string name="time_minutes">minute</string>
   <string name="time_hours">ure</string>
+  <plurals name="time_seconds_quantified">
+    <item quantity="one"></item>
+    <item quantity="two"></item>
+    <item quantity="few"></item>
+    <item quantity="other"></item>
+  </plurals>
+  <plurals name="time_minutes_quantified">
+    <item quantity="one"></item>
+    <item quantity="two"></item>
+    <item quantity="few"></item>
+    <item quantity="other"></item>
+  </plurals>
+  <plurals name="time_hours_quantified">
+    <item quantity="one"></item>
+    <item quantity="two"></item>
+    <item quantity="few"></item>
+    <item quantity="other"></item>
+  </plurals>
+  <plurals name="time_days_quantified">
+    <item quantity="one"></item>
+    <item quantity="two"></item>
+    <item quantity="few"></item>
+    <item quantity="other"></item>
+  </plurals>
   <string name="auto_enable_label">Samodejno aktiviraj časovnik spanja ob začetku predvajanja.</string>
+  <string name="auto_enable_label_with_times"></string>
   <string name="auto_enable_change_times">Spremeni časovno obdobje</string>
   <string name="sleep_timer_enabled_label">Časovnik za izklop je omogočen</string>
   <!--Synchronisation-->
@@ -573,11 +656,14 @@
   <string name="synchronization_host_explanation">Lahko izberete svoj strežnik za sinhronizacijo. Ko ste identificirali svoj želeni sinhronizacijski strežnik, ga prosim vnesite tukaj.</string>
   <string name="synchronization_host_label">Naslov strežnika</string>
   <string name="proceed_to_login_butLabel">Nadaljuj s prijavo</string>
+  <string name="synchronization_nextcloud_authenticate_browser"></string>
   <string name="gpodnetauth_login_butLabel">Prijava</string>
+  <string name="synchronization_credentials_explanation"></string>
   <string name="gpodnetauth_encryption_warning">Geslo in podatki niso šifrirani!</string>
   <string name="username_label">Uporabniško ime</string>
   <string name="password_label">Geslo</string>
   <string name="synchronization_login_butLabel">Prijavi se</string>
+  <string name="synchronization_selectDevice_explanation"></string>
   <string name="gpodnetauth_device_name">Ime naprave</string>
   <string name="gpodnetauth_device_name_default">AntennaPod je na %1$s</string>
   <string name="gpodnetauth_existing_devices">Obstoječe naprave</string>
@@ -587,26 +673,39 @@
   <string name="pref_gpodnet_setlogin_information_title">Spremenite podatke za prijavo</string>
   <string name="pref_gpodnet_setlogin_information_sum">Spremenite podatke za prijavo za svoj račun gpodder.net.</string>
   <string name="synchronization_sync_changes_title">Sinhroniziraj takoj</string>
+  <string name="synchronization_sync_summary"></string>
   <string name="synchronization_full_sync_title">Vsili polno sihnronizacijo</string>
   <string name="synchronization_force_sync_summary">Ponovno sinhronizirajte vse naročnine in epizode</string>
   <string name="synchronization_logout">Odjava</string>
+  <string name="synchronization_login_status"></string>
   <string name="pref_synchronization_logout_toast">Odjava je bila uspešna</string>
   <string name="gpodnetsync_error_title">napaka pri sinhronizaciji gpodder.net</string>
   <string name="gpodnetsync_error_descr">Med sinhronizacijo je prišlo do napake:\u0020</string>
   <string name="gpodnetsync_pref_report_successful">Uspešno</string>
   <string name="gpodnetsync_pref_report_failed">Ne uspešno</string>
   <string name="gpodnetsync_username_characters_error">Uporabniška imena lahko vsebujejo samo črke, številke, vezaje in podčrtaje.</string>
+  <string name="nextcloud_login_error_generic"></string>
   <!--Directory chooser-->
   <string name="choose_data_directory">Izberite podatkovno mapo</string>
+  <string name="choose_data_directory_message"></string>
   <string name="choose_data_directory_available_space">%1$s od %2$s prostega</string>
   <string name="pref_pausePlaybackForFocusLoss_sum">Začasno ustavite predvajanje, namesto da zmanjšate glasnost, ko želi druga aplikacija predvajati zvoke</string>
   <string name="pref_pausePlaybackForFocusLoss_title">Premor med prekinitvami</string>
   <!--Rating dialog-->
+  <string name="rating_tagline"></string>
+  <string name="rating_contribute_label"></string>
+  <string name="rating_contribute_button"></string>
+  <string name="rating_volunteers_label"></string>
+  <string name="rating_rate"></string>
+  <string name="rating_later"></string>
   <!--Online feed view-->
   <string name="subscribe_label">Naročite se</string>
+  <string name="preview_episodes"></string>
+  <string name="state_deleted_not_subscribed"></string>
   <!--Content descriptions for image buttons-->
   <string name="toolbar_back_button_content_description">Nazaj</string>
   <string name="rewind_label">Previjanje nazaj</string>
+  <string name="fast_forward_label"></string>
   <string name="increase_speed">Povečaj hitrost</string>
   <string name="decrease_speed">Zmanjšaj hitrost</string>
   <string name="media_type_video_label">Video</string>
@@ -623,12 +722,15 @@
   <string name="next_chapter">Naslednje poglavje</string>
   <string name="shuffle_suggestions">Premešaj predloge</string>
   <string name="add_preset">Dodaj prednastavitev</string>
+  <string name="download_started_talkback"></string>
+  <string name="download_completed_talkback"></string>
   <!--Feed settings/information screen-->
   <string name="authentication_label">Avtentikacija</string>
   <string name="authentication_descr">Spremenite svoje uporabniško ime in geslo za to poddajo in njene epizode.</string>
   <string name="feed_tags_label">Oznake</string>
   <string name="feed_tags_summary">Spremeni oznake te poddaje za lažjo organizacijo naročnin</string>
   <string name="feed_folders_include_root">Prikaži to poddajo na glavnem seznamu</string>
+  <string name="multi_feed_common_tags_info"></string>
   <string name="auto_download_settings_label">Nastavitve samodejnega prenašanja</string>
   <string name="episode_filters_label">Filter epizod</string>
   <string name="episode_filters_description">Seznam izrazov, ki se uporabljajo za odločitev, ali je treba epizodo vključiti ali izključiti pri samodejnem prenosu</string>
@@ -639,14 +741,32 @@
   <string name="keep_updated">Samodejno posodabljaj</string>
   <string name="keep_updated_summary">Vključite osveževanje te poddaje pri (samodejnem) osveževanju vseh poddaj</string>
   <string name="auto_download_disabled_globally">Samodejni prenos je onemogočen v glavnih nastavitvah AntennaPod</string>
-  <string name="statistics_time_played">Predvajani čas:</string>
-  <string name="statistics_total_duration">Ocenjen čas predvajanja:</string>
-  <string name="statistics_episodes_on_device">Epizod na napravi:</string>
-  <string name="statistics_space_used">Porabljen prostor:</string>
-  <string name="statistics_episodes_started_total">Epizode začete/vse:</string>
-  <string name="statistics_view_all">Poglej za vse poddaje »</string>
+  <string name="statistics_episodes_started"></string>
+  <string name="statistics_episodes_total"></string>
+  <string name="statistics_episodes_played"></string>
+  <string name="statistics_episodes_downloaded"></string>
+  <string name="statistics_episodes_space"></string>
+  <string name="statistics_release_schedule"></string>
+  <string name="statistics_release_next"></string>
+  <string name="statistics_expected_next_episode_any_day"></string>
+  <string name="statistics_expected_next_episode_unknown"></string>
+  <string name="statistics_view_all"></string>
+  <string name="statistics_years_barchart_description"></string>
   <string name="edit_url_menu">Uredi URL vira</string>
+  <string name="edit_url_confirmation_msg"></string>
   <!--Podcast release schedules-->
+  <string name="release_schedule_daily"></string>
+  <string name="release_schedule_weekdays"></string>
+  <string name="release_schedule_weekly"></string>
+  <string name="release_schedule_biweekly"></string>
+  <string name="release_schedule_monthly"></string>
+  <string name="release_schedule_monday"></string>
+  <string name="release_schedule_tuesday"></string>
+  <string name="release_schedule_wednesday"></string>
+  <string name="release_schedule_thursday"></string>
+  <string name="release_schedule_friday"></string>
+  <string name="release_schedule_saturday"></string>
+  <string name="release_schedule_sunday"></string>
   <!--AntennaPodSP-->
   <string name="sp_apps_importing_feeds_msg">Uvažanje naročnin iz enonamenskih aplikacij …</string>
   <!--Add podcast fragment-->
@@ -654,11 +774,11 @@
   <string name="search_itunes_label">Iskanje na Apple Podcasts</string>
   <string name="search_podcastindex_label">Iskanje na Podcast Index</string>
   <string name="search_fyyd_label">Iskanje na fyyd</string>
-  <string name="advanced">Napredno</string>
+  <string name="add_podcast_by_url"></string>
   <string name="discover">Odkrij</string>
   <string name="discover_hide">Skrij</string>
   <string name="discover_is_hidden">Izbrali ste, da predloge skrijete.</string>
-  <string name="discover_more">več »</string>
+  <string name="discover_more"></string>
   <string name="discover_powered_by_itunes">Predlogi s strani Apple Podcasts</string>
   <string name="discover_confirm">Pokaži predloge</string>
   <string name="search_powered_by">Rezultati od %1$s</string>
@@ -685,8 +805,10 @@
   <string name="not_played">Ni predvajano</string>
   <string name="filename">Ime datoteke</string>
   <!--Share episode dialog-->
+  <string name="share_playback_position_dialog_label"></string>
   <string name="share_dialog_episode_website_label">Spletna stran epizode</string>
   <string name="share_dialog_for_social">Družbeno sporočilo</string>
+  <string name="share_dialog_media_address"></string>
   <string name="share_dialog_media_file_label">Predstavnostna datoteka</string>
   <string name="share_starting_position_label">Začni od</string>
   <!--Audio controls-->
@@ -707,6 +829,7 @@
   <string name="proxy_port_invalid_error">Vrata niso veljavna</string>
   <!--Subscriptions fragment-->
   <string name="subscription_num_columns">Število stolpcev</string>
+  <string name="subscription_display_list"></string>
   <!--Notification channels-->
   <string name="notification_group_errors">Napake</string>
   <string name="notification_group_news">Novice</string>

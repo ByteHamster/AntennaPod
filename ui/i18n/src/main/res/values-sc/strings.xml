@@ -51,17 +51,21 @@
   <string name="home_continue_title">Sighi a ascurtare</string>
   <string name="home_new_title">Càstia is novidades</string>
   <string name="home_downloads_title">Gesti is iscarrigamentos</string>
+  <string name="home_no_recent_unplayed_episodes_text"></string>
+  <string name="home_continue_empty_text"></string>
+  <string name="home_new_empty_text"></string>
+  <string name="home_downloads_empty_text"></string>
   <string name="home_welcome_title">Ti donamus su benebènnidu a AntennaPod!</string>
   <string name="home_welcome_text">Non tenes ancora sutiscritziones a nissunu podcast. Aberi su menù laterale pro nd\'agiùnghere unu.</string>
-  <string name="notification_permission_text">AntennaPod tenet bisòngiu de su permissu tuo pro t\'ammustrare notìficas. In manera predeterminada, AntennaPod ammustrat notìficas isceti cando est iscarrighende episòdios o cando calicuna cosa andat male.</string>
   <string name="notification_permission_denied">No as donadu permissu.</string>
-  <string name="notification_permission_deny_warning">Si disativas is notìficas e calicuna cosa andat male, no as a pòdere iscire pro ite.</string>
-  <string name="deny_label">Refuda</string>
-  <string name="open_settings">Aberi sa cunfiguratzione</string>
   <string name="configure_home">Cunfigura s\'ischermu printzipale</string>
   <string name="section_hidden">Cuadu</string>
+  <string name="section_shown"></string>
   <!--Download Statistics fragment-->
-  <string name="total_size_downloaded_podcasts">Mannària totale de is episòdios in su dispositivu</string>
+  <plurals name="total_size_downloaded_podcasts">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
   <!--Main activity-->
   <string name="drawer_open">Aberi su menù</string>
   <string name="drawer_close">Serra su menù</string>
@@ -128,6 +132,14 @@
   <string name="episode_cleanup_except_favorite_removal">Cando no est in is preferidos</string>
   <string name="episode_cleanup_queue_removal">Cando no est in sa lista</string>
   <string name="episode_cleanup_after_listening">Comente agabbat</string>
+  <plurals name="episode_cleanup_hours_after_listening">
+    <item quantity="one">%d ora a pustis de s\'agabbu</item>
+    <item quantity="other">%d oras a pustis de s\'agabbu</item>
+  </plurals>
+  <plurals name="episode_cleanup_days_after_listening">
+    <item quantity="one">%d die a pustis de s\'agabbu</item>
+    <item quantity="other">%d dies a pustis de s\'agabbu</item>
+  </plurals>
   <plurals name="num_selected_label">
     <item quantity="one">%1$d/%2$d seletzionados</item>
     <item quantity="other">%1$d/%2$d seletzionados</item>
@@ -160,9 +172,9 @@
   <string name="remove_feed_label">Boga su podcast</string>
   <string name="share_label">Cumpartzi</string>
   <string name="share_file_label">Cumpartzi s\'archìviu</string>
-  <string name="feed_delete_confirmation_msg">Cunfirma chi boles cantzellare su podcast \"%1$s\", TOTU is episòdios suos (fintzas cussos iscarrigados) e is istatìsticas suas.</string>
-  <string name="feed_delete_confirmation_msg_batch">Cunfirma chi boles cantzellare is podcasts seletzionados, TOTU is episòdios suos (fintzas cussos iscarrigados) e is istatìsticas issoro.</string>
-  <string name="feed_delete_confirmation_local_msg">Cunfirma chi boles cantzellare su podcast \"%1$s\" e is istatìsticas suas. Is archìvios in sa cartella locale no ant a èssere cantzellados.</string>
+  <string name="feed_delete_confirmation_msg"></string>
+  <string name="feed_delete_confirmation_msg_batch"></string>
+  <string name="feed_delete_confirmation_local_msg"></string>
   <string name="feed_remover_msg">Cantzellende su podcast</string>
   <string name="load_complete_feed">Atualiza su podcast intreu</string>
   <string name="multi_select">Multi-seletzione</string>
@@ -183,6 +195,8 @@
   <string name="rename_tag_label">Càmbia s\'eticheta</string>
   <string name="confirm_mobile_feed_refresh_dialog_message">S\'atualizatzione de podcasts cando s\'est impreende una connessione de datos est disativada in sa cunfiguratzione.\n\nBoles atualizare su pròpiu?</string>
   <string name="confirm_mobile_feed_refresh_dialog_message_vpn">S\'aplicatzione VPN tua narat de èssere una rete mòbile (connessione de pagamentu). S\'atualizatzione de podcast cando s\'est impreende una connessione de datos est disativada in sa cunfiguratzione.\n\nBoles atualizare su pròpiu? Si boles chi custu problema siat isòrvidu, cuntata is creadores de s\'aplicatzione VPN tua.</string>
+  <string name="delete_downloads_played"></string>
+  <string name="delete_downloads_played_confirmation"></string>
   <!--actions on feeditems-->
   <string name="download_label">Iscàrriga</string>
   <plurals name="downloading_batch_label">
@@ -193,7 +207,10 @@
   <string name="pause_label">Pone in pàusa</string>
   <string name="stream_label">Riprodui sena iscarrigare</string>
   <string name="delete_label">Cantzella</string>
-  <string name="delete_episode_label">Cantzella s\'episòdiu</string>
+  <plurals name="deleted_multi_episode_batch_label">
+    <item quantity="one">%d episòdiu iscarrigadu cantzelladu.</item>
+    <item quantity="other">%d episòdios iscarrigados cantzellados.</item>
+  </plurals>
   <string name="remove_inbox_label">Boga dae sa cartella de intrada</string>
   <string name="removed_inbox_label">Bogadu dae sa cartella de intrada</string>
   <string name="mark_read_label">Sinnala comente riproduidu</string>
@@ -277,7 +294,7 @@
   <string name="download_log_title_unknown">Tìtulu disconnotu</string>
   <string name="download_type_feed">Canale</string>
   <string name="download_type_media">Archìviu multimediale</string>
-  <string name="null_value_podcast_error">No est istadu frunidu nissunu podcast chi potzat èssere ammustradu.</string>
+  <string name="null_value_podcast_error"></string>
   <string name="no_feed_url_podcast_found_by_search">Su podcast sugeridu non tenet unu ligòngiu RSS, ma AntennaPod at agatadu unu podcast chi podet corrispòndere.</string>
   <string name="authentication_notification_title">Autenticatzione netzessària</string>
   <string name="confirm_mobile_download_dialog_title">Cunfirma s\'iscarrigamentu mòbile</string>
@@ -285,6 +302,7 @@
   <string name="confirm_mobile_download_dialog_message_vpn">S\'aplicatzione VPN tua narat de èssere una rete mòbile (connessione de pagamentu). S\'iscarrigamentu cun datos mòbiles est disativadu in sa cunfiguratzione. Si boles chi custu problema siat isòrvidu, cuntata is creadores de s\'aplicatzione VPN tua.</string>
   <string name="confirm_mobile_download_dialog_download_later">Iscàrriga luego</string>
   <string name="confirm_mobile_download_dialog_allow_this_time">Iscàrriga su pròpiu</string>
+  <string name="mobile_download_notice"></string>
   <string name="confirm_mobile_streaming_notification_title">Cunfirma sa riprodutzione sena iscarrigamentu</string>
   <string name="confirm_mobile_streaming_notification_message">Sa riprodutzione sena iscarrigamentu cun datos mòbiles est disativada in sa cunfiguratzione. Toca pro riproduire su pròpiu.</string>
   <string name="confirm_mobile_streaming_button_always">Semper</string>
@@ -412,16 +430,16 @@
   <string name="pref_black_theme_message">Imprea totu nieddu pro su tema iscuru</string>
   <string name="pref_tinted_theme_title">Colores dinàmicos</string>
   <string name="pref_tinted_theme_message">Adata is colores de s\'aplicatzione de acordu cun s\'isfundu</string>
-  <string name="pref_nav_drawer_items_title">Cunfigura is elementos de sa barra de navigatzione</string>
-  <string name="pref_nav_drawer_items_sum">Modìfica is elementos de sa barra de navigatzione</string>
+  <string name="bottom_navigation"></string>
+  <string name="bottom_navigation_summary"></string>
+  <string name="pref_nav_drawer_items_title"></string>
+  <string name="pref_nav_drawer_items_sum"></string>
   <string name="pref_nav_drawer_feed_order_title">Cunfigura s\'òrdine de sutiscritziones</string>
   <string name="pref_nav_drawer_feed_order_sum">Modìfica s\'òrdine de is sutiscritziones</string>
   <string name="pref_nav_drawer_feed_counter_title">Cunfigura su contadore de sutiscritziones</string>
   <string name="pref_nav_drawer_feed_counter_sum">Modìfica s\'informatzione ammustrada dae su contadore de sutiscritziones. Interessat puru s\'òrdine de is sutiscritziones si \"Òrdine de sutiscritziones\" est in \"Contadore\".</string>
   <string name="pref_automatic_download_title">Iscarrigamentu in automàticu</string>
   <string name="pref_automatic_download_sum">Cunfigura s\'iscarrigamentu automàticu de episòdios</string>
-  <string name="pref_autodl_wifi_filter_title">Ativa su filtru de Wi-Fi</string>
-  <string name="pref_autodl_wifi_filter_sum">Permite s\'iscarrigamentu automàticu isceti in retes Wi-Fi seletzionadas.</string>
   <string name="pref_automatic_download_on_battery_title">Iscàrriga cando su dispositivu non siat in càrriga</string>
   <string name="pref_automatic_download_on_battery_sum">Permite s\'iscarrigamentu automàticu cando sa bateria no est in càrriga</string>
   <string name="pref_episode_cache_title">Lìmite de episòdios</string>
@@ -521,7 +539,7 @@
   <string name="sync_status_episodes_download">Iscarrighende modìficas de s\'episòdiu...</string>
   <string name="sync_status_upload_played">Carrighende s\'istadu de riprodutzione...</string>
   <string name="sync_status_subscriptions">Sincronizende sutiscritziones...</string>
-  <string name="sync_status_wait_for_downloads">Abetende su cumpletamentu de is iscarrigamentos...</string>
+  <string name="sync_status_wait_for_downloads"></string>
   <string name="sync_status_success">Sincronizatzione cumpletada</string>
   <string name="sync_status_error">Errore in sa sincronizatzione</string>
   <!--import and export-->
@@ -569,6 +587,22 @@
   <string name="time_seconds">segundos</string>
   <string name="time_minutes">minutos</string>
   <string name="time_hours">oras</string>
+  <plurals name="time_seconds_quantified">
+    <item quantity="one">%d segundu</item>
+    <item quantity="other">%d segundos</item>
+  </plurals>
+  <plurals name="time_minutes_quantified">
+    <item quantity="one">%d minutu</item>
+    <item quantity="other">%d minutos</item>
+  </plurals>
+  <plurals name="time_hours_quantified">
+    <item quantity="one">%d ora</item>
+    <item quantity="other">%d oras</item>
+  </plurals>
+  <plurals name="time_days_quantified">
+    <item quantity="one">%d die</item>
+    <item quantity="other">%d dies</item>
+  </plurals>
   <string name="auto_enable_label">Ativatzione automàtica de su temporizadore</string>
   <string name="auto_enable_label_with_times">Ativa in automàticu su temporizadore cando si premet su butone de riprodutzione intre custas oras: %1$s - %2$s</string>
   <string name="auto_enable_change_times">Modìfica su perìodu temporale</string>
@@ -610,6 +644,7 @@
   <string name="gpodnetsync_pref_report_successful">Fatu</string>
   <string name="gpodnetsync_pref_report_failed">Faddidu</string>
   <string name="gpodnetsync_username_characters_error">Is nòmines de utente podent cuntènnere isceti lìteras, nùmeros, tratigheddos e linieddas bàscias.</string>
+  <string name="nextcloud_login_error_generic"></string>
   <!--Directory chooser-->
   <string name="choose_data_directory">Sèbera sa cartella de datos</string>
   <string name="choose_data_directory_message">Sèbera sa base de sa cartella de datos tua. AntennaPod at a creare is sutacartellas netzessàrias.</string>
@@ -666,15 +701,17 @@
   <string name="keep_updated">Mantene atualizadu</string>
   <string name="keep_updated_summary">Include custu podcast cando atualizende in automàticu totu is podcasts</string>
   <string name="auto_download_disabled_globally">S\'iscarrigamentu in automàticu est disativadu in sa cunfiguratzione printzipale de AntennaPod</string>
-  <string name="statistics_time_played">Tempus riproduidu:</string>
-  <string name="statistics_total_duration">Durada totale (aprossimativa):</string>
-  <string name="statistics_episodes_on_device">Episòdios in su dispositivu:</string>
-  <string name="statistics_space_used">Ispàtziu impreadu:</string>
-  <string name="statistics_episodes_started_total">Episòdios cumintzados/totale:</string>
-  <string name="statistics_expected_next_episode">Episòdiu imbeniente abetadu:</string>
+  <string name="statistics_episodes_started"></string>
+  <string name="statistics_episodes_total"></string>
+  <string name="statistics_episodes_played"></string>
+  <string name="statistics_episodes_downloaded"></string>
+  <string name="statistics_episodes_space"></string>
+  <string name="statistics_release_schedule"></string>
+  <string name="statistics_release_next"></string>
   <string name="statistics_expected_next_episode_any_day">Una de custas dies</string>
   <string name="statistics_expected_next_episode_unknown">Disconnotu</string>
-  <string name="statistics_view_all">Ammustra pro totu is podcasts »</string>
+  <string name="statistics_view_all"></string>
+  <string name="statistics_years_barchart_description"></string>
   <string name="edit_url_menu">Modìfica s\'indiritzu de su canale</string>
   <string name="edit_url_confirmation_msg">A cambiare s\'indiritzu RSS podet generare problemas in sa riprodutzione e in is listas de episòdios de su podcast. Cussigiamus de no ddu cambiare e no amus a frunire assistèntzia cun problemas de custu tipu. Custa atzione non podet èssere iscontzada. Sa sutiscritzione faddida no at a èssere recuperada cambiende torra s\'indiritzu. Cussigiamus de creare una còpia de seguresa prima de sighire.</string>
   <!--Podcast release schedules-->
@@ -697,12 +734,11 @@
   <string name="search_itunes_label">Chirca in Apple Podcasts</string>
   <string name="search_podcastindex_label">Chirca in Podcast Index</string>
   <string name="search_fyyd_label">Chirca in fyyd</string>
-  <string name="advanced">Avantzadas</string>
   <string name="add_podcast_by_url">Agiunghe podcasts dae s\'indiritzu RSS</string>
   <string name="discover">Iscoberi</string>
   <string name="discover_hide">Cua</string>
   <string name="discover_is_hidden">As seberadu de cuare is cussìgios</string>
-  <string name="discover_more">àteru »</string>
+  <string name="discover_more"></string>
   <string name="discover_powered_by_itunes">Cussìgios dae Apple Podcasts</string>
   <string name="discover_confirm">Ammustra cussìgios</string>
   <string name="search_powered_by">Resurtados dae %1$s</string>

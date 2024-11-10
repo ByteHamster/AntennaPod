@@ -51,17 +51,20 @@
   <string name="home_continue_title">继续收听</string>
   <string name="home_new_title">最近更新</string>
   <string name="home_downloads_title">管理下载</string>
+  <string name="home_no_recent_unplayed_episodes_text"></string>
+  <string name="home_continue_empty_text"></string>
+  <string name="home_new_empty_text"></string>
+  <string name="home_downloads_empty_text"></string>
   <string name="home_welcome_title">欢迎来到 AntennaPod！</string>
   <string name="home_welcome_text">你尚未订阅任何播客。 打开侧栏菜单添加一个。</string>
-  <string name="notification_permission_text">AntennaPod 需要你的许可方能显示通知。默认情况下，AntennaPod 只显示和进行中的下载或错误相关的通知</string>
   <string name="notification_permission_denied">你拒绝授予该权限</string>
-  <string name="notification_permission_deny_warning">如果你禁用了通知，且出现了错误，你可能无法找出出错的原因</string>
-  <string name="deny_label">拒绝</string>
-  <string name="open_settings">打开设置</string>
   <string name="configure_home">配置主屏幕</string>
   <string name="section_hidden">隐藏的</string>
+  <string name="section_shown"></string>
   <!--Download Statistics fragment-->
-  <string name="total_size_downloaded_podcasts">设备上音频节目的总大小</string>
+  <plurals name="total_size_downloaded_podcasts">
+    <item quantity="other"></item>
+  </plurals>
   <!--Main activity-->
   <string name="drawer_open">打开菜单</string>
   <string name="drawer_close">关闭菜单</string>
@@ -162,9 +165,9 @@
   <string name="remove_feed_label">移除播客</string>
   <string name="share_label">分享</string>
   <string name="share_file_label">分享文件</string>
-  <string name="feed_delete_confirmation_msg">请确认你想删除播客“%1$s”，该播客的所有节目（包括已下载的节目）及其统计数字。</string>
-  <string name="feed_delete_confirmation_msg_batch">请确认你想删除选中的播客，这些播客的所有节目（包括已下载的节目）及它们的统计数字</string>
-  <string name="feed_delete_confirmation_local_msg">请确认你想删除播客“%1$s”及其统计数字。本地源文件夹内的文件不会被删除。</string>
+  <string name="feed_delete_confirmation_msg"></string>
+  <string name="feed_delete_confirmation_msg_batch"></string>
+  <string name="feed_delete_confirmation_local_msg"></string>
   <string name="feed_remover_msg">正在移除播客</string>
   <string name="load_complete_feed">刷新所有播客</string>
   <string name="multi_select">多选</string>
@@ -184,6 +187,8 @@
   <string name="rename_tag_label">重命名标签</string>
   <string name="confirm_mobile_feed_refresh_dialog_message">通过移动数据连接刷新播客在设置中被禁用。\n\n你一定要刷新播客吗？</string>
   <string name="confirm_mobile_feed_refresh_dialog_message_vpn">您的 VPN 应用自称是移动网络 (按流量计费连接)。在设置中禁用了通过移动数据连接刷新播客。\n\n你仍要刷新吗？如果你想修复此问题，请联系 VPN 应用的创建者。</string>
+  <string name="delete_downloads_played"></string>
+  <string name="delete_downloads_played_confirmation"></string>
   <!--actions on feeditems-->
   <string name="download_label">下载</string>
   <plurals name="downloading_batch_label">
@@ -193,7 +198,6 @@
   <string name="pause_label">暂停</string>
   <string name="stream_label">流媒体</string>
   <string name="delete_label">删除</string>
-  <string name="delete_episode_label">删除节目</string>
   <plurals name="deleted_multi_episode_batch_label">
     <item quantity="other">删除了 %d 期已下载的节目。</item>
   </plurals>
@@ -274,7 +278,7 @@
   <string name="download_log_title_unknown">未知标题</string>
   <string name="download_type_feed">订阅</string>
   <string name="download_type_media">媒体文件</string>
-  <string name="null_value_podcast_error">没有可供显示的播客。</string>
+  <string name="null_value_podcast_error"></string>
   <string name="no_feed_url_podcast_found_by_search">推荐的播客没有 RSS 链接，AntennaPod 找到了一个可以匹配的播客</string>
   <string name="authentication_notification_title">需要认证</string>
   <string name="confirm_mobile_download_dialog_title">确认使用移动数据下载</string>
@@ -282,6 +286,7 @@
   <string name="confirm_mobile_download_dialog_message_vpn">您的 VPN 应用自称是移动网络 (按流量计费连接)。在设置中禁用了通过移动数据连接下载。如果你想修复此问题，请联系 VPN 应用的创建者。</string>
   <string name="confirm_mobile_download_dialog_download_later">稍后下载</string>
   <string name="confirm_mobile_download_dialog_allow_this_time">仍要下载</string>
+  <string name="mobile_download_notice"></string>
   <string name="confirm_mobile_streaming_notification_title">确认使用移动数据进行在线播放</string>
   <string name="confirm_mobile_streaming_notification_message">通过移动连接播放在设置中未启用。点击以确认您无论如何都要用移动数据来播放</string>
   <string name="confirm_mobile_streaming_button_always">始终</string>
@@ -409,16 +414,16 @@
   <string name="pref_black_theme_message">深色主题使用全黑色</string>
   <string name="pref_tinted_theme_title">动态颜色</string>
   <string name="pref_tinted_theme_message">基于背景图对应用进行着色</string>
-  <string name="pref_nav_drawer_items_title">设置导航抽屉项</string>
-  <string name="pref_nav_drawer_items_sum">更改显示在导航抽屉中的项目</string>
+  <string name="bottom_navigation"></string>
+  <string name="bottom_navigation_summary"></string>
+  <string name="pref_nav_drawer_items_title"></string>
+  <string name="pref_nav_drawer_items_sum"></string>
   <string name="pref_nav_drawer_feed_order_title">设置订阅顺序</string>
   <string name="pref_nav_drawer_feed_order_sum">改变你的订阅的排序方式</string>
   <string name="pref_nav_drawer_feed_counter_title">设置订阅计数</string>
   <string name="pref_nav_drawer_feed_counter_sum">更改订阅计数器显示的信息。 如果“订阅的排序顺序”设置为“按数量排序”，这也会影响订阅的排序。</string>
   <string name="pref_automatic_download_title">自动下载</string>
   <string name="pref_automatic_download_sum">配置节目的自动下载</string>
-  <string name="pref_autodl_wifi_filter_title">打开 Wi-Fi 过滤器</string>
-  <string name="pref_autodl_wifi_filter_sum">只允许在 Wi-Fi 网络下自动下载</string>
   <string name="pref_automatic_download_on_battery_title">未充电时下载</string>
   <string name="pref_automatic_download_on_battery_sum">未充电时允许自动下载</string>
   <string name="pref_episode_cache_title">节目限制</string>
@@ -518,7 +523,7 @@
   <string name="sync_status_episodes_download">正下载节目更改...</string>
   <string name="sync_status_upload_played">上传播放状态中...</string>
   <string name="sync_status_subscriptions">同步订阅中...</string>
-  <string name="sync_status_wait_for_downloads">等待下载完成…</string>
+  <string name="sync_status_wait_for_downloads"></string>
   <string name="sync_status_success">成功同步</string>
   <string name="sync_status_error">同步失败</string>
   <!--import and export-->
@@ -619,6 +624,7 @@
   <string name="gpodnetsync_pref_report_successful">成功了</string>
   <string name="gpodnetsync_pref_report_failed">失败了</string>
   <string name="gpodnetsync_username_characters_error">用户名只能包含字母、数字、连字符和下划线</string>
+  <string name="nextcloud_login_error_generic"></string>
   <!--Directory chooser-->
   <string name="choose_data_directory">选择数据文件夹</string>
   <string name="choose_data_directory_message">请选择用于 AntennaPod 的数据根目录， AntennaPod 将会创建合适的子目录。</string>
@@ -675,15 +681,17 @@
   <string name="keep_updated">保持更新</string>
   <string name="keep_updated_summary">（自动）刷新所有播客时包括此播客 </string>
   <string name="auto_download_disabled_globally">AntennaPod主设置中已禁用自动下载</string>
-  <string name="statistics_time_played">已播放时长：</string>
-  <string name="statistics_total_duration">总持续时间（预估）：</string>
-  <string name="statistics_episodes_on_device">设备上的节目:</string>
-  <string name="statistics_space_used">占用的空间: </string>
-  <string name="statistics_episodes_started_total">已启动节目/总数：</string>
-  <string name="statistics_expected_next_episode">预计的下集节目：</string>
+  <string name="statistics_episodes_started"></string>
+  <string name="statistics_episodes_total"></string>
+  <string name="statistics_episodes_played"></string>
+  <string name="statistics_episodes_downloaded"></string>
+  <string name="statistics_episodes_space"></string>
+  <string name="statistics_release_schedule"></string>
+  <string name="statistics_release_next"></string>
   <string name="statistics_expected_next_episode_any_day">不久之后</string>
   <string name="statistics_expected_next_episode_unknown">未知</string>
-  <string name="statistics_view_all">所有播客视图 »</string>
+  <string name="statistics_view_all"></string>
+  <string name="statistics_years_barchart_description"></string>
   <string name="edit_url_menu">编辑订阅源 URL</string>
   <string name="edit_url_confirmation_msg">更改 RSS 地址很容易破坏播客的播放状态和节目列表。我们不建议更改它，如果出现任何错误我们不会提供支持。这是无法挽回的。只是将地址更改回来无法修复损坏的订阅。我们建议在继续之前创建备份。</string>
   <!--Podcast release schedules-->
@@ -706,12 +714,11 @@
   <string name="search_itunes_label">搜索 Apple Podcasts</string>
   <string name="search_podcastindex_label">搜索播客索引</string>
   <string name="search_fyyd_label">搜索 fyyd</string>
-  <string name="advanced">高级</string>
   <string name="add_podcast_by_url">通过 RSS 地址添加播客</string>
   <string name="discover">发现</string>
   <string name="discover_hide">隐藏</string>
   <string name="discover_is_hidden">您选择了隐藏建议</string>
-  <string name="discover_more">更多</string>
+  <string name="discover_more"></string>
   <string name="discover_powered_by_itunes">Apple Podcasts 提供的建议</string>
   <string name="discover_confirm">显示建议</string>
   <string name="search_powered_by">按 %1$s 显示结果</string>

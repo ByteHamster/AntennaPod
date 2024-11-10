@@ -51,17 +51,23 @@
   <string name="home_continue_title">Продовжити прослуховування</string>
   <string name="home_new_title">Переглянути, що нового</string>
   <string name="home_downloads_title">Керування завантаженнями</string>
+  <string name="home_no_recent_unplayed_episodes_text"></string>
+  <string name="home_continue_empty_text"></string>
+  <string name="home_new_empty_text"></string>
+  <string name="home_downloads_empty_text"></string>
   <string name="home_welcome_title">Вітаємо у AntennaPod!</string>
   <string name="home_welcome_text">Ви ще не підписані на жодний подкаст. Відкрийте бічне меню, щоб додати подкаст.</string>
-  <string name="notification_permission_text">AntennaPod потрібен ваш дозвіл, щоб показувати сповіщення. За замовчуванням AntennaPod показує сповіщення лише під час завантаження або коли щось йде не так.</string>
   <string name="notification_permission_denied">Ви відмовили у дозволі.</string>
-  <string name="notification_permission_deny_warning">Якщо ви вимкнете сповіщення і щось піде не так, то, можливо, ви не зможете з\'ясувати, чому це сталося.</string>
-  <string name="deny_label">Блокувати</string>
-  <string name="open_settings">Відкрити налаштування</string>
   <string name="configure_home">Налаштувати домашній екран</string>
   <string name="section_hidden">Приховано</string>
+  <string name="section_shown"></string>
   <!--Download Statistics fragment-->
-  <string name="total_size_downloaded_podcasts">Загальний розмір епізодів на цьому пристрої</string>
+  <plurals name="total_size_downloaded_podcasts">
+    <item quantity="one"></item>
+    <item quantity="few"></item>
+    <item quantity="many"></item>
+    <item quantity="other"></item>
+  </plurals>
   <!--Main activity-->
   <string name="drawer_open">Показати меню</string>
   <string name="drawer_close">Сховати меню</string>
@@ -128,6 +134,18 @@
   <string name="episode_cleanup_except_favorite_removal">Коли не вибрано</string>
   <string name="episode_cleanup_queue_removal">Якщо не в черзі</string>
   <string name="episode_cleanup_after_listening">Після закінчення</string>
+  <plurals name="episode_cleanup_hours_after_listening">
+    <item quantity="one">%d година після завершення</item>
+    <item quantity="few">%d годин після завершення</item>
+    <item quantity="many">%d годин після завершення</item>
+    <item quantity="other">%d годин після завершення</item>
+  </plurals>
+  <plurals name="episode_cleanup_days_after_listening">
+    <item quantity="one">%d день після завершення</item>
+    <item quantity="few">%d днів після завершення</item>
+    <item quantity="many">%d днів після завершення</item>
+    <item quantity="other">%d днів після завершення</item>
+  </plurals>
   <plurals name="num_selected_label">
     <item quantity="one">%1$d/%2$d вибрано</item>
     <item quantity="few">%1$d/%2$d вибрано</item>
@@ -168,9 +186,9 @@
   <string name="remove_feed_label">Видалити подкаст</string>
   <string name="share_label">Поділитися</string>
   <string name="share_file_label">Поділитися файлом</string>
-  <string name="feed_delete_confirmation_msg">Будь ласка, підтвердьте, що ви хочете видалити подкаст \"%1$s\", а також УСІ його епізоди (разом із завантаженими) і статистику.</string>
-  <string name="feed_delete_confirmation_msg_batch">Будь ласка, підтвердьте, що ви хочете видалити вибрані подкасти, а також УСІ їхні епізоди (разом із завантаженими) і статистику.</string>
-  <string name="feed_delete_confirmation_local_msg">Будь ласка, підтвердьте, що ви хочете видалити подкаст \"%1$s\" і його статистику. Файли в теці локального джерела не будуть видалені.</string>
+  <string name="feed_delete_confirmation_msg"></string>
+  <string name="feed_delete_confirmation_msg_batch"></string>
+  <string name="feed_delete_confirmation_local_msg"></string>
   <string name="feed_remover_msg">Видаляємо подкаст</string>
   <string name="load_complete_feed">Оновити весь подкаст</string>
   <string name="multi_select">Мультивибір</string>
@@ -193,6 +211,8 @@
   <string name="rename_tag_label">Перейменувати тег</string>
   <string name="confirm_mobile_feed_refresh_dialog_message">Оновлення подкастів через мобільний зв\'язок вимкнено в налаштуваннях.\n\nВи все одно хочете оновити?</string>
   <string name="confirm_mobile_feed_refresh_dialog_message_vpn">Ваш VPN-додаток видає себе за мобільну мережу (зʼєднання з лічильником). Оновлення подкастів через мобільне з\'єднання вимкнено в налаштуваннях.\n\nВи все одно хочете оновити? Якщо ви хочете, щоб цю проблему було виправлено, зверніться до розробників вашого VPN-додатку.</string>
+  <string name="delete_downloads_played"></string>
+  <string name="delete_downloads_played_confirmation"></string>
   <!--actions on feeditems-->
   <string name="download_label">Завантажити</string>
   <plurals name="downloading_batch_label">
@@ -205,7 +225,12 @@
   <string name="pause_label">Пауза</string>
   <string name="stream_label">Прослухати без завантаження</string>
   <string name="delete_label">Видалити</string>
-  <string name="delete_episode_label">Видалити епізод</string>
+  <plurals name="deleted_multi_episode_batch_label">
+    <item quantity="one">%d завантажений епізод видалено.</item>
+    <item quantity="few">%d завантажених епізодів видалено.</item>
+    <item quantity="many">%d завантажених епізодів видалено.</item>
+    <item quantity="other">%d завантажених епізодів видалено.</item>
+  </plurals>
   <string name="remove_inbox_label">Вилучити з вхідних</string>
   <string name="removed_inbox_label">Вилучено з вхідних</string>
   <string name="mark_read_label">Позначити як відтворений</string>
@@ -301,7 +326,7 @@
   <string name="download_log_title_unknown">Невідома назва</string>
   <string name="download_type_feed">Канал</string>
   <string name="download_type_media">Файл з медіа</string>
-  <string name="null_value_podcast_error">Не надано подкаст для перегляду.</string>
+  <string name="null_value_podcast_error"></string>
   <string name="no_feed_url_podcast_found_by_search">Запропонований подкаст не мав посилання на RSS-стрічку, але AntennaPod вдалося знайти схожий</string>
   <string name="authentication_notification_title">Потрібна автентифікація</string>
   <string name="confirm_mobile_download_dialog_title">Підтвердження завантаження через мобільну мережу</string>
@@ -309,6 +334,7 @@
   <string name="confirm_mobile_download_dialog_message_vpn">Ваш VPN-додаток прикидається мобільною мережею (з\'єднання з лічильником). Завантаження через мобільне з\'єднання вимкнено в налаштуваннях. Якщо ви хочете, щоб цю проблему було виправлено, зверніться до розробників вашого VPN-додатку.</string>
   <string name="confirm_mobile_download_dialog_download_later">Завантажити пізніше</string>
   <string name="confirm_mobile_download_dialog_allow_this_time">Все одно завантажити</string>
+  <string name="mobile_download_notice"></string>
   <string name="confirm_mobile_streaming_notification_title">Підтвердьте трансляцію через мобільний зв\'язок</string>
   <string name="confirm_mobile_streaming_notification_message">Потокове передавання даних через мобільне з\'єднання вимкнено в налаштуваннях. Торкніться, щоб все одно передавати.</string>
   <string name="confirm_mobile_streaming_button_always">Завжди</string>
@@ -436,16 +462,16 @@
   <string name="pref_black_theme_message">Використовуйте повний чорний для темної теми</string>
   <string name="pref_tinted_theme_title">Динамічні кольори</string>
   <string name="pref_tinted_theme_message">Адаптація кольорів програми на основі шпалер</string>
-  <string name="pref_nav_drawer_items_title">Налаштування елементів панелі навігації</string>
-  <string name="pref_nav_drawer_items_sum">Оберіть елементи, які відображатимуться в навігаційній панелі</string>
+  <string name="bottom_navigation"></string>
+  <string name="bottom_navigation_summary"></string>
+  <string name="pref_nav_drawer_items_title"></string>
+  <string name="pref_nav_drawer_items_sum"></string>
   <string name="pref_nav_drawer_feed_order_title">Встановити порядок підписок</string>
   <string name="pref_nav_drawer_feed_order_sum">Змінити порядок ваших підписок</string>
   <string name="pref_nav_drawer_feed_counter_title">Налаштувати лічильник підписок</string>
   <string name="pref_nav_drawer_feed_counter_sum">Змініть інформацію, що відображається лічильником підписки. Це впливає на сортування підписок, якщо в параметрі \"Порядок підписок\" вибрано \"Лічильник\".</string>
   <string name="pref_automatic_download_title">Автозавантаження</string>
   <string name="pref_automatic_download_sum">Налаштуйте автозавантаження епізодів</string>
-  <string name="pref_autodl_wifi_filter_title">Увімкнути фільтр Wi-Fi</string>
-  <string name="pref_autodl_wifi_filter_sum">Дозволити автозавантаження тільки в цих Wi-Fi мережах</string>
   <string name="pref_automatic_download_on_battery_title">Завантаження без зарядного пристрою</string>
   <string name="pref_automatic_download_on_battery_sum">Дозволити автозавантаження коли зарядний пристрій не підключений</string>
   <string name="pref_episode_cache_title">Ліміт епізодів</string>
@@ -545,7 +571,7 @@
   <string name="sync_status_episodes_download">Завантаження змін епізоду…</string>
   <string name="sync_status_upload_played">Вивантаження статусу відтворення…</string>
   <string name="sync_status_subscriptions">Синхронізація підписок…</string>
-  <string name="sync_status_wait_for_downloads">Очікування завершення завантажень…</string>
+  <string name="sync_status_wait_for_downloads"></string>
   <string name="sync_status_success">Синхронізацію виконано</string>
   <string name="sync_status_error">Помилка синхронізації</string>
   <!--import and export-->
@@ -593,6 +619,30 @@
   <string name="time_seconds">секунд</string>
   <string name="time_minutes">хвилин</string>
   <string name="time_hours">годин</string>
+  <plurals name="time_seconds_quantified">
+    <item quantity="one">%d секунда</item>
+    <item quantity="few">%d секунд</item>
+    <item quantity="many">%d секунд</item>
+    <item quantity="other">%d секунд</item>
+  </plurals>
+  <plurals name="time_minutes_quantified">
+    <item quantity="one">%d хвилина</item>
+    <item quantity="few">%d хвилин</item>
+    <item quantity="many">%d хвилин</item>
+    <item quantity="other">%d хвилин</item>
+  </plurals>
+  <plurals name="time_hours_quantified">
+    <item quantity="one">%d година</item>
+    <item quantity="few">%d годин</item>
+    <item quantity="many">%d годин</item>
+    <item quantity="other">%d годин</item>
+  </plurals>
+  <plurals name="time_days_quantified">
+    <item quantity="one">%d день</item>
+    <item quantity="few">%d днів</item>
+    <item quantity="many">%d днів</item>
+    <item quantity="other">%d днів</item>
+  </plurals>
   <string name="auto_enable_label">Автоматично активувати таймер сну при натисканні кнопки відтворення</string>
   <string name="auto_enable_label_with_times">Автоматично активувати таймер сну при натисканні на кнопку відтворення в проміжок часу між %1$s та %2$s</string>
   <string name="auto_enable_change_times">Змінити проміжок часу</string>
@@ -634,6 +684,7 @@
   <string name="gpodnetsync_pref_report_successful">Успішно</string>
   <string name="gpodnetsync_pref_report_failed">Невдало</string>
   <string name="gpodnetsync_username_characters_error">Імена користувачів можуть містити лише літери, цифри, дефіси та підкреслення.</string>
+  <string name="nextcloud_login_error_generic"></string>
   <!--Directory chooser-->
   <string name="choose_data_directory">Оберіть теку для даних</string>
   <string name="choose_data_directory_message">Будь ласка, виберіть основну теку для файлів AntennaPod, ми створимо всі відповідні підкаталоги.</string>
@@ -690,15 +741,17 @@
   <string name="keep_updated">Слідкувати за оновленнями</string>
   <string name="keep_updated_summary">Включати цей подкаст під час (автоматичного) оновлення всіх подкастів</string>
   <string name="auto_download_disabled_globally">Автозавантаження вимкнено в налаштуваннях AntennaPod</string>
-  <string name="statistics_time_played">Час відтворення:</string>
-  <string name="statistics_total_duration">Загальна тривалість (орієнтовно):</string>
-  <string name="statistics_episodes_on_device">Епізоди на пристрої:</string>
-  <string name="statistics_space_used">Використано простору:</string>
-  <string name="statistics_episodes_started_total">Розпочато епізодів/всього:</string>
-  <string name="statistics_expected_next_episode">Наступний епізод очікується:</string>
+  <string name="statistics_episodes_started"></string>
+  <string name="statistics_episodes_total"></string>
+  <string name="statistics_episodes_played"></string>
+  <string name="statistics_episodes_downloaded"></string>
+  <string name="statistics_episodes_space"></string>
+  <string name="statistics_release_schedule"></string>
+  <string name="statistics_release_next"></string>
   <string name="statistics_expected_next_episode_any_day">З дня на день</string>
   <string name="statistics_expected_next_episode_unknown">Невідомо</string>
-  <string name="statistics_view_all">Переглянути всі подкасти »</string>
+  <string name="statistics_view_all"></string>
+  <string name="statistics_years_barchart_description"></string>
   <string name="edit_url_menu">Редагувати URL-адресу каналу</string>
   <string name="edit_url_confirmation_msg">Зміна RSS-адреси може легко статус, історію відтворення та списки епізодів подкасту. Ми НЕ рекомендуємо змінювати її і НЕ надаватимемо підтримку, якщо щось піде не так. Це не можна скасувати. Порушену підписку НЕ МОЖНА відновити простою зміною адреси. Ми рекомендуємо створити резервну копію, перш ніж продовжувати.</string>
   <!--Podcast release schedules-->
@@ -721,12 +774,11 @@
   <string name="search_itunes_label">Шукати на Apple Podcasts</string>
   <string name="search_podcastindex_label">Шукати на Podcast Index</string>
   <string name="search_fyyd_label">Шукати на Fyyd</string>
-  <string name="advanced">Розширені можливості</string>
   <string name="add_podcast_by_url">Додати подкаст за RSS-адресою</string>
   <string name="discover">Знайдіть канали</string>
   <string name="discover_hide">Сховати</string>
   <string name="discover_is_hidden">Ви вибрали, щоб приховати пропозиції.</string>
-  <string name="discover_more">більше »</string>
+  <string name="discover_more"></string>
   <string name="discover_powered_by_itunes">Рекомендації Apple Podcasts</string>
   <string name="discover_confirm">Показати рекомендації</string>
   <string name="search_powered_by">Результати за %1$s</string>

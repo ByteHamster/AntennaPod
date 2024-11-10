@@ -42,6 +42,7 @@ trans.uk_UA  = ui/i18n/src/main/res/values-uk/strings.xml
 trans.zh_CN  = ui/i18n/src/main/res/values-zh-rCN/strings.xml
 trans.zh_HK  = ui/i18n/src/main/res/values-zh-rHK/strings.xml
 trans.zh_TW  = ui/i18n/src/main/res/values-zh-rTW/strings.xml
+trans.br  = ui/i18n/src/main/res/values-br/strings.xml
 
 [o:antennapod:p:antennapod:r:description]
 file_filter = app/src/main/play/listings/<lang>/full-description.txt

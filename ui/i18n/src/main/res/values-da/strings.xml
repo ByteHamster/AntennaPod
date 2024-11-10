@@ -51,17 +51,21 @@
   <string name="home_continue_title">Fortsæt med at lytte</string>
   <string name="home_new_title">Se nyheder</string>
   <string name="home_downloads_title">Administrer overførsler</string>
+  <string name="home_no_recent_unplayed_episodes_text"></string>
+  <string name="home_continue_empty_text"></string>
+  <string name="home_new_empty_text"></string>
+  <string name="home_downloads_empty_text"></string>
   <string name="home_welcome_title">Velkommen til AntennaPod!</string>
   <string name="home_welcome_text">Du abonnerer endnu ikke på nogen podcasts. Åbn sidemenuen for at tilføje en podcast.</string>
-  <string name="notification_permission_text">AntennaPod har brug for din tilladelse til at vise notifikationer. Som udgangspunkt viser AntennaPod kun notifikationer, mens noget hentes, eller når noget går galt.</string>
   <string name="notification_permission_denied">Du afviste tilladelsen.</string>
-  <string name="notification_permission_deny_warning">Hvis du deaktiverer notifikationer, og noget går galt, kan du måske ikke finde ud af, hvorfor det gik galt.</string>
-  <string name="deny_label">Afvis</string>
-  <string name="open_settings">Åbn indstillinger</string>
-  <string name="configure_home">Konfigurer hjemmeskærm</string>
+  <string name="configure_home">Konfigurer Hjem-skærm</string>
   <string name="section_hidden">Skjult</string>
+  <string name="section_shown"></string>
   <!--Download Statistics fragment-->
-  <string name="total_size_downloaded_podcasts">Samlet størrelse af afsnit på enheden</string>
+  <plurals name="total_size_downloaded_podcasts">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
   <!--Main activity-->
   <string name="drawer_open">Åbn menu</string>
   <string name="drawer_close">Luk menu</string>
@@ -168,9 +172,9 @@
   <string name="remove_feed_label">Fjern podcast</string>
   <string name="share_label">Del</string>
   <string name="share_file_label">Del fil</string>
-  <string name="feed_delete_confirmation_msg">Bekræft, at du vil slette podcasten \"%1$s\", ALLE dens afsnit (inklusive overførte afsnit) og dens statistikker.</string>
-  <string name="feed_delete_confirmation_msg_batch">Bekræft, at du vil fjerne de valgte podcasts, ALLE deres afsnit (inklusive overførte afsnit) og deres statistikker.</string>
-  <string name="feed_delete_confirmation_local_msg">Bekræft, at du vil fjerne podcasten \"%1$s\" og dens statistikker. Filerne i den lokale kildemappe vil ikke blive slettet.</string>
+  <string name="feed_delete_confirmation_msg"></string>
+  <string name="feed_delete_confirmation_msg_batch"></string>
+  <string name="feed_delete_confirmation_local_msg"></string>
   <string name="feed_remover_msg">Fjerner podcast</string>
   <string name="load_complete_feed">Opdater hele podcasten</string>
   <string name="multi_select">Vælg flere</string>
@@ -191,6 +195,8 @@
   <string name="rename_tag_label">Omdøb etiket</string>
   <string name="confirm_mobile_feed_refresh_dialog_message">Opdatering af podcasts via mobildataforbindelse er deaktiveret i indstillingerne.\n\nØnsker du alligevel at opdatere?</string>
   <string name="confirm_mobile_feed_refresh_dialog_message_vpn">Din VPN-app udgiver sig for at være et mobilnetværk (forbrugsafregnet forbindelse). Opdatering af podcasts via mobildataforbindelse er deaktiveret i indstillingerne.\n\nVil du opdatere alligevel? Hvis du vil have løst dette problem, skal du kontakte udviklerne af din VPN-app.</string>
+  <string name="delete_downloads_played"></string>
+  <string name="delete_downloads_played_confirmation"></string>
   <!--actions on feeditems-->
   <string name="download_label">Hent</string>
   <plurals name="downloading_batch_label">
@@ -201,7 +207,6 @@
   <string name="pause_label">Sæt på pause</string>
   <string name="stream_label">Stream</string>
   <string name="delete_label">Slet</string>
-  <string name="delete_episode_label">Slet afsnit</string>
   <plurals name="deleted_multi_episode_batch_label">
     <item quantity="one">%d overført afsnit slettet.</item>
     <item quantity="other">%d overførte afsnit slettet.</item>
@@ -289,7 +294,7 @@
   <string name="download_log_title_unknown">Ukendt titel</string>
   <string name="download_type_feed">Feed</string>
   <string name="download_type_media">Mediefil</string>
-  <string name="null_value_podcast_error">Kan ikke vises. Ingen podcast angivet.</string>
+  <string name="null_value_podcast_error"></string>
   <string name="no_feed_url_podcast_found_by_search">Den foreslåede podcast havde ikke et RSS-link, AntennaPod fandt en podcast, der måske matcher</string>
   <string name="authentication_notification_title">Godkendelse kræves</string>
   <string name="confirm_mobile_download_dialog_title">Bekræft mobiloverførsel </string>
@@ -297,6 +302,7 @@
   <string name="confirm_mobile_download_dialog_message_vpn">Din VPN-app udgiver sig for at være et mobilnetværk (forbrugsafregnet forbindelse). Overførsel af podcasts via mobildataforbindelse er deaktiveret i indstillingerne.\n\nVil du overføre alligevel? Hvis du vil have løst dette problem, skal du kontakte udviklerne af din VPN-app.</string>
   <string name="confirm_mobile_download_dialog_download_later">Hent senere</string>
   <string name="confirm_mobile_download_dialog_allow_this_time">Hent alligevel</string>
+  <string name="mobile_download_notice"></string>
   <string name="confirm_mobile_streaming_notification_title">Bekræft mobilstreaming</string>
   <string name="confirm_mobile_streaming_notification_message">Streaming via mobildata er slået fra i indstillingerne. Tryk for at streame alligevel.</string>
   <string name="confirm_mobile_streaming_button_always">Altid</string>
@@ -424,16 +430,16 @@
   <string name="pref_black_theme_message">Brug helt sort til det mørke tema</string>
   <string name="pref_tinted_theme_title">Dynamiske farver</string>
   <string name="pref_tinted_theme_message">Tilpas appens farver i forhold til baggrunden</string>
-  <string name="pref_nav_drawer_items_title">Indstil navigationspanelets elementer</string>
-  <string name="pref_nav_drawer_items_sum">Ændr, hvilke elementer der vises i navigationspanelet</string>
+  <string name="bottom_navigation"></string>
+  <string name="bottom_navigation_summary"></string>
+  <string name="pref_nav_drawer_items_title"></string>
+  <string name="pref_nav_drawer_items_sum"></string>
   <string name="pref_nav_drawer_feed_order_title">Indstil abonnementsrækkefølge</string>
   <string name="pref_nav_drawer_feed_order_sum">Ændr rækkefølgen af dine abonnementer</string>
   <string name="pref_nav_drawer_feed_counter_title">Indstil abonnementstæller</string>
   <string name="pref_nav_drawer_feed_counter_sum">Ændr informationen vist af abonnementstælleren. Påvirker også rækkefølgen af abonnementer, hvis abonnementsrækkefølgen er sat til \'Tæller\'.</string>
   <string name="pref_automatic_download_title">Automatisk overførsel</string>
   <string name="pref_automatic_download_sum">Konfigurér automatisk overførsel af afsnit</string>
-  <string name="pref_autodl_wifi_filter_title">Slå wi-fi-filter til</string>
-  <string name="pref_autodl_wifi_filter_sum">Tillad automatisk overførsel kun på de valgte wi-fi-netværk</string>
   <string name="pref_automatic_download_on_battery_title">Tillad overførsel ved batteridrift</string>
   <string name="pref_automatic_download_on_battery_sum">Tillad automatisk overførsel, når batteriet ikke oplades</string>
   <string name="pref_episode_cache_title">Afsnitsgrænse</string>
@@ -533,7 +539,7 @@
   <string name="sync_status_episodes_download">Henter afsnitændringer...</string>
   <string name="sync_status_upload_played">Overfører afspillet status...</string>
   <string name="sync_status_subscriptions">Synkroniserer abonnementer...</string>
-  <string name="sync_status_wait_for_downloads">Venter på, at overførsler er færdige...</string>
+  <string name="sync_status_wait_for_downloads"></string>
   <string name="sync_status_success">Synkroniseret</string>
   <string name="sync_status_error">Synkronisering mislykkedes</string>
   <!--import and export-->
@@ -638,6 +644,7 @@
   <string name="gpodnetsync_pref_report_successful">Lykkedes</string>
   <string name="gpodnetsync_pref_report_failed">Fejlede</string>
   <string name="gpodnetsync_username_characters_error">Brugernavne kan kun indeholde bogstaver, tal, bindestreger og understreger.</string>
+  <string name="nextcloud_login_error_generic"></string>
   <!--Directory chooser-->
   <string name="choose_data_directory">Vælg datamappe</string>
   <string name="choose_data_directory_message">Vælg basen for din datamappe. AntennaPod vil oprette de relevante undermapper.</string>
@@ -694,15 +701,17 @@
   <string name="keep_updated">Hold opdateret</string>
   <string name="keep_updated_summary">Inkludér denne podcast når alle podcasts opdateres</string>
   <string name="auto_download_disabled_globally">Automatisk download slået fra i de generelle AntennaPod indstilinger</string>
-  <string name="statistics_time_played">Afspillet tid:</string>
-  <string name="statistics_total_duration">Samlet varighed (skøn):</string>
-  <string name="statistics_episodes_on_device">Afsnit på enheden:</string>
-  <string name="statistics_space_used">Plads brugt:</string>
-  <string name="statistics_episodes_started_total">Påbegyndte afsnit/total:</string>
-  <string name="statistics_expected_next_episode">Næste episode forventes:</string>
+  <string name="statistics_episodes_started"></string>
+  <string name="statistics_episodes_total"></string>
+  <string name="statistics_episodes_played"></string>
+  <string name="statistics_episodes_downloaded"></string>
+  <string name="statistics_episodes_space"></string>
+  <string name="statistics_release_schedule"></string>
+  <string name="statistics_release_next"></string>
   <string name="statistics_expected_next_episode_any_day">En af de nærmeste dage</string>
   <string name="statistics_expected_next_episode_unknown">Ukendt</string>
-  <string name="statistics_view_all">Vis for alle podcasts »</string>
+  <string name="statistics_view_all"></string>
+  <string name="statistics_years_barchart_description"></string>
   <string name="edit_url_menu">Rediger feed-URL</string>
   <string name="edit_url_confirmation_msg">Ændring af RSS-adressen kan nemt ødelægge podcastens afspilningstilstand og afsnitslisterne for podcasten. Vi anbefaler IKKE at ændre den og vil IKKE yde support, hvis noget går galt. Dette kan ikke gøres om. Det ødelagte abonnement KAN IKKE repareres ved blot at ændre adressen tilbage. Vi foreslår, at du opretter en sikkerhedskopi, før du fortsætter.</string>
   <!--Podcast release schedules-->
@@ -725,12 +734,11 @@
   <string name="search_itunes_label">Søg i Apple Podcasts</string>
   <string name="search_podcastindex_label">Søg i Podcast Index</string>
   <string name="search_fyyd_label">Søg i fyyd</string>
-  <string name="advanced">Avanceret</string>
   <string name="add_podcast_by_url">Tilføj podcast via RSS-adresse</string>
   <string name="discover">Opdag</string>
   <string name="discover_hide">Skjul</string>
   <string name="discover_is_hidden">Du valgte at skjule forslag.</string>
-  <string name="discover_more">mere »</string>
+  <string name="discover_more"></string>
   <string name="discover_powered_by_itunes">Forslag fra Apple Podcasts</string>
   <string name="discover_confirm">Vis forslag</string>
   <string name="search_powered_by">Resultater fra %1$s</string>

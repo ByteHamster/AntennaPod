@@ -51,17 +51,22 @@
   <string name="home_continue_title">המשך האזנה</string>
   <string name="home_new_title">מה חדש</string>
   <string name="home_downloads_title">ניהול הורדות</string>
+  <string name="home_no_recent_unplayed_episodes_text"></string>
+  <string name="home_continue_empty_text"></string>
+  <string name="home_new_empty_text"></string>
+  <string name="home_downloads_empty_text"></string>
   <string name="home_welcome_title">ברוך בואך לאנטנה־פּוֹד!</string>
   <string name="home_welcome_text">לא נרשמת עדיין לאף הסכת. יש לפתוח את תפריט הצד ולהוסיף הסכת.</string>
-  <string name="notification_permission_text">לאנטנה־פּוֹד דרושה ההרשאה שלך להציג התראות. כברירת מחדל, אנטנה־פּוֹד תציג הורדות רק כשמשהו יורד או משהו השתבש.</string>
   <string name="notification_permission_denied">דחית את בקשת ההרשאה.</string>
-  <string name="notification_permission_deny_warning">אם בחרת להשבית את ההתראות ומשהו משתבש, יכול להיות שהתקלה תחמוק מעיניך.</string>
-  <string name="deny_label">דחייה</string>
-  <string name="open_settings">פתיחת הגדרות</string>
   <string name="configure_home">הגדרת מסך הבית</string>
   <string name="section_hidden">מוסתר</string>
+  <string name="section_shown"></string>
   <!--Download Statistics fragment-->
-  <string name="total_size_downloaded_podcasts">גודל הפרקים הכולל במכשיר</string>
+  <plurals name="total_size_downloaded_podcasts">
+    <item quantity="one"></item>
+    <item quantity="two"></item>
+    <item quantity="other"></item>
+  </plurals>
   <!--Main activity-->
   <string name="drawer_open">פתיחת תפריט</string>
   <string name="drawer_close">סגירת תפריט</string>
@@ -174,9 +179,9 @@
   <string name="remove_feed_label">הסרת הסכת</string>
   <string name="share_label">שיתוף</string>
   <string name="share_file_label">שיתוף קובץ</string>
-  <string name="feed_delete_confirmation_msg">נא לאשר את מחיקת ההסכת „%1$s” על כל פרקיו (לרבות הפרקים שכבר הורדת) ואת הסטטיסטיקה שלו.</string>
-  <string name="feed_delete_confirmation_msg_batch">נא לאשר את הסרת ההסכתים הנבחרים, כל הפרקים שלהם (לרבות אלו שנשמרו) והסטטיסטיקה שלהם.</string>
-  <string name="feed_delete_confirmation_local_msg">נא לאשר את הסרת ההסכת „%1$s” ואת הסטטיסטיקה שלו. הקבצים בתיקייה המקור המקומית לא יימחקו.</string>
+  <string name="feed_delete_confirmation_msg"></string>
+  <string name="feed_delete_confirmation_msg_batch"></string>
+  <string name="feed_delete_confirmation_local_msg"></string>
   <string name="feed_remover_msg">ההסכת נמחק</string>
   <string name="load_complete_feed">רענון מלא של ההסכת</string>
   <string name="multi_select">לבחור מגוון</string>
@@ -198,6 +203,8 @@
   <string name="rename_tag_label">שינוי שם תגית</string>
   <string name="confirm_mobile_feed_refresh_dialog_message">רענון הסכתים דרך חיבור סלולרי מושבת בהגדרות.\n\nלרענן בכל זאת?</string>
   <string name="confirm_mobile_feed_refresh_dialog_message_vpn">יישום ה־VPN שלך מתחזה לרשת סלולרית (חיבור מדוד). הורדה דרך חיבור רשת סלולרית מושבת בהגדרות.\n\nלרענן בכל זאת? כדי שהבעיה הזאת תתוקן, יש ליצור קשר עם מפתחי יישומון ה־VPN שלך.</string>
+  <string name="delete_downloads_played"></string>
+  <string name="delete_downloads_played_confirmation"></string>
   <!--actions on feeditems-->
   <string name="download_label">הורדה</string>
   <plurals name="downloading_batch_label">
@@ -209,7 +216,6 @@
   <string name="pause_label">השהיה</string>
   <string name="stream_label">הזרמה</string>
   <string name="delete_label">מחיקה</string>
-  <string name="delete_episode_label">מחיקת פרק</string>
   <plurals name="deleted_multi_episode_batch_label">
     <item quantity="one">פרק (%d) שירד נמחק.</item>
     <item quantity="two">%d פרקים שירדו נמחקו.</item>
@@ -304,7 +310,7 @@
   <string name="download_log_title_unknown">כותרת לא ידועה</string>
   <string name="download_type_feed">הזנה</string>
   <string name="download_type_media">קובץ מדיה</string>
-  <string name="null_value_podcast_error">לא סופקו פרקים שניתן להציג.</string>
+  <string name="null_value_podcast_error"></string>
   <string name="no_feed_url_podcast_found_by_search">להסכת המוצע לא היה קישור RSS,‏ אנטנה־פּוֹד מצאה הסכת שכנראה יתאים</string>
   <string name="authentication_notification_title">נדרש אימות</string>
   <string name="confirm_mobile_download_dialog_title">אישור הורדה דרך רשת סלולרית</string>
@@ -312,6 +318,7 @@
   <string name="confirm_mobile_download_dialog_message_vpn">יישום ה־VPN שלך מתחזה לרשת סלולרית (חיבור מדוד). הורדה דרך חיבור רשת סלולרית מושבת בהגדרות. כדי שהבעיה הזאת תתוקן, יש ליצור קשר עם מפתחי יישומון ה־VPN שלך.</string>
   <string name="confirm_mobile_download_dialog_download_later">להוריד אח״כ</string>
   <string name="confirm_mobile_download_dialog_allow_this_time">להוריד בכ״ז</string>
+  <string name="mobile_download_notice"></string>
   <string name="confirm_mobile_streaming_notification_title">אישור הזרמה דרך רשת סלולרית</string>
   <string name="confirm_mobile_streaming_notification_message">הזרמה דרך חיבור רשת סלולרית מושבתת בהגדרות. ניתן לגעת כדי להזרים בכל זאת.</string>
   <string name="confirm_mobile_streaming_button_always">תמיד</string>
@@ -439,16 +446,16 @@
   <string name="pref_black_theme_message">להשתמש בשחור מלא לערכת העיצוב המלאה</string>
   <string name="pref_tinted_theme_title">צבעים דינמיים</string>
   <string name="pref_tinted_theme_message">להתאים את צבעי היישומון לפי הטפט</string>
-  <string name="pref_nav_drawer_items_title">הגדרת פריטים במגירות הניווט</string>
-  <string name="pref_nav_drawer_items_sum">החלפת הפריטים שמופיעים במגירת הניווט</string>
+  <string name="bottom_navigation"></string>
+  <string name="bottom_navigation_summary"></string>
+  <string name="pref_nav_drawer_items_title"></string>
+  <string name="pref_nav_drawer_items_sum"></string>
   <string name="pref_nav_drawer_feed_order_title">הגדרת סדר מינוי</string>
   <string name="pref_nav_drawer_feed_order_sum">שינוי סדר המינויים שלך</string>
   <string name="pref_nav_drawer_feed_counter_title">הגדרת מונה מינוי</string>
   <string name="pref_nav_drawer_feed_counter_sum">שינוי המידע שמוצג במונה המינויים. משפיע גם על סדר המינויים אם ‚סדר המינויים’ מוגדר כ־‚מונה’.</string>
   <string name="pref_automatic_download_title">הורדה אוטומטית</string>
   <string name="pref_automatic_download_sum">הגדרת הורדה אטומטית של פרקים</string>
-  <string name="pref_autodl_wifi_filter_title">הפעלת סינון רשתות אלחוטיות</string>
-  <string name="pref_autodl_wifi_filter_sum">לאפשר הורדה אוטומטית רק דרך רשתות אלחוטיות נבחרות.</string>
   <string name="pref_automatic_download_on_battery_title">להוריד שלא בזמן טעינה</string>
   <string name="pref_automatic_download_on_battery_sum">לאפשר הורדה אוטומטית כאשר הסוללה אינה בטעינה</string>
   <string name="pref_episode_cache_title">מגבלת פרקים</string>
@@ -548,7 +555,7 @@
   <string name="sync_status_episodes_download">השינויים לפרק מתקבלים…</string>
   <string name="sync_status_upload_played">מצב הנגינה נשלח…</string>
   <string name="sync_status_subscriptions">המינויים מסונכרנים…</string>
-  <string name="sync_status_wait_for_downloads">בהמתנה להשלמת ההורדות…</string>
+  <string name="sync_status_wait_for_downloads"></string>
   <string name="sync_status_success">הסנכרון הצליח</string>
   <string name="sync_status_error">הסנכרון נכשל</string>
   <!--import and export-->
@@ -657,6 +664,7 @@
   <string name="gpodnetsync_pref_report_successful">מוצלח</string>
   <string name="gpodnetsync_pref_report_failed">נכשל</string>
   <string name="gpodnetsync_username_characters_error">שמות המשתמשים יכולים להכיל אותיות, ספרות, מינוסים וקווים תחתיים בלבד.</string>
+  <string name="nextcloud_login_error_generic"></string>
   <!--Directory chooser-->
   <string name="choose_data_directory">בחירת תיקיית נתונים</string>
   <string name="choose_data_directory_message">נא לבחור את בסיס תיקיית הנתונים שלך. אנטנה־פּוֹד ייצור את תת־התיקיות בהתאמה.</string>
@@ -713,15 +721,17 @@
   <string name="keep_updated">לשמור על עדכניות</string>
   <string name="keep_updated_summary">לכלול את ההסכת בעת רענון (אוטומטי) של כל ההסכתים</string>
   <string name="auto_download_disabled_globally">הורדה אוטומטית מושבתת בהגדרות הראשיות של אנטנה־פּוֹד</string>
-  <string name="statistics_time_played">זמן הנגינה:</string>
-  <string name="statistics_total_duration">משך זמן כולל (הערכה):</string>
-  <string name="statistics_episodes_on_device">פרקים על המכשיר הזה:</string>
-  <string name="statistics_space_used">מקום תפוס:</string>
-  <string name="statistics_episodes_started_total">פרקים שהותחלו/סך הכול:</string>
-  <string name="statistics_expected_next_episode">מתי צפוי הפרק הבא:</string>
+  <string name="statistics_episodes_started"></string>
+  <string name="statistics_episodes_total"></string>
+  <string name="statistics_episodes_played"></string>
+  <string name="statistics_episodes_downloaded"></string>
+  <string name="statistics_episodes_space"></string>
+  <string name="statistics_release_schedule"></string>
+  <string name="statistics_release_next"></string>
   <string name="statistics_expected_next_episode_any_day">בימים הקרובים</string>
   <string name="statistics_expected_next_episode_unknown">לא ידוע</string>
-  <string name="statistics_view_all">להציג לכל ההסכתים »</string>
+  <string name="statistics_view_all"></string>
+  <string name="statistics_years_barchart_description"></string>
   <string name="edit_url_menu">עריכת כתובת ערוץ</string>
   <string name="edit_url_confirmation_msg">החלפת כתובת RSS יכולה לפגום במצב הנגינה וברישום פרקי ההסכת. אנחנו לא ממליצים לשנות אותה ולא נספק תמיכה אם משהו משתבש. זאת פעולה בלתי הפיעה. לא ניתן לשקם את המינוי הפגום על ידי החזרת הכתובת הקודמת. אנו ממליצים ליצור גיבוי לפני שממשיכים בפעולה הזאת.</string>
   <!--Podcast release schedules-->
@@ -744,12 +754,11 @@
   <string name="search_itunes_label">חיפוש ב־Apple Podcasts</string>
   <string name="search_podcastindex_label">חיפוש ב־Podcast Index</string>
   <string name="search_fyyd_label">בחיפוש ב־fyyd</string>
-  <string name="advanced">מתקדם</string>
   <string name="add_podcast_by_url">הוספת הסכת לפי כתובת RSS</string>
   <string name="discover">עיון</string>
   <string name="discover_hide">הסתרה</string>
   <string name="discover_is_hidden">בחרת להסתיר הצעות.</string>
-  <string name="discover_more">עוד »</string>
+  <string name="discover_more"></string>
   <string name="discover_powered_by_itunes">הצעות מטעם Apple Podcasts</string>
   <string name="discover_confirm">הצגת הצעות</string>
   <string name="search_powered_by">תוצאות מאת %1$s</string>

@@ -51,17 +51,21 @@
   <string name="home_continue_title">Seguiu escoltant</string>
   <string name="home_new_title">Novetats</string>
   <string name="home_downloads_title">Gestioneu les descàrregues</string>
+  <string name="home_no_recent_unplayed_episodes_text"></string>
+  <string name="home_continue_empty_text"></string>
+  <string name="home_new_empty_text"></string>
+  <string name="home_downloads_empty_text"></string>
   <string name="home_welcome_title">Benvinguts/des a l\'AntennaPod!</string>
   <string name="home_welcome_text">Encara no esteu subscrit a cap pòdcast. Obriu el menú lateral per afegir-ne un.</string>
-  <string name="notification_permission_text">AntennaPod necessita el vostre permís per mostrar notificacions. Per defecte, AntennaPod només mostra notificacions mentre alguna cosa s\'està baixant o quan alguna cosa surt malament.</string>
   <string name="notification_permission_denied">S\'ha denegat el permís per a les notificacions</string>
-  <string name="notification_permission_deny_warning">Si desactiveu les notificacions i alguna cosa falla, no podreu veure perquè ha fallat.</string>
-  <string name="deny_label">Denega</string>
-  <string name="open_settings">Obre la configuració</string>
   <string name="configure_home">Configureu l\'Inici</string>
   <string name="section_hidden">Amagades</string>
+  <string name="section_shown"></string>
   <!--Download Statistics fragment-->
-  <string name="total_size_downloaded_podcasts">Mida total d\'episodis al dispositiu</string>
+  <plurals name="total_size_downloaded_podcasts">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
   <!--Main activity-->
   <string name="drawer_open">Obre menú</string>
   <string name="drawer_close">Tanca menú</string>
@@ -128,6 +132,14 @@
   <string name="episode_cleanup_except_favorite_removal">Quan no és favorit</string>
   <string name="episode_cleanup_queue_removal">Quan no és a la cua</string>
   <string name="episode_cleanup_after_listening">Després d\'acabar</string>
+  <plurals name="episode_cleanup_hours_after_listening">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
+  <plurals name="episode_cleanup_days_after_listening">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
   <plurals name="num_selected_label">
     <item quantity="one">%1$d/%2$d seleccionat</item>
     <item quantity="other">%1$d/%2$d seleccionats</item>
@@ -160,9 +172,9 @@
   <string name="remove_feed_label">Suprimeix el pòdcast</string>
   <string name="share_label">Comparteix</string>
   <string name="share_file_label">Comparteix l\'arxiu</string>
-  <string name="feed_delete_confirmation_msg">Confirmeu que voleu suprimir el pòdcast «%1$s», TOTS els seus capítols (incloent-hi els descarregats) i estadístiques.</string>
-  <string name="feed_delete_confirmation_msg_batch">Confirmeu que voleu eliminar el pòdcast seleccionat, TOTS els seus capítols (incloent-hi els descarregats) i estadístiques.</string>
-  <string name="feed_delete_confirmation_local_msg">Confirmeu que voleu eliminar el pòdcast «%1$s» i totes les seves estadístiques. Els arxius a la carpeta origen local no s\'eliminaran</string>
+  <string name="feed_delete_confirmation_msg"></string>
+  <string name="feed_delete_confirmation_msg_batch"></string>
+  <string name="feed_delete_confirmation_local_msg"></string>
   <string name="feed_remover_msg">S\'està eliminant el pòdcast</string>
   <string name="load_complete_feed">Refrescar tot el pòdcast</string>
   <string name="multi_select">Selecció múltiple</string>
@@ -183,6 +195,8 @@
   <string name="rename_tag_label">Canvia etiqueta</string>
   <string name="confirm_mobile_feed_refresh_dialog_message">L\'actualització d\'episodis en connexió de dades està desactivada a les preferències.\n\nTot i això, voleu actualitzar els pòdcasts en connexió de dades? </string>
   <string name="confirm_mobile_feed_refresh_dialog_message_vpn">La vostra aplicació VPN pretén ser una xarxa mòbil (connexió mesurada). L\'actualització de pòdcasts mitjançant la connexió de dades mòbils està desactivada a la configuració. Voleu actualitzar-los igualment? Si voleu que aquest problema es solucioni, poseu-vos en contacte amb els creadors de la vostra aplicació VPN.</string>
+  <string name="delete_downloads_played"></string>
+  <string name="delete_downloads_played_confirmation"></string>
   <!--actions on feeditems-->
   <string name="download_label">Baixa</string>
   <plurals name="downloading_batch_label">
@@ -193,7 +207,10 @@
   <string name="pause_label">Pausa</string>
   <string name="stream_label">Reprodueix sense baixar</string>
   <string name="delete_label">Esborra</string>
-  <string name="delete_episode_label">Esborrar episodi</string>
+  <plurals name="deleted_multi_episode_batch_label">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
   <string name="remove_inbox_label">Elimina de la Safata d\'entrada</string>
   <string name="removed_inbox_label">Eliminat de la Safata d\'entrada</string>
   <string name="mark_read_label">Marca com a reproduït</string>
@@ -277,7 +294,7 @@
   <string name="download_log_title_unknown">Títol desconegut</string>
   <string name="download_type_feed">Canal</string>
   <string name="download_type_media">Fitxer</string>
-  <string name="null_value_podcast_error">No s\'ha proporcionat cap pòdcast que puga mostrar-se.</string>
+  <string name="null_value_podcast_error"></string>
   <string name="no_feed_url_podcast_found_by_search">El pòdcast suggerit no té cap enllaç RSS, AntennaPod ha trobat un pòdcast potser coincident</string>
   <string name="authentication_notification_title">Cal autenticar-se</string>
   <string name="confirm_mobile_download_dialog_title">Confirma descàrrega per xarxa mòbil</string>
@@ -285,6 +302,7 @@
   <string name="confirm_mobile_download_dialog_message_vpn">La vostra aplicació VPN pretén ser una xarxa mòbil (connexió mesurada). La baixada mitjançant la connexió de dades mòbils està desactivada a la configuració. Si voleu que aquest problema es solucioni, poseu-vos en contacte amb els creadors de la vostra aplicació VPN.</string>
   <string name="confirm_mobile_download_dialog_download_later">Baixa més tard</string>
   <string name="confirm_mobile_download_dialog_allow_this_time">Baixa igualment</string>
+  <string name="mobile_download_notice"></string>
   <string name="confirm_mobile_streaming_notification_title">Confirmar reproducció per xarxa mòbil</string>
   <string name="confirm_mobile_streaming_notification_message">Streaming per xarxa mòbil està deshabilitat als ajustos. Toca la pantalla per a fer-ho de totes maners.</string>
   <string name="confirm_mobile_streaming_button_always">Sempre</string>
@@ -412,16 +430,16 @@
   <string name="pref_black_theme_message">Utilitza tot negre per al tema fosc</string>
   <string name="pref_tinted_theme_title">Colors dinàmics</string>
   <string name="pref_tinted_theme_message">Adaptar colors segons el fons</string>
-  <string name="pref_nav_drawer_items_title">Canviar el calaix de navegació</string>
-  <string name="pref_nav_drawer_items_sum">Canvieu els elements que apareixen al tauler de navegació</string>
+  <string name="bottom_navigation"></string>
+  <string name="bottom_navigation_summary"></string>
+  <string name="pref_nav_drawer_items_title"></string>
+  <string name="pref_nav_drawer_items_sum"></string>
   <string name="pref_nav_drawer_feed_order_title">Ajustar l\'ordre de les subscripcions</string>
   <string name="pref_nav_drawer_feed_order_sum">Canvia l\'ordre de les subscripcions</string>
   <string name="pref_nav_drawer_feed_counter_title">Ajustar el comptador de subscripcions</string>
   <string name="pref_nav_drawer_feed_counter_sum">Canvia la informació mostrada pel comptador de les subscripcions. També afecta l\'ordre de les subscripcions si a l\'opció \'Ordre de les subscripcions\' s\'ha indicat \'Comptador\'.</string>
   <string name="pref_automatic_download_title">Baixada automàtica</string>
   <string name="pref_automatic_download_sum">Configureu la baixada automàtica d\'episodis</string>
-  <string name="pref_autodl_wifi_filter_title">Activa el filtre de la xarxa sense fils</string>
-  <string name="pref_autodl_wifi_filter_sum">Permet les baixades automàtiques només per a les xarxes sense fils seleccionades.</string>
   <string name="pref_automatic_download_on_battery_title">Baixa mentre no es carrega</string>
   <string name="pref_automatic_download_on_battery_sum">Permet les baixades automàtiques mentre la bateria no es carrega</string>
   <string name="pref_episode_cache_title">Límit d\'episodis</string>
@@ -521,7 +539,7 @@
   <string name="sync_status_episodes_download">Descarregant canvis d\'episodi...</string>
   <string name="sync_status_upload_played">Pujant estat de reproducció...</string>
   <string name="sync_status_subscriptions">Sincronitzant subscripcions...</string>
-  <string name="sync_status_wait_for_downloads">Esperant la finalització de les baixades...</string>
+  <string name="sync_status_wait_for_downloads"></string>
   <string name="sync_status_success">Sincronització exitosa</string>
   <string name="sync_status_error">Sincronització fallida</string>
   <!--import and export-->
@@ -626,6 +644,7 @@
   <string name="gpodnetsync_pref_report_successful">Correcte</string>
   <string name="gpodnetsync_pref_report_failed">Ha fallat</string>
   <string name="gpodnetsync_username_characters_error">Noms d\'usuari sols poden contindre lletres, dígits, guions i guions baixos.</string>
+  <string name="nextcloud_login_error_generic"></string>
   <!--Directory chooser-->
   <string name="choose_data_directory">Selecciona carpeta de dades</string>
   <string name="choose_data_directory_message">Seleccioneu l\'arreu del vostre directori d\'informació. AntennaPod crearà els subdirectoris pertinents.</string>
@@ -663,6 +682,8 @@
   <string name="next_chapter">Capítol següent</string>
   <string name="shuffle_suggestions">Barreja els suggeriments</string>
   <string name="add_preset">Afegeix valors predefinits</string>
+  <string name="download_started_talkback"></string>
+  <string name="download_completed_talkback"></string>
   <!--Feed settings/information screen-->
   <string name="authentication_label">Autenticació</string>
   <string name="authentication_descr">Canvieu el nom d\'usuari i contrasenya per a aquest podcast i els seus episodis.</string>
@@ -680,15 +701,17 @@
   <string name="keep_updated">Mantenir actualitzat</string>
   <string name="keep_updated_summary">Incloure aquest pòdcast quan (auto-)actualitzen tots els podcasts</string>
   <string name="auto_download_disabled_globally">La baixada automàtica està deshabilitada als ajustos generals d\'AntennaPod</string>
-  <string name="statistics_time_played">Temps reproducció:</string>
-  <string name="statistics_total_duration">Durada total (estimada):</string>
-  <string name="statistics_episodes_on_device">Episodis al dispositiu:</string>
-  <string name="statistics_space_used">Espai utilitzat:</string>
-  <string name="statistics_episodes_started_total">Episodis iniciats/total:</string>
-  <string name="statistics_expected_next_episode">S\'espera un nou episodi:</string>
+  <string name="statistics_episodes_started"></string>
+  <string name="statistics_episodes_total"></string>
+  <string name="statistics_episodes_played"></string>
+  <string name="statistics_episodes_downloaded"></string>
+  <string name="statistics_episodes_space"></string>
+  <string name="statistics_release_schedule"></string>
+  <string name="statistics_release_next"></string>
   <string name="statistics_expected_next_episode_any_day">Aviat</string>
   <string name="statistics_expected_next_episode_unknown">Desconegut</string>
-  <string name="statistics_view_all">Veure per tots els podcasts »</string>
+  <string name="statistics_view_all"></string>
+  <string name="statistics_years_barchart_description"></string>
   <string name="edit_url_menu">Edita l\'enllaç del canal</string>
   <string name="edit_url_confirmation_msg">Canviar l\'adreça RSS pot trencar fàcilment l\'estat de reproducció i les llistes d\'episodis del pòdcast. NO recomanem canviar-la i NO oferirem suport si alguna cosa va malament. Això no es pot desfer. La subscripció trencada NO es pot reparar simplement recuperant l\'adreça anterior. Us suggerim que creeu una còpia de seguretat abans de continuar.</string>
   <!--Podcast release schedules-->
@@ -711,12 +734,11 @@
   <string name="search_itunes_label">Cerca a Apple Podcasts</string>
   <string name="search_podcastindex_label">Cerca a Podcast Index</string>
   <string name="search_fyyd_label">Cerca a fyyd</string>
-  <string name="advanced">Avançat</string>
   <string name="add_podcast_by_url">Afegeix pòdcast per adreça RSS</string>
   <string name="discover">Descobreix</string>
   <string name="discover_hide">Amaga</string>
   <string name="discover_is_hidden">Has seleccionat amagar els suggeriments.</string>
-  <string name="discover_more">més »</string>
+  <string name="discover_more"></string>
   <string name="discover_powered_by_itunes">Recomanacions d\'Apple Podcasts</string>
   <string name="discover_confirm">Mostra suggeriments</string>
   <string name="search_powered_by">Resultats per %1$s</string>

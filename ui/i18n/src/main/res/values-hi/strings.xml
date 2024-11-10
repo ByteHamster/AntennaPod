@@ -51,17 +51,21 @@
   <string name="home_continue_title">सुनना जारी रखें</string>
   <string name="home_new_title">क्या नया है</string>
   <string name="home_downloads_title">डाउनलोड मैनेज करें</string>
+  <string name="home_no_recent_unplayed_episodes_text"></string>
+  <string name="home_continue_empty_text"></string>
+  <string name="home_new_empty_text"></string>
+  <string name="home_downloads_empty_text"></string>
   <string name="home_welcome_title">एंटीनापॉड में वेलकम!</string>
   <string name="home_welcome_text">आपने अभी तक किसी पॉडकास्ट का सब्सक्रिप्शन नहीं लिया हैं। पॉडकास्ट जोड़ने के लिए साइड मेन्यू खोलें।</string>
-  <string name="notification_permission_text">एंटीनापॉड को नोटिफिकेशन दिखाने के लिए परमिशन चाहिए। एंटीनापॉड डिफॉल्ट सेटअप में नोटिफिकेशन सिर्फ तभी दिखाता है जब कोई डाउनलोड चल रहा हो या जब कोई गड़बड़ हो जाए।</string>
   <string name="notification_permission_denied">आपने परमिशन नहीं दिया।</string>
-  <string name="notification_permission_deny_warning">अगर आप नोटिफिकेशन बंद रखते है और कोई गड़बड़ हो जाती है, तो शायद आपको गड़बड़ के बारे में पता ही ना चले।</string>
-  <string name="deny_label">मना करें</string>
-  <string name="open_settings">सेटिंग खोलें</string>
   <string name="configure_home">होमस्क्रीन बदलें</string>
   <string name="section_hidden">छुपा हुआ</string>
+  <string name="section_shown"></string>
   <!--Download Statistics fragment-->
-  <string name="total_size_downloaded_podcasts">डिवाइस के सारे एपिसोड का कुल साइज़</string>
+  <plurals name="total_size_downloaded_podcasts">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
   <!--Main activity-->
   <string name="drawer_open">मेन्यू खोलें</string>
   <string name="drawer_close">मेन्यू बंद करें</string>
@@ -128,6 +132,14 @@
   <string name="episode_cleanup_except_favorite_removal">जब मनपसंद ना हो</string>
   <string name="episode_cleanup_queue_removal">जब कतार में ना हो</string>
   <string name="episode_cleanup_after_listening">खत्म होने के बाद</string>
+  <plurals name="episode_cleanup_hours_after_listening">
+    <item quantity="one">खत्म होने के %d घंटे बाद</item>
+    <item quantity="other">खत्म होने के %d घंटे बाद</item>
+  </plurals>
+  <plurals name="episode_cleanup_days_after_listening">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
   <plurals name="num_selected_label">
     <item quantity="one">%1$d/%2$d चुना गया</item>
     <item quantity="other">%1$d/%2$d चुना गया</item>
@@ -160,15 +172,17 @@
   <string name="remove_feed_label">पॉडकास्ट हटाएं</string>
   <string name="share_label">शेयर करें</string>
   <string name="share_file_label">फाइल शेयर करें</string>
-  <string name="feed_delete_confirmation_msg">पॉडकास्ट \"%1$s\", इसके सारे एपिसोड (डाउनलोड किए गए एपिसोड भी), और इसके आंकड़े हटाना पक्का करें।</string>
-  <string name="feed_delete_confirmation_msg_batch">चुने गए पॉडकास्ट, उनके सारे एपिसोड (डाउनलोड किए गए एपिसोड भी), और उनके आंकड़े हटाना पक्का करें।</string>
-  <string name="feed_delete_confirmation_local_msg">पॉडकास्ट \"%1$s\" और इसके आंकड़े हटाना पक्का करें। लोकल सोर्स फोल्डर के फाइल नहीं हटाए जाएंगे।</string>
+  <string name="feed_delete_confirmation_msg"></string>
+  <string name="feed_delete_confirmation_msg_batch"></string>
+  <string name="feed_delete_confirmation_local_msg"></string>
   <string name="feed_remover_msg">पॉडकास्ट हटा रहे</string>
   <string name="load_complete_feed">पूरा पॉडकास्ट रीफ्रेश करें</string>
   <string name="multi_select">कई चुनें</string>
   <string name="select_all_above">ऊपर के सब चुनें</string>
   <string name="select_all_below">नीचे के सब चुनें</string>
+  <string name="multi_select_started_talkback"></string>
   <string name="filtered_label">फिल्टर किया गया</string>
+  <string name="refresh_failed_msg"></string>
   <string name="open_podcast">पॉडकास्ट खोलें</string>
   <string name="please_wait_for_data">डाटा लोड होने का इंतज़ार करें</string>
   <string name="updates_disabled_label">अपडेट बंद</string>
@@ -181,6 +195,8 @@
   <string name="rename_tag_label">लेबल का नाम बदलें</string>
   <string name="confirm_mobile_feed_refresh_dialog_message">मोबाइल डाटा कनेक्शन से पॉडकास्ट रीफ्रेश करना सेटिंग में बंद है।\n\nफिर भी रीफ्रेश करें?</string>
   <string name="confirm_mobile_feed_refresh_dialog_message_vpn">आपका वीपीएन ऐप एक (मीटर्ड कनेक्शन वाला) मोबाइल नेटवर्क होने का दिखावा कर रहा है। मोबाइल डाटा कनेक्शन पर पॉडकास्ट को रीफ्रेश करना सेटिंग में बंद है।\n\nफिर भी रीफ्रेश करें? इस दिक्कत को ठीक करने के लिए अपने वीपीएन ऐप के डेवलपर से बात करें।</string>
+  <string name="delete_downloads_played"></string>
+  <string name="delete_downloads_played_confirmation"></string>
   <!--actions on feeditems-->
   <string name="download_label">डाउनलोड करें</string>
   <plurals name="downloading_batch_label">
@@ -191,7 +207,10 @@
   <string name="pause_label">रोकें</string>
   <string name="stream_label">स्ट्रीम करें</string>
   <string name="delete_label">हटाएं</string>
-  <string name="delete_episode_label">एपिसोड हटाएं</string>
+  <plurals name="deleted_multi_episode_batch_label">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
   <string name="remove_inbox_label">इनबॉक्स से हटाएं</string>
   <string name="removed_inbox_label">इनबॉक्स से हटाया गया</string>
   <string name="mark_read_label">सुना हुआ मार्क करें</string>
@@ -225,6 +244,10 @@
     <item quantity="other">%d एपिसोड इनबॉक्स से हटाए गए।</item>
   </plurals>
   <string name="add_to_favorite_label">\"पसंदीदा\" सूची में जोड़े</string>
+  <string name="show_transcript"></string>
+  <string name="transcript"></string>
+  <string name="transcript_follow"></string>
+  <string name="no_transcript_label"></string>
   <string name="remove_from_favorite_label">\"पसंदीदा\" सूची से हटाए</string>
   <string name="visit_website_label">वेबसाइट पर जाएँ</string>
   <string name="skip_episode_label">एपिसोड छोड़ें</string>
@@ -271,7 +294,7 @@
   <string name="download_log_title_unknown">अज्ञात शीर्षक</string>
   <string name="download_type_feed"> फीड</string>
   <string name="download_type_media">मीडिया फाइल</string>
-  <string name="null_value_podcast_error">कोई पॉडकास्ट नहीं दिया गया जिसे दिखा सके।</string>
+  <string name="null_value_podcast_error"></string>
   <string name="no_feed_url_podcast_found_by_search">दिए गए पॉडकास्ट के पास आरएसएस लिंक नहीं है, एंटीनापॉड को एक पॉडकास्ट मिला है जो मेल खाता है</string>
   <string name="authentication_notification_title">सत्यापन ज़रूरी</string>
   <string name="confirm_mobile_download_dialog_title">मोबाइल डाउनलोड की पुष्टि करें</string>
@@ -279,6 +302,7 @@
   <string name="confirm_mobile_download_dialog_message_vpn">आपका वीपीएन ऐप एक मोबाइल नेटवर्क (मीटर्ड कनेक्शन) होने का दिखावा करता है। सेटिंग्स में मोबाइल डेटा कनेक्शन पर डाउनलोड करना अक्षम है। यदि आप चाहते हैं कि यह समस्या ठीक हो जाए, तो अपने वीपीएन ऐप के निर्माताओं से संपर्क करें।</string>
   <string name="confirm_mobile_download_dialog_download_later">बाद में डाउनलोड करें</string>
   <string name="confirm_mobile_download_dialog_allow_this_time">फिर भी डाउनलोड करें</string>
+  <string name="mobile_download_notice"></string>
   <string name="confirm_mobile_streaming_notification_title">मोबाइल स्ट्रीमिंग की पुष्टि करें</string>
   <string name="confirm_mobile_streaming_notification_message">मोबाइल डाटा कनेक्शन से स्ट्रीम करना सेटिंग में बंद है। नज़रअंदाज़ करके स्ट्रीम करने के लिए दबाएं।</string>
   <string name="confirm_mobile_streaming_button_always">हमेशा</string>
@@ -308,6 +332,7 @@
   <string name="random">बेतरतीब</string>
   <string name="smart_shuffle">स्मार्ट मिश्रण</string>
   <string name="size">साइज़</string>
+  <string name="clear_queue_confirmation_msg"></string>
   <string name="time_left_label">समय बचा:\u0020</string>
   <!--Variable Speed-->
   <string name="speed_presets">डिफॉल्ट</string>
@@ -337,6 +362,7 @@
   <string name="download_pref_details">जानकारी</string>
   <string name="import_export_pref">आयात/निर्यात</string>
   <string name="import_export_search_keywords">बैकअप, रीस्टोर, बैकअप करें, रीस्टोर करें, वापस लाएं</string>
+  <string name="theming"></string>
   <string name="external_elements">बाहरी चीज़</string>
   <string name="interruptions">रोकटोक</string>
   <string name="playback_control">प्लेबैक कंट्रोल</string>
@@ -344,6 +370,7 @@
   <string name="preference_search_hint">खोजें...</string>
   <string name="preference_search_no_results">कोई नतीजा नहीं मिला</string>
   <string name="preference_search_clear_history">इतिहास साफ करें</string>
+  <string name="pref_episode_cleanup_title"></string>
   <string name="pref_episode_cleanup_summary">एपिसोड जो हटाने लायक होंगे अगर अपनेआप-डाउनलोड को नए एपिसोड के लिए जगह चाहिए।</string>
   <string name="pref_pauseOnDisconnect_sum">प्लेबैक ठहराएं जब हैडफोन या ब्लूटुथ से कनेक्शन टूटता है</string>
   <string name="pref_unpauseOnHeadsetReconnect_sum">हैडफोन वापस जुड़ने पे प्लेबैक जारी रखें</string>
@@ -352,10 +379,15 @@
   <string name="pref_hardware_forward_button_summary">फास्ट फॉरवर्ड का बर्ताव बदलें</string>
   <string name="pref_hardware_previous_button_title">पीछे जाएं</string>
   <string name="pref_hardware_previous_button_summary"> पिछे जाएं बटन का बर्ताव बदलें</string>
+  <string name="button_action_fast_forward"></string>
   <string name="button_action_rewind">रिवाइंड करें</string>
   <string name="button_action_skip_episode">एपिसोड छोड़ें</string>
   <string name="button_action_restart_episode">एपिसोड पुनःशुरू करें</string>
   <string name="pref_followQueue_sum">प्लेबैक के खत्म होने पे अगले कतार आइटम पे जाएं</string>
+  <string name="pref_auto_delete_playback_sum"></string>
+  <string name="pref_auto_delete_playback_title"></string>
+  <string name="pref_auto_delete_title"></string>
+  <string name="pref_auto_delete_sum"></string>
   <string name="pref_auto_local_delete_title">स्थानीय फ़ोल्डरों से स्वतः हटाएं</string>
   <string name="pref_auto_local_delete_sum">स्वतः हटाने की कार्यक्षमता में स्थानीय फ़ोल्डर शामिल करें</string>
   <string name="pref_auto_local_delete_dialog_body">ध्यान दें कि स्थानीय फ़ोल्डरों के लिए यह एंटेना पॉड से एपिसोड हटा देगा और उनके मीडिया फ़ाइलों को आपके डिवाइस स्टोरेज से हटा देगा। इन्हें फिर से एंटेना पॉड के माध्यम से डाउनलोड नहीं किया जा सकता। क्या आप स्वतः हटाने को सक्षम करना चाहते हैं?</string>
@@ -398,18 +430,20 @@
   <string name="pref_black_theme_message">डार्क थीम के लिए पूरा काला रंग का उपयोग करें</string>
   <string name="pref_tinted_theme_title">क्रियाशील रंग</string>
   <string name="pref_tinted_theme_message">ऐप रंग वॉलपेपर के हिसाब से अडैप्ट करें</string>
-  <string name="pref_nav_drawer_items_title">नेविगेशन ड्रायर के मदों को निर्धारित करें</string>
-  <string name="pref_nav_drawer_items_sum">नेविगेशन ड्रायर में दिखाए जाने वाले मदों को बदलें</string>
+  <string name="bottom_navigation"></string>
+  <string name="bottom_navigation_summary"></string>
+  <string name="pref_nav_drawer_items_title"></string>
+  <string name="pref_nav_drawer_items_sum"></string>
   <string name="pref_nav_drawer_feed_order_title">सदस्यता क्रम निर्धारित करें</string>
   <string name="pref_nav_drawer_feed_order_sum">अपनी सदस्यताओं का क्रम बदलें</string>
   <string name="pref_nav_drawer_feed_counter_title">सदस्यता गणित्र निर्धारित करें</string>
   <string name="pref_nav_drawer_feed_counter_sum">सदस्यता गणित्र द्वारा प्रदर्शित जानकारी बदलें। \'सदस्यता क्रम\' को \'गणित्र\' पर सेट किया गया है तो सदस्यताओं की क्रमबद्धी पर भी प्रभाव डालता है।</string>
   <string name="pref_automatic_download_title">स्वत: डाउनलोड</string>
   <string name="pref_automatic_download_sum">एपिसोड्स का स्वचालित डाउनलोड कॉन्फ़िगर करें</string>
-  <string name="pref_autodl_wifi_filter_title">वाईफाई फिल्टर चालू करें</string>
-  <string name="pref_autodl_wifi_filter_sum">सिर्फ चुने गए वाईफाई नेटवर्क के लिए अपनेआप-डाउनलोड की अनुमति दें।</string>
   <string name="pref_automatic_download_on_battery_title">जब चार्ज नहीं हो रहा हो तो डाउनलोड करें</string>
   <string name="pref_automatic_download_on_battery_sum">बैटरी के चार्ज नहीं होते वक्त अपनेआप-डाउनलोड की अनुमति दें</string>
+  <string name="pref_episode_cache_title"></string>
+  <string name="pref_episode_cache_summary"></string>
   <string name="pref_episode_cover_title">एपिसोड कवर का उपयोग करें</string>
   <string name="pref_episode_cover_summary">जब भी हो सके, लिस्ट में एपिसोड का खास कवर इस्तेमाल करें। अगर सही का निशान नहीं दिया जाता, तो ऐप हमेशा पॉडकास्ट का कवर तस्वीर इस्तेमाल करेगा।</string>
   <string name="pref_show_remain_time_title">शेष समय दिखाएं</string>
@@ -428,12 +462,17 @@
   <string name="pref_feed_skip_intro_toast">शुरूआत के %d सेकंड छोड़ें</string>
   <string name="pref_playback_time_respects_speed_title">मीडिया जानकारी को प्लेबैक रफ्तार पे जमाएं</string>
   <string name="pref_playback_time_respects_speed_sum">पट्टी और अर्सा प्लेबैक रफ्तार के हिसाब से दिखाए जाते है</string>
+  <string name="pref_fast_forward"></string>
+  <string name="pref_fast_forward_sum"></string>
   <string name="pref_rewind">स्किप समय रिवाइंड किया जाये</string>
   <string name="pref_rewind_sum">रिवाइंड बटन दबाने पे कितना पीछे जाए बदलें</string>
   <string name="pref_expandNotify_title">उच्च सूचना प्राथमिकता</string>
   <string name="pref_expandNotify_sum">ये अक्सर सूचना को बढ़ा करके प्लेबैक बटन दिखाता है।</string>
   <string name="pref_persistNotify_title">निरंतर प्लेबैक नियंत्रण</string>
   <string name="pref_persistNotify_sum">प्लेबैक रोके जाने पर सूचना और लॉकस्क्रीन नियंत्रण बनाए रखें</string>
+  <string name="pref_compact_notification_buttons_dialog_error_exact"></string>
+  <string name="pref_full_notification_buttons_title"></string>
+  <string name="pref_full_notification_buttons_sum"></string>
   <string name="pref_enqueue_location_title">कतार स्थान</string>
   <string name="pref_enqueue_location_sum">एपिसोड को %1$s में जोड़ें</string>
   <string name="enqueue_location_back">सबसे पीछे</string>
@@ -473,8 +512,10 @@
   <string name="new_episode_notification_disabled">सूचना बंद</string>
   <string name="pref_feed_settings_dialog_msg">ये सेटिंग हर पॉडकास्ट के लिए खास है। इसे पॉडकास्ट पन्ने से बदला जा सकता है।</string>
   <string name="pref_contribute">मदद करें</string>
+  <string name="pref_show_subscription_title"></string>
   <string name="pref_new_episodes_action_title">नए एपिसोड कार्रवाई</string>
   <string name="pref_new_episodes_action_sum">नए एपिसोड के लिए कार्रवाई</string>
+  <string name="episode_information"></string>
   <!--About screen-->
   <string name="about_pref">हमारे बारे में</string>
   <string name="antennapod_version">एंटीनापॉड संस्करण</string>
@@ -498,7 +539,7 @@
   <string name="sync_status_episodes_download">एपिसोड बदलाव डाउनलोड कर रहे…</string>
   <string name="sync_status_upload_played">सुना स्टेटस अपडेट कर रहे...</string>
   <string name="sync_status_subscriptions">सदस्यताओं को समकालीन किया जा रहा है...</string>
-  <string name="sync_status_wait_for_downloads">डाउनलोड खत्म होने का इंतज़ार कर रहे...</string>
+  <string name="sync_status_wait_for_downloads"></string>
   <string name="sync_status_success">सिंक सफल</string>
   <string name="sync_status_error">सिंक असफल</string>
   <!--import and export-->
@@ -513,12 +554,16 @@
   <string name="database_import_summary">दूसरे डिवाइस से एंटीनापॉड डाटाबेस आयात करें</string>
   <string name="opml_import_label">ओपीएमएल आयात</string>
   <string name="opml_add_podcast_label">पॉडकास्ट लिस्ट (ओपीएमएल) आयात करें</string>
+  <string name="opml_reader_error"></string>
   <string name="opml_import_error_no_file">कोई फाइल नहीं चुना गया।</string>
   <string name="select_all_label">सब चुनें</string>
   <string name="deselect_all_label">चुने गए से सब हटाएं</string>
   <string name="opml_export_label">ओपीएमएल निर्यात</string>
   <string name="html_export_label">एचटीएमएल निर्यात</string>
   <string name="database_export_label">डाटाबेस निर्यात</string>
+  <string name="automatic_database_export_label"></string>
+  <string name="automatic_database_export_summary"></string>
+  <string name="automatic_database_export_error"></string>
   <string name="database_import_label">डाटाबेस आयात</string>
   <string name="database_import_warning">डेटाबेस आयात करने से आपकी मौजूदा सभी सदस्यताएँ और प्लेयिंग हिस्ट्री को बदल दिया जाएगा। आपको अपनी वर्तमान डेटाबेस को बैकअप के रूप में निर्यात करना चाहिए। बदलाव जारी रखें?</string>
   <string name="please_wait">इंतज़ार करें...</string>
@@ -542,7 +587,24 @@
   <string name="time_seconds">सेकंड</string>
   <string name="time_minutes">मिनट</string>
   <string name="time_hours">घंटे</string>
+  <plurals name="time_seconds_quantified">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
+  <plurals name="time_minutes_quantified">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
+  <plurals name="time_hours_quantified">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
+  <plurals name="time_days_quantified">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
   <string name="auto_enable_label">प्ले बटन दबाने पर स्लीप टाइमर स्वचालित रूप से सक्रिय करें</string>
+  <string name="auto_enable_label_with_times"></string>
   <string name="auto_enable_change_times">समय सीमा बदलें</string>
   <string name="sleep_timer_enabled_label">नींद घड़ी चालू</string>
   <!--Synchronisation-->
@@ -582,17 +644,28 @@
   <string name="gpodnetsync_pref_report_successful">हो गया</string>
   <string name="gpodnetsync_pref_report_failed">फेल हो गया</string>
   <string name="gpodnetsync_username_characters_error">यूजरनेम में सिर्फ अक्षर, नंबर, हायफन (-), और अंडरलाइन हो सकते है।</string>
+  <string name="nextcloud_login_error_generic"></string>
   <!--Directory chooser-->
   <string name="choose_data_directory">डाटा फोल्डर चुनें</string>
+  <string name="choose_data_directory_message"></string>
   <string name="choose_data_directory_available_space">%2$s में से %1$s खाली</string>
   <string name="pref_pausePlaybackForFocusLoss_sum">जब कोई दूसरा ऐप ऑडियो चलाना चाहता है तो आवाज़ कम करने के जगह प्लेबैक पॉज़ करें।</string>
   <string name="pref_pausePlaybackForFocusLoss_title">रोकटोक पे पॉज़ करें</string>
   <!--Rating dialog-->
+  <string name="rating_tagline"></string>
+  <string name="rating_contribute_label"></string>
+  <string name="rating_contribute_button"></string>
+  <string name="rating_volunteers_label"></string>
+  <string name="rating_rate"></string>
+  <string name="rating_later"></string>
   <!--Online feed view-->
   <string name="subscribe_label">सदस्यता लें</string>
+  <string name="preview_episodes"></string>
+  <string name="state_deleted_not_subscribed"></string>
   <!--Content descriptions for image buttons-->
   <string name="toolbar_back_button_content_description">पीछे जाएं</string>
   <string name="rewind_label">रिवाइंड करें</string>
+  <string name="fast_forward_label"></string>
   <string name="increase_speed">स्पीड ज़्यादा करें</string>
   <string name="decrease_speed">स्पीड कम करें</string>
   <string name="media_type_video_label">वीडियो</string>
@@ -609,12 +682,15 @@
   <string name="next_chapter">अगला चैप्टर</string>
   <string name="shuffle_suggestions">शफल</string>
   <string name="add_preset">प्रीसेट जोड़ें</string>
+  <string name="download_started_talkback"></string>
+  <string name="download_completed_talkback"></string>
   <!--Feed settings/information screen-->
   <string name="authentication_label">ऑथेंटिकेशन</string>
   <string name="authentication_descr">इस पॉडकास्ट और इसके एपिसोड के लिए अपना यूज़रनेम और पासवर्ड बदलें।</string>
   <string name="feed_tags_label">लेबल</string>
   <string name="feed_tags_summary">इस पॉडकास्ट के टैग बदलें ताकि आपकी सदस्यताओं को संगठित करने में मदद मिले।</string>
   <string name="feed_folders_include_root">ये पॉडकास्ट मेन लिस्ट में दिखाएं</string>
+  <string name="multi_feed_common_tags_info"></string>
   <string name="auto_download_settings_label">ऑटो डाउनलोड सेटिंग</string>
   <string name="episode_filters_label">एपिसोड फिल्टर</string>
   <string name="episode_filters_description">शब्दों की लिस्ट जिसका इस्तेमाल ऑटो डाउनलोड में एपिसोड शामिल करने या ना करने के लिए किया जाएगा</string>
@@ -625,14 +701,32 @@
   <string name="keep_updated">अप-टू-डेट रखें</string>
   <string name="keep_updated_summary">सारे पॉडकास्ट को (अपनेआप) रिफ्रेश करते टाइम इस पॉडकास्ट को भी करें</string>
   <string name="auto_download_disabled_globally">मेन एंटीनापॉड सेटिंग में ऑटो डाउनलोड बंद है</string>
-  <string name="statistics_time_played">सुना:</string>
-  <string name="statistics_total_duration">सुना (अंदाज़ा):</string>
-  <string name="statistics_episodes_on_device">डिवाइस पे जो एपिसोड है:</string>
-  <string name="statistics_space_used">स्टोरेज इस्तेमाल:</string>
-  <string name="statistics_episodes_started_total">शुरू किए गए एपिसोड:</string>
-  <string name="statistics_view_all">सारे पॉडकास्ट »</string>
+  <string name="statistics_episodes_started"></string>
+  <string name="statistics_episodes_total"></string>
+  <string name="statistics_episodes_played"></string>
+  <string name="statistics_episodes_downloaded"></string>
+  <string name="statistics_episodes_space"></string>
+  <string name="statistics_release_schedule"></string>
+  <string name="statistics_release_next"></string>
+  <string name="statistics_expected_next_episode_any_day"></string>
+  <string name="statistics_expected_next_episode_unknown"></string>
+  <string name="statistics_view_all"></string>
+  <string name="statistics_years_barchart_description"></string>
   <string name="edit_url_menu">फीड यूआरएल बदलें</string>
+  <string name="edit_url_confirmation_msg"></string>
   <!--Podcast release schedules-->
+  <string name="release_schedule_daily"></string>
+  <string name="release_schedule_weekdays"></string>
+  <string name="release_schedule_weekly"></string>
+  <string name="release_schedule_biweekly"></string>
+  <string name="release_schedule_monthly"></string>
+  <string name="release_schedule_monday"></string>
+  <string name="release_schedule_tuesday"></string>
+  <string name="release_schedule_wednesday"></string>
+  <string name="release_schedule_thursday"></string>
+  <string name="release_schedule_friday"></string>
+  <string name="release_schedule_saturday"></string>
+  <string name="release_schedule_sunday"></string>
   <!--AntennaPodSP-->
   <string name="sp_apps_importing_feeds_msg">एकल उद्देश्य वाले ऐप्स से सदस्यताओं का आयात किया जा रहा है...</string>
   <!--Add podcast fragment-->
@@ -640,11 +734,11 @@
   <string name="search_itunes_label">एप्पल पॉडकास्ट में सर्च करें</string>
   <string name="search_podcastindex_label">पॉडकास्ट इंडेक्स में सर्च करें</string>
   <string name="search_fyyd_label">fyyd में सर्च करें</string>
-  <string name="advanced">एडवांस</string>
+  <string name="add_podcast_by_url"></string>
   <string name="discover">ट्रेंडिंग</string>
   <string name="discover_hide">छुपाएं</string>
   <string name="discover_is_hidden">आपने ट्रेंडिंग छुपाना चुना है।</string>
-  <string name="discover_more">ज़्यादा »</string>
+  <string name="discover_more"></string>
   <string name="discover_powered_by_itunes">एप्पल पॉडकास्ट में ट्रेंडिंग</string>
   <string name="discover_confirm">ट्रेंडिंग दिखाएं</string>
   <string name="search_powered_by">%1$s के सर्च रिज़ल्ट</string>
@@ -669,6 +763,7 @@
   <string name="not_paused">पॉज़ नहीं किया है</string>
   <string name="hide_played_episodes_label">सुना हुआ है</string>
   <string name="not_played">अनसुना है</string>
+  <string name="filename"></string>
   <!--Share episode dialog-->
   <string name="share_playback_position_dialog_label">प्लेबैक पोज़िशन भी भेजें</string>
   <string name="share_dialog_episode_website_label">एपिसोड वेबसाइट</string>
@@ -694,6 +789,7 @@
   <string name="proxy_port_invalid_error">पोर्ट सही नहीं है</string>
   <!--Subscriptions fragment-->
   <string name="subscription_num_columns">कॉलम</string>
+  <string name="subscription_display_list"></string>
   <!--Notification channels-->
   <string name="notification_group_errors">गड़बड़</string>
   <string name="notification_group_news">न्यूज़</string>

@@ -51,17 +51,21 @@
   <string name="home_continue_title">Höre weiter</string>
   <string name="home_new_title">Was gibt\'s Neues</string>
   <string name="home_downloads_title">Verwalte Downloads</string>
+  <string name="home_no_recent_unplayed_episodes_text"></string>
+  <string name="home_continue_empty_text"></string>
+  <string name="home_new_empty_text"></string>
+  <string name="home_downloads_empty_text"></string>
   <string name="home_welcome_title">Willkommen bei AntennaPod!</string>
   <string name="home_welcome_text">Du hast noch keinen Podcast abonniert. Öffne das Seitenmenü, um einen Podcast hinzuzufügen.</string>
-  <string name="notification_permission_text">AntennaPod benötigt deine Erlaubnis, um Benachrichtigungen anzuzeigen. Standardmäßig zeigt AntennaPod nur Benachrichtigungen an, wenn etwas heruntergeladen wird oder wenn etwas schief läuft.</string>
   <string name="notification_permission_denied">Du hast die Berechtigung abgelehnt.</string>
-  <string name="notification_permission_deny_warning">Wenn die Benachrichtigungen deaktiviert werden und etwas schief geht, kannst du möglicherweise nicht herausfinden, warum dies passiert ist.</string>
-  <string name="deny_label">Ablehnen</string>
-  <string name="open_settings">Einstellungen öffnen</string>
   <string name="configure_home">Startbildschirm einrichten</string>
   <string name="section_hidden">Versteckt</string>
+  <string name="section_shown"></string>
   <!--Download Statistics fragment-->
-  <string name="total_size_downloaded_podcasts">Gesamtgröße der Episoden auf dem Gerät</string>
+  <plurals name="total_size_downloaded_podcasts">
+    <item quantity="one"></item>
+    <item quantity="other"></item>
+  </plurals>
   <!--Main activity-->
   <string name="drawer_open">Menü öffnen</string>
   <string name="drawer_close">Menü schließen</string>
@@ -168,9 +172,9 @@
   <string name="remove_feed_label">Podcast entfernen</string>
   <string name="share_label">Teilen</string>
   <string name="share_file_label">Teile Datei</string>
-  <string name="feed_delete_confirmation_msg">Bitte bestätige, dass du den Podcast \"%1$s\", ALLE seine Episoden (einschließlich heruntergeladener Episoden) und Statistiken löschen möchtest.</string>
-  <string name="feed_delete_confirmation_msg_batch">Bitte bestätige, dass du die ausgewählten Podcasts, ALLE ihre Episoden (einschließlich heruntergeladener Episoden) und Statistiken löschen möchtest.</string>
-  <string name="feed_delete_confirmation_local_msg">Bitte bestätige, dass du den Podcast \"%1$s\" und seine Statistiken löschen möchtest. Die Dateien im lokalen Quellordner werden nicht gelöscht.</string>
+  <string name="feed_delete_confirmation_msg"></string>
+  <string name="feed_delete_confirmation_msg_batch"></string>
+  <string name="feed_delete_confirmation_local_msg"></string>
   <string name="feed_remover_msg">Podcast wird entfernt</string>
   <string name="load_complete_feed">Kompletten Podcast aktualisieren</string>
   <string name="multi_select">Mehrere auswählen</string>
@@ -191,6 +195,8 @@
   <string name="rename_tag_label">Tag umbenennen</string>
   <string name="confirm_mobile_feed_refresh_dialog_message">Das Aktualisieren von Abonnements über eine mobile Datenverbindung ist in den Einstellungen deaktiviert.\n\nMöchtest du sie trotzdem aktualisieren?</string>
   <string name="confirm_mobile_feed_refresh_dialog_message_vpn">Deine VPN-App gibt vor, ein mobiles Netzwerk zu sein (gebührenpflichtige Verbindung). Das Aktualisieren von Podcasts über eine mobile Datenverbindung ist in den Einstellungen deaktiviert.\n\nMöchtest du trotzdem aktualisieren? Wenn du möchtest, dass dieses Problem behoben wird, wende dich an die Entwickler der VPN-App.</string>
+  <string name="delete_downloads_played"></string>
+  <string name="delete_downloads_played_confirmation"></string>
   <!--actions on feeditems-->
   <string name="download_label">Herunterladen</string>
   <plurals name="downloading_batch_label">
@@ -201,7 +207,6 @@
   <string name="pause_label">Pausieren</string>
   <string name="stream_label">Streamen</string>
   <string name="delete_label">Löschen</string>
-  <string name="delete_episode_label">Episode löschen</string>
   <plurals name="deleted_multi_episode_batch_label">
     <item quantity="one">%d heruntergeladene Episode gelöscht.</item>
     <item quantity="other">%d heruntergeladene Episoden gelöscht.</item>
@@ -289,7 +294,7 @@
   <string name="download_log_title_unknown">Unbekannter Titel</string>
   <string name="download_type_feed">Feed</string>
   <string name="download_type_media">Mediendatei</string>
-  <string name="null_value_podcast_error">Es wurde kein Podcast angegeben, der angezeigt werden könnte.</string>
+  <string name="null_value_podcast_error"></string>
   <string name="no_feed_url_podcast_found_by_search">Der vorgeschlagene Podcast hat keinen RSS-Link. AntennaPod hat einen Podcast gefunden, welcher der gleiche sein könnte</string>
   <string name="authentication_notification_title">Authentifizierung erforderlich</string>
   <string name="confirm_mobile_download_dialog_title">Mobilen Download bestätigen</string>
@@ -297,6 +302,7 @@
   <string name="confirm_mobile_download_dialog_message_vpn">Deine VPN-App gibt vor, ein mobiles Netzwerk zu sein (gebührenpflichtige Verbindung). Das Herunterladen über eine mobile Datenverbindung ist in den Einstellungen deaktiviert. Wenn du möchtest, dass dieses Problem behoben wird, wende dich an die Entwickler der VPN-App.</string>
   <string name="confirm_mobile_download_dialog_download_later">Später herunterladen</string>
   <string name="confirm_mobile_download_dialog_allow_this_time">Trotzdem herunterladen</string>
+  <string name="mobile_download_notice"></string>
   <string name="confirm_mobile_streaming_notification_title">Mobiles Streaming bestätigen</string>
   <string name="confirm_mobile_streaming_notification_message">Streamen über mobile Datenverbindung ist in den Einstellungen deaktiviert. Tippen, um trotzdem zu streamen.</string>
   <string name="confirm_mobile_streaming_button_always">Immer</string>
@@ -424,16 +430,16 @@
   <string name="pref_black_theme_message">Schwarz für das dunkle Design verwenden</string>
   <string name="pref_tinted_theme_title">Dynamische Farben</string>
   <string name="pref_tinted_theme_message">App-Farben basierend auf dem Hintergrundbild anpassen</string>
-  <string name="pref_nav_drawer_items_title">Seitenleiste ändern</string>
-  <string name="pref_nav_drawer_items_sum">Die in der Seitenleiste angezeigten Einträge ändern</string>
+  <string name="bottom_navigation"></string>
+  <string name="bottom_navigation_summary"></string>
+  <string name="pref_nav_drawer_items_title"></string>
+  <string name="pref_nav_drawer_items_sum"></string>
   <string name="pref_nav_drawer_feed_order_title">Abonnement-Reihenfolge einstellen</string>
   <string name="pref_nav_drawer_feed_order_sum">Die Reihenfolge deiner Abonnements ändern</string>
   <string name="pref_nav_drawer_feed_counter_title">Abonnement-Zähler einstellen</string>
   <string name="pref_nav_drawer_feed_counter_sum">Die durch den Abonnementszähler angezeigten Informationen ändern. Betrifft auch die Sortierung der Abonnements wenn \"Reihenfolge der Abonnements\" auf \"Zähler\" gesetzt ist.</string>
   <string name="pref_automatic_download_title">Automatisches Herunterladen</string>
   <string name="pref_automatic_download_sum">Automatisches Herunterladen von Episoden einrichten</string>
-  <string name="pref_autodl_wifi_filter_title">WLAN-Filter aktivieren</string>
-  <string name="pref_autodl_wifi_filter_sum">Erlaube das automatische Herunterladen nur in ausgewählten W-LAN Netzwerken.</string>
   <string name="pref_automatic_download_on_battery_title">Automatischer Download im Akkubetrieb</string>
   <string name="pref_automatic_download_on_battery_sum">Automatische Downloads auch erlauben, wenn der Akku nicht geladen wird</string>
   <string name="pref_episode_cache_title">Episoden-Limit</string>
@@ -533,7 +539,7 @@
   <string name="sync_status_episodes_download">Lade Episoden-Änderungen herunter…</string>
   <string name="sync_status_upload_played">Lade Abspielstatus hoch…</string>
   <string name="sync_status_subscriptions">Synchronisiere Abonnements…</string>
-  <string name="sync_status_wait_for_downloads">Warte auf Abschluss der Downloads...</string>
+  <string name="sync_status_wait_for_downloads"></string>
   <string name="sync_status_success">Synchronisation erfolgreich</string>
   <string name="sync_status_error">Synchronisation fehlgeschlagen</string>
   <!--import and export-->
@@ -638,6 +644,7 @@
   <string name="gpodnetsync_pref_report_successful">Erfolgreich</string>
   <string name="gpodnetsync_pref_report_failed">Fehlgeschlagen</string>
   <string name="gpodnetsync_username_characters_error">Benutzernamen dürfen nur Buchstaben, Zahlen, Bindestriche und Unterstriche enthalten.</string>
+  <string name="nextcloud_login_error_generic"></string>
   <!--Directory chooser-->
   <string name="choose_data_directory">Datenordner auswählen</string>
   <string name="choose_data_directory_message">Bitte wähle das Basisverzeichnis deines Datenordners aus. AntennaPod erstellt dann die entsprechenden Unterverzeichnisse.</string>
@@ -694,15 +701,17 @@
   <string name="keep_updated">Aktuell halten</string>
   <string name="keep_updated_summary">Diesen Podcast bei der (automatischen) Aktualisierung berücksichtigen</string>
   <string name="auto_download_disabled_globally">Automatisches Herunterladen ist in den Einstellungen deaktiviert</string>
-  <string name="statistics_time_played">Abspielzeit:</string>
-  <string name="statistics_total_duration">Gesamtdauer (geschätzt):</string>
-  <string name="statistics_episodes_on_device">Episoden auf dem Gerät:</string>
-  <string name="statistics_space_used">Verwendeter Speicherplatz:</string>
-  <string name="statistics_episodes_started_total">Episoden gestartet/gesamt:</string>
-  <string name="statistics_expected_next_episode">Erwartete nächste Episode:</string>
+  <string name="statistics_episodes_started"></string>
+  <string name="statistics_episodes_total"></string>
+  <string name="statistics_episodes_played"></string>
+  <string name="statistics_episodes_downloaded"></string>
+  <string name="statistics_episodes_space"></string>
+  <string name="statistics_release_schedule"></string>
+  <string name="statistics_release_next"></string>
   <string name="statistics_expected_next_episode_any_day">In Kürze</string>
   <string name="statistics_expected_next_episode_unknown">Unbekannt</string>
-  <string name="statistics_view_all">Für alle Podcasts ansehen »</string>
+  <string name="statistics_view_all"></string>
+  <string name="statistics_years_barchart_description"></string>
   <string name="edit_url_menu">Feed-URL bearbeiten</string>
   <string name="edit_url_confirmation_msg">Das Ändern der RSS-Adresse kann leicht den Abgespielt-Zustand und die Episoden des Podcasts beeinträchtigen. Wir empfehlen NICHT, die Adresse zu ändern und bieten KEINEN Support an, wenn etwas schief geht. Dies kann nicht rückgängig gemacht werden. Das defekte Abonnement kann NICHT repariert werden, indem die Adresse einfach wieder geändert wird. Wir empfehlen, eine Sicherungskopie zu erstellen, bevor du fortfährst.</string>
   <!--Podcast release schedules-->
@@ -725,12 +734,11 @@
   <string name="search_itunes_label">Apple Podcasts durchsuchen</string>
   <string name="search_podcastindex_label">Podcast Index durchsuchen</string>
   <string name="search_fyyd_label">fyyd durchsuchen</string>
-  <string name="advanced">Fortgeschritten</string>
   <string name="add_podcast_by_url">Podcast per RSS-Adresse hinzufügen</string>
   <string name="discover">Entdecken</string>
   <string name="discover_hide">Ausblenden</string>
   <string name="discover_is_hidden">Du hast ausgewählt, Vorschläge auszublenden.</string>
-  <string name="discover_more">mehr »</string>
+  <string name="discover_more"></string>
   <string name="discover_powered_by_itunes">Vorschläge von Apple Podcasts</string>
   <string name="discover_confirm">Vorschläge anzeigen</string>
   <string name="search_powered_by">Ergebnisse von %1$s</string>
