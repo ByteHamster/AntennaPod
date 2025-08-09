@@ -63,10 +63,14 @@ public class DBWriter {
 
     private static final String TAG = "DBWriter";
 
-    private static final ExecutorService dbExec;
+    private static ExecutorService dbExec;
 
     static {
-        dbExec = Executors.newSingleThreadExecutor(r -> {
+        dbExec = createDbExecutor();
+    }
+
+    private static ExecutorService createDbExecutor() {
+        return Executors.newSingleThreadExecutor(r -> {
             Thread t = new Thread(r);
             t.setName("DatabaseExecutor");
             t.setPriority(Thread.MIN_PRIORITY);
@@ -83,7 +87,9 @@ public class DBWriter {
      */
     public static void tearDownTests() {
         try {
+            dbExec.shutdown();
             dbExec.awaitTermination(1, TimeUnit.SECONDS);
+            dbExec = createDbExecutor();
         } catch (InterruptedException e) {
             // ignore error
         }
