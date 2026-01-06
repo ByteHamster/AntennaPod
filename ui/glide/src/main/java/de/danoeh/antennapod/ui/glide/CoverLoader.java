@@ -2,22 +2,75 @@ package de.danoeh.antennapod.ui.glide;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
+import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.resource.bitmap.FitCenter;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.FutureTarget;
 import com.bumptech.glide.request.RequestOptions;
 
 import de.danoeh.antennapod.ui.common.FallbackImageData;
 import de.danoeh.antennapod.ui.common.GenerativeUrlBuilder;
 import de.danoeh.antennapod.ui.common.ImagePlaceholder;
 
-
 public class CoverLoader {
+    private final Context context;
+    private final RequestBuilder<Drawable> primaryBuilder;
+    private final RequestBuilder<Drawable> fallbackBuilder;
+    private final RequestBuilder<Drawable> errorBuilder;
+    private RequestOptions options = new RequestOptions();
+
+    private CoverLoader(Context context, RequestManager requestManager, ImageCascade imageCascade) {
+        this.context = context;
+        this.primaryBuilder = requestManager.load(imageCascade.primaryUrl);
+        this.fallbackBuilder = requestManager.load(imageCascade.fallbackUrl);
+        this.errorBuilder = requestManager.load(
+                new FallbackImageData(imageCascade.errorSeed, imageCascade.errorText, imageCascade.showErrorText));
+        this.options = this.options.transform(new FitCenter());
+    }
+
+    public static CoverLoader with(Context context, ImageCascade imageCascade) {
+        return new CoverLoader(context, Glide.with(context), imageCascade);
+    }
+
+    public static CoverLoader with(Fragment fragment, ImageCascade imageCascade) {
+        return new CoverLoader(fragment.getContext(), Glide.with(fragment), imageCascade);
+    }
+
+    public CoverLoader roundedCorners(int radiusDp) {
+        int px = (int) (radiusDp * context.getResources().getDisplayMetrics().density);
+        options = options.transform(new FitCenter(), new RoundedCorners(px));
+        return this;
+    }
+
+    public CoverLoader placeholder(int colorRes) {
+        options = options.placeholder(colorRes);
+        return this;
+    }
+
+    public CoverLoader transform(Transformation<Bitmap> transformOption) {
+        options = options.transform(transformOption);
+        return this;
+    }
+
+    public void into(ImageView imageView) {
+        fallbackBuilder.apply(options).error(errorBuilder.apply(options));
+        primaryBuilder.apply(options).error(fallbackBuilder).into(imageView);
+    }
+
+    public FutureTarget<Drawable> submit(int width, int height) {
+        fallbackBuilder.apply(options).error(errorBuilder.apply(options));
+        return primaryBuilder.apply(options).error(fallbackBuilder).submit(width, height);
+    }
+
 
     // imageView Builders
 

@@ -23,6 +23,7 @@ import com.skydoves.balloon.ArrowOrientationRules;
 import com.skydoves.balloon.Balloon;
 import com.skydoves.balloon.BalloonAnimation;
 
+import de.danoeh.antennapod.ui.glide.ImageCascade;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -272,11 +273,8 @@ public class ItemFragment extends Fragment {
             viewBinding.nonSubscribedWarningLabel.setVisibility(View.VISIBLE);
             viewBinding.nonSubscribedWarningLabel.setOnClickListener(v -> openPodcast());
         }
-        CoverLoader.with(
-                        viewBinding.imgvCover,
-                        8f,
-                        CoverLoaderHelper.fromFeedItem(item)
-                )
+        CoverLoader.with(ItemFragment.this, ImageCascade.from(item))
+                .roundedCorners(8)
                 .into(viewBinding.imgvCover);
         updateButtons();
     }
