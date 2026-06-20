@@ -226,9 +226,32 @@ public class MediaItemAdapter {
         for (FeedItem item : feedItems) {
             FeedMedia media = item.getMedia();
             if (media != null && (media.localFileAvailable() || media.getStreamUrl() != null)) {
-                itemsBuilder.add(MediaItemAdapter.fromPlayable(context, media));
+                itemsBuilder.add(fromPlayableForBrowse(context, media));
             }
         }
         return itemsBuilder.build();
+    }
+
+    private static MediaItem fromPlayableForBrowse(Context context, Playable playable) {
+        MediaMetadata.Builder metadataBuilder = new MediaMetadata.Builder();
+        metadataBuilder.setTitle(playable.getEpisodeTitle());
+        metadataBuilder.setIsPlayable(true);
+        metadataBuilder.setIsBrowsable(false);
+        metadataBuilder.setMediaType(MediaMetadata.MEDIA_TYPE_PODCAST_EPISODE);
+        String mediaId = "0";
+        if (playable instanceof FeedMedia) {
+            FeedMedia feedMedia = (FeedMedia) playable;
+            mediaId = String.valueOf(feedMedia.getId());
+            metadataBuilder.setSubtitle(feedMedia.getFeedTitle());
+            metadataBuilder.setArtist(feedMedia.getFeedTitle());
+        }
+        String imageLocation = playable.getImageLocation();
+        if (imageLocation != null && imageLocation.startsWith("http")) {
+            metadataBuilder.setArtworkUri(Uri.parse(imageLocation));
+        }
+        return new MediaItem.Builder()
+                .setMediaId(mediaId)
+                .setMediaMetadata(metadataBuilder.build())
+                .build();
     }
 }
