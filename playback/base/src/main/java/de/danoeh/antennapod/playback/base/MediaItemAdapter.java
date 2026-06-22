@@ -53,10 +53,12 @@ public class MediaItemAdapter {
 
     /**
      * Create a media item and load all its metadata, including cover art using Glide.
-     * Do NOT use this method on the main thread.
+     * Do NOT use this method on the main thread unless forBrowse is true.
      */
-    public static MediaItem fromPlayable(Context context, Playable playable) {
-        ThreadUtils.assertNotMainThread();
+    public static MediaItem fromPlayable(Context context, Playable playable, boolean forBrowse) {
+        if (!forBrowse) {
+            ThreadUtils.assertNotMainThread();
+        }
         MediaMetadata.Builder metadataBuilder = new MediaMetadata.Builder();
         metadataBuilder.setTitle(playable.getEpisodeTitle());
         metadataBuilder.setIsPlayable(true);
@@ -68,6 +70,16 @@ public class MediaItemAdapter {
             mediaId = String.valueOf(feedMedia.getId());
             metadataBuilder.setSubtitle(feedMedia.getFeedTitle());
             metadataBuilder.setArtist(feedMedia.getFeedTitle());
+        }
+        if (forBrowse) {
+            String imageLocation = playable.getImageLocation();
+            if (imageLocation != null && imageLocation.startsWith("http")) {
+                metadataBuilder.setArtworkUri(Uri.parse(imageLocation));
+            }
+            return new MediaItem.Builder()
+                    .setMediaId(mediaId)
+                    .setMediaMetadata(metadataBuilder.build())
+                    .build();
         }
         int iconSize = (int) (128 * context.getResources().getDisplayMetrics().density);
         Bitmap bitmap = loadArtworkBitmap(context, playable, iconSize);
@@ -226,32 +238,9 @@ public class MediaItemAdapter {
         for (FeedItem item : feedItems) {
             FeedMedia media = item.getMedia();
             if (media != null && (media.localFileAvailable() || media.getStreamUrl() != null)) {
-                itemsBuilder.add(fromPlayableForBrowse(context, media));
+                itemsBuilder.add(fromPlayable(context, media, true));
             }
         }
         return itemsBuilder.build();
-    }
-
-    private static MediaItem fromPlayableForBrowse(Context context, Playable playable) {
-        MediaMetadata.Builder metadataBuilder = new MediaMetadata.Builder();
-        metadataBuilder.setTitle(playable.getEpisodeTitle());
-        metadataBuilder.setIsPlayable(true);
-        metadataBuilder.setIsBrowsable(false);
-        metadataBuilder.setMediaType(MediaMetadata.MEDIA_TYPE_PODCAST_EPISODE);
-        String mediaId = "0";
-        if (playable instanceof FeedMedia) {
-            FeedMedia feedMedia = (FeedMedia) playable;
-            mediaId = String.valueOf(feedMedia.getId());
-            metadataBuilder.setSubtitle(feedMedia.getFeedTitle());
-            metadataBuilder.setArtist(feedMedia.getFeedTitle());
-        }
-        String imageLocation = playable.getImageLocation();
-        if (imageLocation != null && imageLocation.startsWith("http")) {
-            metadataBuilder.setArtworkUri(Uri.parse(imageLocation));
-        }
-        return new MediaItem.Builder()
-                .setMediaId(mediaId)
-                .setMediaMetadata(metadataBuilder.build())
-                .build();
     }
 }
