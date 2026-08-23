@@ -1,6 +1,7 @@
 package de.danoeh.antennapod.playback.cast;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.OptIn;
@@ -83,8 +84,16 @@ public class CastPlayerWrapper {
             if (mediaItem.mediaMetadata.subtitle != null) {
                 metadata.putString(CastMediaMetadata.KEY_SUBTITLE, mediaItem.mediaMetadata.subtitle.toString());
             }
-            if (mediaItem.mediaMetadata.artworkUri != null) {
+            // The receiver fetches the image itself, so only http(s) uris work. Local/embedded
+            // artwork is skipped in favor of the feed image, which is always a remote url.
+            if (isHttp(mediaItem.mediaMetadata.artworkUri)) {
                 metadata.addImage(new WebImage(mediaItem.mediaMetadata.artworkUri));
+            } else if (mediaItem.mediaMetadata.extras != null) {
+                Uri feedImage = Uri.parse(
+                        mediaItem.mediaMetadata.extras.getString(MediaItemAdapter.KEY_FEED_IMAGE, ""));
+                if (isHttp(feedImage)) {
+                    metadata.addImage(new WebImage(feedImage));
+                }
             }
             if (!mediaItem.mediaId.isEmpty()) {
                 metadata.putString(KEY_MEDIA_ID, mediaItem.mediaId);
@@ -139,6 +148,10 @@ public class CastPlayerWrapper {
             }
             builder.setMediaMetadata(metadataBuilder.build());
             return builder.build();
+        }
+
+        private static boolean isHttp(Uri uri) {
+            return uri != null && ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()));
         }
     }
 }

@@ -281,7 +281,7 @@ public class MediaLibrarySessionCallback implements MediaLibraryService.MediaLib
                         startPosition = RewindAfterPauseUtils.calculatePositionWithRewind(
                                 (int) startPosition, media.getLastPlayedTimeStatistics());
                         future.set(new MediaSession.MediaItemsWithStartPosition(
-                                Collections.singletonList(MediaItemAdapter.fromPlayable(context, media, false)),
+                                Collections.singletonList(MediaItemAdapter.fromPlayable(media)),
                                 0, startPosition));
                     }, error -> {
                         Log.e(TAG, "Voice search failed", error);
@@ -368,7 +368,7 @@ public class MediaLibrarySessionCallback implements MediaLibraryService.MediaLib
                             MediaSession.MediaItemsWithStartPosition result =
                                     new MediaSession.MediaItemsWithStartPosition(
                                             Collections.singletonList(
-                                                    MediaItemAdapter.fromPlayable(context, media, false)),
+                                                    MediaItemAdapter.fromPlayable(media)),
                                             0, startPosition);
                             future.set(result);
                         },
@@ -441,7 +441,7 @@ public class MediaLibrarySessionCallback implements MediaLibraryService.MediaLib
                                     ImmutableList.Builder<MediaItem> builder = new ImmutableList.Builder<>();
                                     for (Feed feed : items) {
                                         if (feed.getState() == Feed.STATE_SUBSCRIBED) {
-                                            builder.add(MediaItemAdapter.fromFeed(context, feed));
+                                            builder.add(MediaItemAdapter.fromFeed(feed));
                                         }
                                     }
                                     future.set(LibraryResult.ofItemList(builder.build(), params));
@@ -454,7 +454,7 @@ public class MediaLibrarySessionCallback implements MediaLibraryService.MediaLib
                         .subscribeOn(Schedulers.io())
                         .subscribe(
                                 items -> future.set(LibraryResult.ofItemList(
-                                        MediaItemAdapter.fromItemList(context, items), params)),
+                                        MediaItemAdapter.fromItemList(items), params)),
                                 error -> {
                                     Log.e(TAG, "Failed to load continue listening", error);
                                     future.set(LibraryResult.ofItemList(ImmutableList.of(), params));
@@ -480,7 +480,7 @@ public class MediaLibrarySessionCallback implements MediaLibraryService.MediaLib
                 })
                         .subscribeOn(Schedulers.io())
                         .subscribe(items -> future.set(LibraryResult.ofItemList(
-                                        MediaItemAdapter.fromItemList(context, items), params)),
+                                        MediaItemAdapter.fromItemList(items), params)),
                                 future::setException);
                 return future;
         }
@@ -496,7 +496,7 @@ public class MediaLibrarySessionCallback implements MediaLibraryService.MediaLib
                         DBReader.searchFeedItems(0, query, FeedItemFilter.unfiltered()))
                 .subscribeOn(Schedulers.io())
                 .subscribe(items -> future.set(LibraryResult.ofItemList(
-                                MediaItemAdapter.fromItemList(context, items), params)),
+                                MediaItemAdapter.fromItemList(items), params)),
                         future::setException);
         return future;
     }
@@ -532,7 +532,7 @@ public class MediaLibrarySessionCallback implements MediaLibraryService.MediaLib
                     Log.e(TAG, "Media not found for ID: " + mediaId);
                     continue;
                 }
-                builder.add(MediaItemAdapter.fromPlayable(context, media, false));
+                builder.add(MediaItemAdapter.fromPlayable(media));
             } catch (NumberFormatException e) {
                 Log.e(TAG, "Invalid media ID: " + item.mediaId, e);
             }
@@ -545,7 +545,7 @@ public class MediaLibrarySessionCallback implements MediaLibraryService.MediaLib
         if (id.startsWith(MediaItemAdapter.MEDIA_ID_FEED_PREFIX)) {
             long feedId = Long.parseLong(id.split(":")[1]);
             Feed feed = DBReader.getFeed(feedId, false, 0, 0);
-            return MediaItemAdapter.fromFeed(context, feed);
+            return MediaItemAdapter.fromFeed(feed);
         }
         switch (id) {
             case MEDIA_ID_ROOT:

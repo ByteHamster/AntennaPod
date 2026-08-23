@@ -17,6 +17,7 @@ import androidx.media3.common.Player;
 import androidx.media3.common.util.UnstableApi;
 import androidx.media3.common.util.Util;
 import androidx.media3.exoplayer.ExoPlayer;
+import androidx.media3.session.CacheBitmapLoader;
 import androidx.media3.session.DefaultMediaNotificationProvider;
 import androidx.media3.session.MediaLibraryService;
 import androidx.media3.session.MediaSession;
@@ -47,6 +48,7 @@ import de.danoeh.antennapod.playback.base.MediaItemAdapter;
 import de.danoeh.antennapod.playback.base.PlayerStatus;
 import de.danoeh.antennapod.playback.base.RewindAfterPauseUtils;
 import de.danoeh.antennapod.playback.cast.CastPlayerWrapper;
+import de.danoeh.antennapod.playback.service.internal.ApBitmapLoader;
 import de.danoeh.antennapod.playback.service.internal.ExoPlayerUtils;
 import de.danoeh.antennapod.playback.service.internal.MediaLibrarySessionCallback;
 import de.danoeh.antennapod.playback.service.internal.PlayableUtils;
@@ -86,6 +88,7 @@ public class Media3PlaybackService extends MediaLibraryService {
     private ExoPlayer exoPlayer;
     private Player player;
     private MediaLibrarySession mediaSession;
+    private ApBitmapLoader bitmapLoader;
     private FeedMedia currentPlayable;
     private String pendingStreamMediaId;
     private boolean allowStreamingThisTime = false;
@@ -190,8 +193,10 @@ public class Media3PlaybackService extends MediaLibraryService {
             }
         };
         player.addListener(playerListener);
+        bitmapLoader = new ApBitmapLoader(this);
         mediaSession = new MediaLibraryService.MediaLibrarySession.Builder(this, player, sessionCallback)
                 .setSessionActivity(new MainActivityStarter(this).withOpenPlayer().getPendingIntent())
+                .setBitmapLoader(new CacheBitmapLoader(bitmapLoader))
                 .build();
         if (isCasting()) {
             keepServiceRunningWhileCasting();
@@ -402,6 +407,9 @@ public class Media3PlaybackService extends MediaLibraryService {
         ExoPlayerUtils.releaseCache();
         if (mediaSession != null) {
             mediaSession.release();
+        }
+        if (bitmapLoader != null) {
+            bitmapLoader.shutdown();
         }
         super.onDestroy();
     }
@@ -729,7 +737,7 @@ public class Media3PlaybackService extends MediaLibraryService {
             updateDatabaseAfterPlayback(media, ended, wasSkipped, hasNext);
             if (hasNext) {
                 return new Pair<>(nextItem.getMedia(),
-                        MediaItemAdapter.fromPlayable(Media3PlaybackService.this, nextItem.getMedia(), false));
+                        MediaItemAdapter.fromPlayable(nextItem.getMedia()));
             }
             return null;
         })
