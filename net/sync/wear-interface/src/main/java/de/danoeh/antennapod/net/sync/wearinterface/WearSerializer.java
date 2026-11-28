@@ -18,9 +18,11 @@ public final class WearSerializer {
     private static final String KEY_EPISODE_ID = "episode_id";
     private static final String KEY_FEED_ID = "feed_id";
     private static final String KEY_TITLE = "title";
+    private static final String KEY_FEED_TITLE = "feed_title";
     private static final String KEY_PUB_DATE = "pub_date";
     private static final String KEY_DURATION = "duration";
     private static final String KEY_POSITION = "position";
+    private static final String KEY_DOWNLOAD_URL = "download_url";
     private static final String KEY_IS_PLAYING = "is_playing";
 
     private WearSerializer() {
@@ -31,9 +33,13 @@ public final class WearSerializer {
         JSONObject obj = new JSONObject();
         obj.put(KEY_EPISODE_ID, item.getId());
         obj.put(KEY_TITLE, item.getTitle() != null ? item.getTitle() : "");
+        obj.put(KEY_FEED_TITLE, item.getFeed() != null && item.getFeed().getTitle() != null
+                ? item.getFeed().getTitle() : "");
         obj.put(KEY_PUB_DATE, item.getPubDate() != null ? item.getPubDate().getTime() : 0);
         obj.put(KEY_DURATION, item.getMedia() != null ? item.getMedia().getDuration() : 0);
         obj.put(KEY_POSITION, item.getMedia() != null ? item.getMedia().getPosition() : 0);
+        obj.put(KEY_DOWNLOAD_URL, item.getMedia() != null && item.getMedia().getDownloadUrl() != null
+                ? item.getMedia().getDownloadUrl() : "");
         return obj;
     }
 
@@ -42,13 +48,18 @@ public final class WearSerializer {
         FeedItem item = new FeedItem();
         item.setId(obj.optLong(KEY_EPISODE_ID, -1));
         item.setTitle(obj.optString(KEY_TITLE, ""));
+        Feed feed = new Feed(null, null);
+        feed.setTitle(obj.optString(KEY_FEED_TITLE, ""));
+        item.setFeed(feed);
         long pubDate = obj.optLong(KEY_PUB_DATE, 0);
         if (pubDate != 0) {
             item.setPubDate(new Date(pubDate));
         }
         int duration = obj.optInt(KEY_DURATION, 0);
         int position = obj.optInt(KEY_POSITION, 0);
-        FeedMedia media = new FeedMedia(0, item, duration, position, 0, null, null, null, 0, null, 0, 0L);
+        String downloadUrl = obj.optString(KEY_DOWNLOAD_URL, "");
+        FeedMedia media = new FeedMedia(0, item, duration, position, 0, null, null,
+                downloadUrl.isEmpty() ? null : downloadUrl, 0, null, 0, 0L);
         item.setMedia(media);
         return item;
     }

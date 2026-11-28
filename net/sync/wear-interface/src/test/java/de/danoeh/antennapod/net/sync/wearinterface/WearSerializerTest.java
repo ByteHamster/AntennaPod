@@ -23,7 +23,11 @@ public class WearSerializerTest {
         item.setId(42L);
         item.setTitle("Test Episode");
         item.setPubDate(new Date(1000000L));
-        FeedMedia media = new FeedMedia(0, item, 3600000, 90000, 0, null, null, null, 0, null, 0, 0L);
+        Feed feed = new Feed(null, null);
+        feed.setTitle("Test Podcast");
+        item.setFeed(feed);
+        FeedMedia media = new FeedMedia(0, item, 3600000, 90000, 0, null, null,
+                "https://example.com/episode.mp3", 0, null, 0, 0L);
         item.setMedia(media);
 
         byte[] bytes = WearSerializer.episodesToBytes(Collections.singletonList(item));
@@ -32,9 +36,11 @@ public class WearSerializerTest {
         assertEquals(1, result.size());
         assertEquals(42L, result.get(0).getId());
         assertEquals("Test Episode", result.get(0).getTitle());
+        assertEquals("Test Podcast", result.get(0).getFeed().getTitle());
         assertEquals(1000000L, result.get(0).getPubDate().getTime());
         assertEquals(3600000, result.get(0).getMedia().getDuration());
         assertEquals(90000, result.get(0).getMedia().getPosition());
+        assertEquals("https://example.com/episode.mp3", result.get(0).getMedia().getDownloadUrl());
     }
 
     @Test
