@@ -47,11 +47,9 @@ public class WearListenerService extends WearableListenerService {
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onPlayerStatusEvent(PlayerStatusEvent event) {
         FeedMedia media = DBReader.getFeedMedia(PlaybackPreferences.getCurrentlyPlayingFeedMediaId());
-        if (media == null || media.getItem() == null) {
-            return;
-        }
         boolean isPlaying = PlaybackPreferences.getCurrentPlayerStatus() == PlaybackPreferences.PLAYER_STATUS_PLAYING;
-        byte[] payload = WearSerializer.nowPlayingToBytes(media.getItem(), isPlaying);
+        byte[] payload = media == null || media.getItem() == null
+                ? new byte[0] : WearSerializer.nowPlayingToBytes(media.getItem(), isPlaying);
         Wearable.getNodeClient(this).getConnectedNodes()
                 .addOnSuccessListener(nodes -> {
                     for (Node node : nodes) {
@@ -77,6 +75,7 @@ public class WearListenerService extends WearableListenerService {
             case WearDataPaths.NOW_PLAYING:
                 FeedMedia media = DBReader.getFeedMedia(PlaybackPreferences.getCurrentlyPlayingFeedMediaId());
                 if (media == null) {
+                    reply(sourceNodeId, WearDataPaths.NOW_PLAYING, new byte[0]);
                     return;
                 }
                 if (!PlaybackServiceInterface.isPlaying) {

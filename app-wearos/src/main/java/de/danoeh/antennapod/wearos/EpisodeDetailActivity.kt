@@ -19,6 +19,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -145,8 +146,9 @@ fun EpisodeDetailScreen(
 
             if (uiState.duration > 0) {
                 item {
+                    val progress by rememberUpdatedState(uiState.position.toFloat() / uiState.duration.toFloat())
                     LinearProgressIndicator(
-                        progress = { uiState.position.toFloat() / uiState.duration.toFloat() },
+                        progress = { progress },
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(horizontal = 4.dp, vertical = 2.dp)
