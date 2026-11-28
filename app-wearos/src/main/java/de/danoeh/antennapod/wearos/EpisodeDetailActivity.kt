@@ -1,33 +1,25 @@
 package de.danoeh.antennapod.wearos
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.Hyphens
-import androidx.compose.ui.text.style.LineBreak
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -36,23 +28,20 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
-import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
 import androidx.wear.compose.material3.FilledIconButton
 import androidx.wear.compose.material3.FilledTonalIconButton
 import androidx.wear.compose.material3.Icon
+import androidx.wear.compose.material3.IconButton
 import androidx.wear.compose.material3.LinearProgressIndicator
 import androidx.wear.compose.material3.MaterialTheme
-import androidx.wear.compose.material3.ScrollIndicator
 import androidx.wear.compose.material3.Text
 import androidx.wear.compose.material3.dynamicColorScheme
+import de.danoeh.antennapod.model.feed.Feed
 import de.danoeh.antennapod.model.feed.FeedItem
 import de.danoeh.antennapod.net.sync.wearinterface.WearDataPaths
 import de.danoeh.antennapod.ui.common.Converter
-import de.danoeh.antennapod.ui.common.DateFormatter
 import de.danoeh.antennapod.ui.common.R as CommonR
 import de.danoeh.antennapod.ui.notifications.R as NotificationsR
-import de.danoeh.antennapod.wearos.composable.ListItem
 import de.danoeh.antennapod.wearos.sync.WearMessageSender
 import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.delay
@@ -65,6 +54,7 @@ class EpisodeDetailActivity : ComponentActivity() {
             finish()
             return
         }
+        episode.feed = IntentCompat.getSerializableExtra(intent, EXTRA_FEED, Feed::class.java)
         val viewModel = ViewModelProvider(this, EpisodeDetailViewModel.factory(episode))
             .get(EpisodeDetailViewModel::class.java)
         lifecycleScope.launch {
@@ -85,7 +75,12 @@ class EpisodeDetailActivity : ComponentActivity() {
                     onPause = { viewModel.pause() },
                     onSkipForward = { viewModel.skipForward() },
                     onSkipBackward = { viewModel.skipBackward() },
-                    onOpenOnPhone = { viewModel.openOnPhone() }
+                    onMore = {
+                        val intent = Intent(this, EpisodeActionsActivity::class.java)
+                        intent.putExtra(EpisodeActionsActivity.EXTRA_EPISODE, episode)
+                        intent.putExtra(EpisodeActionsActivity.EXTRA_FEED, episode.feed)
+                        startActivity(intent)
+                    }
                 )
             }
         }
@@ -93,6 +88,7 @@ class EpisodeDetailActivity : ComponentActivity() {
 
     companion object {
         const val EXTRA_EPISODE = "episode"
+        const val EXTRA_FEED = "feed"
     }
 }
 
@@ -103,68 +99,48 @@ fun EpisodeDetailScreen(
     onPause: () -> Unit,
     onSkipForward: () -> Unit,
     onSkipBackward: () -> Unit,
-    onOpenOnPhone: () -> Unit
+    onMore: () -> Unit
 ) {
-    val item = uiState.item
-    val scrollState = rememberScalingLazyListState()
-    var titleExpanded by remember { mutableStateOf(false) }
-
-    Box(modifier = Modifier.fillMaxSize()) {
-        ScalingLazyColumn(
-            modifier = Modifier.fillMaxWidth(),
-            state = scrollState,
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(start = 24.dp, top = 28.dp, end = 24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceBetween
+    ) {
+        Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 32.dp),
-            autoCentering = null
+            verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            item {
-                val dateStr = DateFormatter.formatAbbrev(LocalContext.current, item.getPubDate())
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(
-                    text = dateStr,
+                    text = uiState.item.feed?.title ?: "",
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.outline,
-                    textAlign = TextAlign.Center
-                )
-            }
-
-            item {
-                Text(
-                    text = item.title,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 8.dp, vertical = 4.dp)
-                        .clickable { titleExpanded = !titleExpanded },
-                    style = MaterialTheme.typography.titleMedium.copy(
-                        hyphens = Hyphens.Auto,
-                        lineBreak = LineBreak.Paragraph
-                    ),
                     textAlign = TextAlign.Center,
-                    maxLines = if (titleExpanded) Int.MAX_VALUE else 2,
-                    overflow = if (titleExpanded) TextOverflow.Clip else TextOverflow.Ellipsis
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+                Text(
+                    text = uiState.item.title,
+                    style = MaterialTheme.typography.titleSmall,
+                    textAlign = TextAlign.Center,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
                 )
             }
 
             if (uiState.duration > 0) {
-                item {
-                    val progress by rememberUpdatedState(uiState.position.toFloat() / uiState.duration.toFloat())
+                val progress by rememberUpdatedState(uiState.position.toFloat() / uiState.duration.toFloat())
+                Column {
                     LinearProgressIndicator(
                         progress = { progress },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 4.dp, vertical = 2.dp)
+                        modifier = Modifier.fillMaxWidth()
                     )
-                }
-
-                item {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(
-                                start = 8.dp,
-                                top = 2.dp,
-                                end = 8.dp,
-                                bottom = if (uiState.hasStartedPlaying) 8.dp else 16.dp
-                            ),
+                            .padding(top = 2.dp),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(
@@ -180,70 +156,57 @@ fun EpisodeDetailScreen(
                     }
                 }
             }
+        }
 
-            item {
-                if (uiState.hasStartedPlaying) {
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
-                    ) {
-                        FilledTonalIconButton(onClick = onSkipBackward, modifier = Modifier.size(48.dp)) {
-                            Icon(
-                                painter = painterResource(NotificationsR.drawable.ic_notification_fast_rewind),
-                                contentDescription = stringResource(CommonR.string.rewind_label),
-                                modifier = Modifier.size(24.dp)
-                            )
-                        }
-                        val playIcon = if (uiState.isCurrentlyPlaying) {
-                            CommonR.drawable.ic_pause_black
-                        } else {
-                            CommonR.drawable.ic_play_48dp_black
-                        }
-                        val playLabel = if (uiState.isCurrentlyPlaying) {
-                            CommonR.string.pause_label
-                        } else {
-                            CommonR.string.play_label
-                        }
-                        FilledIconButton(
-                            onClick = if (uiState.isCurrentlyPlaying) onPause else onPlay,
-                            modifier = Modifier.size(60.dp)
-                        ) {
-                            Icon(
-                                painter = painterResource(playIcon),
-                                contentDescription = stringResource(playLabel),
-                                modifier = Modifier.size(24.dp)
-                            )
-                        }
-                        FilledTonalIconButton(onClick = onSkipForward, modifier = Modifier.size(48.dp)) {
-                            Icon(
-                                painter = painterResource(NotificationsR.drawable.ic_notification_fast_forward),
-                                contentDescription = stringResource(CommonR.string.fast_forward_label),
-                                modifier = Modifier.size(24.dp)
-                            )
-                        }
-                    }
-                } else {
-                    ListItem(
-                        text = stringResource(CommonR.string.wearos_play_on_phone),
-                        iconRes = CommonR.drawable.ic_play_48dp_black,
-                        onClick = onPlay
-                    )
-                }
-            }
-
-            item {
-                ListItem(
-                    text = stringResource(CommonR.string.wearos_open_on_phone),
-                    iconRes = CommonR.drawable.ic_phone_black,
-                    onClick = onOpenOnPhone
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            FilledTonalIconButton(onClick = onSkipBackward, modifier = Modifier.size(44.dp)) {
+                Icon(
+                    painter = painterResource(NotificationsR.drawable.ic_notification_fast_rewind),
+                    contentDescription = stringResource(CommonR.string.rewind_label),
+                    modifier = Modifier.size(24.dp)
                 )
             }
-
-            item {
-                Spacer(modifier = Modifier.height(32.dp))
+            val playIcon = if (uiState.isCurrentlyPlaying) {
+                CommonR.drawable.ic_pause_black
+            } else {
+                R.drawable.ic_phone_play
+            }
+            val playLabel = if (uiState.isCurrentlyPlaying) {
+                CommonR.string.pause_label
+            } else {
+                CommonR.string.wearos_play_on_phone
+            }
+            FilledIconButton(
+                onClick = if (uiState.isCurrentlyPlaying) onPause else onPlay,
+                modifier = Modifier.size(56.dp)
+            ) {
+                Icon(
+                    painter = painterResource(playIcon),
+                    contentDescription = stringResource(playLabel),
+                    modifier = Modifier.size(28.dp)
+                )
+            }
+            FilledTonalIconButton(onClick = onSkipForward, modifier = Modifier.size(44.dp)) {
+                Icon(
+                    painter = painterResource(NotificationsR.drawable.ic_notification_fast_forward),
+                    contentDescription = stringResource(CommonR.string.fast_forward_label),
+                    modifier = Modifier.size(24.dp)
+                )
             }
         }
-        ScrollIndicator(state = scrollState, modifier = Modifier.align(Alignment.CenterEnd))
+
+        IconButton(onClick = onMore, modifier = Modifier.size(width = 56.dp, height = 32.dp)) {
+            Icon(
+                painter = painterResource(CommonR.drawable.dots_vertical),
+                contentDescription = stringResource(CommonR.string.overflow_more),
+                modifier = Modifier
+                    .size(20.dp)
+                    .rotate(90f)
+            )
+        }
     }
 }

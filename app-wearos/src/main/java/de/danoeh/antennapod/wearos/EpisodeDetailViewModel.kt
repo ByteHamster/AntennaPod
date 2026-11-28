@@ -20,8 +20,7 @@ data class EpisodeDetailUiState(
     val item: FeedItem,
     val position: Int = 0,
     val duration: Int = 0,
-    val isCurrentlyPlaying: Boolean = false,
-    val hasStartedPlaying: Boolean = false
+    val isCurrentlyPlaying: Boolean = false
 )
 
 class EpisodeDetailViewModel(application: Application, private val episode: FeedItem) : AndroidViewModel(application) {
@@ -29,9 +28,7 @@ class EpisodeDetailViewModel(application: Application, private val episode: Feed
         EpisodeDetailUiState(
             item = episode,
             position = episode.media?.position ?: 0,
-            duration = episode.media?.duration ?: 0,
-            hasStartedPlaying = WearDataRepository.nowPlaying.value
-                ?.takeIf { it.item.id == episode.id }?.isPlaying == true
+            duration = episode.media?.duration ?: 0
         )
     )
     val uiState: StateFlow<EpisodeDetailUiState> = _uiState
@@ -47,8 +44,7 @@ class EpisodeDetailViewModel(application: Application, private val episode: Feed
                     it.copy(
                         position = position,
                         duration = duration,
-                        isCurrentlyPlaying = isCurrentlyPlaying,
-                        hasStartedPlaying = it.hasStartedPlaying || isCurrentlyPlaying
+                        isCurrentlyPlaying = isCurrentlyPlaying
                     )
                 }
             }
@@ -71,12 +67,6 @@ class EpisodeDetailViewModel(application: Application, private val episode: Feed
 
     fun skipBackward() {
         viewModelScope.launch(Dispatchers.IO) { WearMessageSender.send(getApplication(), WearDataPaths.SKIP_BACKWARD) }
-    }
-
-    fun openOnPhone() {
-        viewModelScope.launch(Dispatchers.IO) {
-            WearMessageSender.send(getApplication(), WearDataPaths.openOnPhonePath(episode.id))
-        }
     }
 
     companion object {

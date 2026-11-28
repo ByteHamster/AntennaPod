@@ -33,6 +33,7 @@ class EpisodeListActivity : ComponentActivity() {
                     onOpenEpisodeDetail = { episode ->
                         val intent = Intent(this, EpisodeDetailActivity::class.java).apply {
                             putExtra(EpisodeDetailActivity.EXTRA_EPISODE, episode)
+                            putExtra(EpisodeDetailActivity.EXTRA_FEED, episode.feed)
                         }
                         startActivity(intent)
                     }
