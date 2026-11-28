@@ -4,13 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import de.danoeh.antennapod.net.sync.wearinterface.WearConnectionUtils
-import de.danoeh.antennapod.net.sync.wearinterface.WearDataPaths
 import de.danoeh.antennapod.net.sync.wearinterface.WearNowPlaying
 import de.danoeh.antennapod.wearos.sync.WearDataRepository
-import de.danoeh.antennapod.wearos.sync.WearMessageSender
-import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -26,13 +22,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             val name = WearConnectionUtils.getConnectedNodeName(getApplication())
             _uiState.update { it.copy(connectedPhone = name) }
-        }
-
-        viewModelScope.launch {
-            while (true) {
-                WearMessageSender.send(getApplication(), WearDataPaths.NOW_PLAYING)
-                delay(5.seconds)
-            }
         }
 
         viewModelScope.launch {

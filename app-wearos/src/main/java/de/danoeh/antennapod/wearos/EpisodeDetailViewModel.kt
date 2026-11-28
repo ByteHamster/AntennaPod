@@ -10,9 +10,7 @@ import de.danoeh.antennapod.model.feed.FeedItem
 import de.danoeh.antennapod.net.sync.wearinterface.WearDataPaths
 import de.danoeh.antennapod.wearos.sync.WearDataRepository
 import de.danoeh.antennapod.wearos.sync.WearMessageSender
-import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -39,13 +37,6 @@ class EpisodeDetailViewModel(application: Application, private val episode: Feed
     val uiState: StateFlow<EpisodeDetailUiState> = _uiState
 
     init {
-        viewModelScope.launch {
-            while (true) {
-                WearMessageSender.send(getApplication(), WearDataPaths.NOW_PLAYING)
-                delay(1.seconds)
-            }
-        }
-
         viewModelScope.launch {
             WearDataRepository.nowPlaying.collect { nowPlaying ->
                 val liveData = nowPlaying?.takeIf { it.item.id == episode.id }
