@@ -400,6 +400,9 @@ public class Media3PlaybackService extends MediaLibraryService {
             }
             checkpointPlayedDuration((int) oldPosition.positionMs);
             playedDurationCountedUntil = (int) newPosition.positionMs;
+            if (!PlaybackServiceInterface.isPlaying) {
+                saveCurrentPosition();
+            }
         }
 
         @Override
