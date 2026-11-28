@@ -124,13 +124,16 @@ public class MediaLibrarySessionCallback implements MediaLibraryService.MediaLib
                 .add(SESSION_COMMAND_DISABLE_SLEEP_TIMER)
                 .add(SESSION_COMMAND_EXTEND_SLEEP_TIMER)
                 .build();
-        Player.Commands playerCommands = new Player.Commands.Builder()
-                .addAllCommands()
-                .build();
+        Player.Commands.Builder playerCommands = new Player.Commands.Builder()
+                .addAllCommands();
+        if (controller.getControllerVersion() != MediaSession.ControllerInfo.LEGACY_CONTROLLER_VERSION
+                && !context.getPackageName().equals(controller.getPackageName())) {
+            playerCommands.removeAll(Player.COMMAND_SEEK_TO_PREVIOUS, Player.COMMAND_SEEK_TO_PREVIOUS_MEDIA_ITEM);
+        }
         return new MediaSession.ConnectionResult.AcceptedResultBuilder(session)
                 .setAvailableSessionCommands(sessionCommands)
                 .setMediaButtonPreferences(buildCustomLayout())
-                .setAvailablePlayerCommands(playerCommands)
+                .setAvailablePlayerCommands(playerCommands.build())
                 .build();
     }
 
